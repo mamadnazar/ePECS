@@ -1,0 +1,6 @@
+framework module Pods_ePECSUITests {
+  umbrella header "Pods-ePECSUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
