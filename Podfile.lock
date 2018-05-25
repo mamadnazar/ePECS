@@ -10,6 +10,13 @@ DEPENDENCIES:
   - Kingfisher
   - SwiftyJSON
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - SwiftyJSON
+
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
@@ -18,4 +25,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 0978de05772d0d2c73a7538f93105777b6ab36b8
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
