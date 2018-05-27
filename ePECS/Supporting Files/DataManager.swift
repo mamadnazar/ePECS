@@ -7,3 +7,15 @@
 //
 
 import Foundation
+import UIKit
+
+class DataManager {
+    
+    class var shared: DataManager {
+        struct Static {
+            static let instance = DataManager()
+        }
+        return Static.instance
+    }
+    
+}

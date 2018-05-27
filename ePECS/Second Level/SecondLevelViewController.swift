@@ -64,10 +64,6 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
         readSound.speak(utterance)
     }
     
-    
-    
-    
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
@@ -89,7 +85,7 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.size.width/2.2, height: 100)
+        return CGSize(width: collectionView.frame.size.width/2.1, height: 150)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
