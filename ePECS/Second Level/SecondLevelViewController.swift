@@ -20,7 +20,7 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var zoomInImageView: UIImageView!
     @IBOutlet weak var dismissButton: UIButton!
     @IBAction func dismissButton(_ sender: Any) {
-        hideInformationView()
+        hideZoomInView()
         dismissButton.isHidden = true
     }
     @IBAction func soundButton(_ sender: Any) {
@@ -47,7 +47,7 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
         }
     }
     
-    private func hideInformationView() {
+    private func hideZoomInView() {
         UIView.animate(withDuration: 0.4, animations: {
             self.zoomInView.alpha = 0
             self.zoomInView.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.maxY)
