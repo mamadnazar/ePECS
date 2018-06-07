@@ -1,16 +1,15 @@
 //
-//  CardCollectionViewCell.swift
+//  FourthLevelCardCollectionViewCell.swift
 //  ePECS
 //
-//  Created by Risolat Fayzmamadova on 5/28/18.
+//  Created by ITLabAdmin on 6/7/18.
 //  Copyright © 2018 neobis. All rights reserved.
 //
 
 import UIKit
 
-class CardCollectionViewCell: UICollectionViewCell {
+class FourthLevelCardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cardImageView: UIImageView!
     @IBOutlet weak var cardLabel: UILabel!
-    
 }
