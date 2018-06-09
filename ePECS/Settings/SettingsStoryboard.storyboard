@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Or5-WA-neV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="O26-Ed-j43">
+            <objects>
+                <viewController id="Or5-WA-neV" customClass="SettingsViewController" customModule="ePECS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QUD-K1-zlL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILd-CL-QkQ">
+                                <rect key="frame" x="150" y="20" width="225" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmI-Xu-jwl">
+                                <rect key="frame" x="0.0" y="20" width="150" height="647"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJq-cC-W5h">
+                                        <rect key="frame" x="20" y="308" width="110" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Изменить Этап">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTf-cp-wkB">
+                                        <rect key="frame" x="24" y="594" width="106" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="О приложении">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Этапы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doU-sT-F7H">
+                                        <rect key="frame" x="12" y="91" width="126" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ILd-CL-QkQ" firstAttribute="top" secondItem="jSY-dV-wIF" secondAttribute="top" id="9rY-S8-cQk"/>
+                            <constraint firstItem="jSY-dV-wIF" firstAttribute="bottom" secondItem="ILd-CL-QkQ" secondAttribute="bottom" id="Hkk-Rv-ahd"/>
+                            <constraint firstItem="jSY-dV-wIF" firstAttribute="trailing" secondItem="ILd-CL-QkQ" secondAttribute="trailing" id="Osu-94-fKy"/>
+                            <constraint firstItem="ILd-CL-QkQ" firstAttribute="width" secondItem="hmI-Xu-jwl" secondAttribute="width" multiplier="1.5" id="cE1-VN-dRP"/>
+                            <constraint firstItem="hmI-Xu-jwl" firstAttribute="leading" secondItem="jSY-dV-wIF" secondAttribute="leading" id="nec-TI-cfN"/>
+                            <constraint firstItem="hmI-Xu-jwl" firstAttribute="top" secondItem="jSY-dV-wIF" secondAttribute="top" id="q73-lM-gPG"/>
+                            <constraint firstItem="jSY-dV-wIF" firstAttribute="bottom" secondItem="hmI-Xu-jwl" secondAttribute="bottom" id="sL4-Gb-s5D"/>
+                            <constraint firstItem="ILd-CL-QkQ" firstAttribute="leading" secondItem="hmI-Xu-jwl" secondAttribute="trailing" id="w2x-Dr-m4q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jSY-dV-wIF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NNN-lo-GSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-66.400000000000006" y="30.134932533733135"/>
+        </scene>
+    </scenes>
+</document>
