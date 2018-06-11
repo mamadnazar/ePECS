@@ -62,8 +62,7 @@ class Curve: UIView {
         
         UIColor.red.setStroke()
         path.stroke()
-        
-        
+            
     }
     
 }
