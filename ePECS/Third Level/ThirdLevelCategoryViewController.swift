@@ -52,6 +52,7 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
     }
     
     @IBAction func settingsBarButton(_ sender: Any) {
+        print("SHFioHFSNkv")
         let sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         self.navigationController?.show(vc, sender: self)

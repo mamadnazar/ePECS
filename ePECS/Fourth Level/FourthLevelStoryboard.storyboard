@@ -153,17 +153,14 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hkQ-Yx-Zu1">
-                                <rect key="frame" x="16" y="629" width="343" height="30"/>
+                                <rect key="frame" x="173" y="629" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="XlW-ki-W7L"/>
+                                    <constraint firstAttribute="height" constant="30" id="in6-H3-hBb"/>
+                                </constraints>
                                 <color key="tintColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Play">
-                                            <attributes>
-                                                <font key="NSFont" metaFont="system" size="15"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <state key="normal" image="sound(with button)">
+                                    <attributedString key="attributedTitle"/>
                                 </state>
                                 <connections>
                                     <action selector="playAllButton:" destination="W4u-gn-WCz" eventType="touchUpInside" id="IWH-IF-4IK"/>
@@ -177,8 +174,7 @@
                             <constraint firstItem="D4A-As-Qg6" firstAttribute="top" secondItem="WLA-NM-m9n" secondAttribute="top" id="9D5-on-Uja"/>
                             <constraint firstItem="WLA-NM-m9n" firstAttribute="trailing" secondItem="JiC-ME-8YZ" secondAttribute="trailing" id="Z2E-9c-YDz"/>
                             <constraint firstItem="D4A-As-Qg6" firstAttribute="leading" secondItem="WLA-NM-m9n" secondAttribute="leading" id="kgE-BH-vao"/>
-                            <constraint firstItem="WLA-NM-m9n" firstAttribute="trailing" secondItem="hkQ-Yx-Zu1" secondAttribute="trailing" constant="16" id="pxy-Rk-0Md"/>
-                            <constraint firstItem="hkQ-Yx-Zu1" firstAttribute="leading" secondItem="WLA-NM-m9n" secondAttribute="leading" constant="16" id="q0K-sL-245"/>
+                            <constraint firstItem="hkQ-Yx-Zu1" firstAttribute="centerX" secondItem="m97-oK-Xf2" secondAttribute="centerX" id="p6j-kb-01t"/>
                             <constraint firstItem="hkQ-Yx-Zu1" firstAttribute="top" secondItem="JiC-ME-8YZ" secondAttribute="bottom" constant="8" id="qn3-To-mwc"/>
                             <constraint firstItem="WLA-NM-m9n" firstAttribute="trailing" secondItem="D4A-As-Qg6" secondAttribute="trailing" id="y5T-he-rOU"/>
                             <constraint firstItem="WLA-NM-m9n" firstAttribute="bottom" secondItem="hkQ-Yx-Zu1" secondAttribute="bottom" constant="8" id="y6A-Bo-dQj"/>
@@ -362,18 +358,15 @@
                                     <outlet property="delegate" destination="jXk-8x-jYc" id="aJw-hE-WfH"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W23-Nb-4Us">
-                                <rect key="frame" x="16" y="629" width="343" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W23-Nb-4Us">
+                                <rect key="frame" x="173" y="629" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dOT-Dz-S2I"/>
+                                    <constraint firstAttribute="width" constant="30" id="mUm-Gy-UTI"/>
+                                </constraints>
                                 <color key="tintColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Play">
-                                            <attributes>
-                                                <font key="NSFont" metaFont="system" size="15"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <state key="normal" image="sound(with button)">
+                                    <attributedString key="attributedTitle"/>
                                 </state>
                                 <connections>
                                     <action selector="playAllButton:" destination="jXk-8x-jYc" eventType="touchUpInside" id="hYh-zA-SaL"/>
@@ -399,8 +392,7 @@
                             <constraint firstItem="DQY-Z4-qgY" firstAttribute="leading" secondItem="uAf-DN-A1D" secondAttribute="leading" id="bEQ-Z4-3Kl"/>
                             <constraint firstItem="uAf-DN-A1D" firstAttribute="trailing" secondItem="DQY-Z4-qgY" secondAttribute="trailing" id="dDC-DD-FZX"/>
                             <constraint firstItem="uAf-DN-A1D" firstAttribute="bottom" secondItem="W23-Nb-4Us" secondAttribute="bottom" constant="8" id="dVp-F1-Pwy"/>
-                            <constraint firstItem="uAf-DN-A1D" firstAttribute="trailing" secondItem="W23-Nb-4Us" secondAttribute="trailing" constant="16" id="gT3-TD-O6A"/>
-                            <constraint firstItem="W23-Nb-4Us" firstAttribute="leading" secondItem="uAf-DN-A1D" secondAttribute="leading" constant="16" id="gXm-d5-Bhr"/>
+                            <constraint firstItem="W23-Nb-4Us" firstAttribute="centerX" secondItem="ypb-XB-G8j" secondAttribute="centerX" id="hk8-4S-5Vs"/>
                             <constraint firstItem="4KY-m8-1Pr" firstAttribute="top" secondItem="uAf-DN-A1D" secondAttribute="top" id="obr-fL-iT4"/>
                             <constraint firstItem="DQY-Z4-qgY" firstAttribute="top" secondItem="uAf-DN-A1D" secondAttribute="top" id="zxu-zx-E5Q"/>
                         </constraints>
@@ -486,5 +478,6 @@
     </scenes>
     <resources>
         <image name="car" width="512" height="512"/>
+        <image name="sound(with button)" width="200" height="200"/>
     </resources>
 </document>

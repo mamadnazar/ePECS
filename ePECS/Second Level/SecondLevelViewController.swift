@@ -11,8 +11,8 @@ import AVFoundation
 
 class SecondLevelViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AVSpeechSynthesizerDelegate {
     
-    let cards_images = [#imageLiteral(resourceName: "meGirl"), #imageLiteral(resourceName: "хочу"), #imageLiteral(resourceName: "да"), #imageLiteral(resourceName: "нет"), #imageLiteral(resourceName: "мяч"), #imageLiteral(resourceName: "car"), #imageLiteral(resourceName: "кушать"), #imageLiteral(resourceName: "пить"), #imageLiteral(resourceName: "помоги"), #imageLiteral(resourceName: "спать")]
-    let cards_names = ["Я", "Хочу", "Да", "Нет", "Мяч", "Машина", "Кушать", "Пить", "Помоги", "Спать"]
+    let cards_images = ChangeLevelTwoViewController.shared.getCardsImages()
+    let cards_names = ChangeLevelTwoViewController.shared.getCardsNames()
     var toSpeak = ""
     
     @IBOutlet weak var cardsCollectionView: UICollectionView!
@@ -70,7 +70,6 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     
-    
     func speakOut(toSpeak: String) {
         let utterance = AVSpeechUtterance(string: toSpeak)
         utterance.voice = AVSpeechSynthesisVoice(language: "ru")
@@ -80,7 +79,7 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return cards_names.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

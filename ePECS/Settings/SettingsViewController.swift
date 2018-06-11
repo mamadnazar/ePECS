@@ -25,7 +25,7 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationItem.title = "Настройки этапов"
+        navigationItem.title = "Настройки"
         navigationItem.hidesBackButton = true
     }
     

@@ -15,13 +15,12 @@ class SelectLevelViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationItem.title = "Настройки этапов"
     }
-    
     
     @IBAction func changeLevelOne(_ sender: Any) {
         let alert = UIAlertController(title: "Alert", message: "No changes needed in level one", preferredStyle: UIAlertControllerStyle.alert)
