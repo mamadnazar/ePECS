@@ -32,6 +32,19 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
         dismissButton.isHidden = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.title = "Этап II"
+        navigationItem.hidesBackButton = true
+    }
+    
+    @IBAction func settingsBarButton(_ sender: Any) {
+        let sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        self.navigationController?.show(vc, sender: self)
+    }
+    
     private func setupZoomInView(image: UIImage) {
         view.addSubview(zoomInView)
         
@@ -55,6 +68,8 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
             self.zoomInView.removeFromSuperview()
         }
     }
+    
+    
     
     func speakOut(toSpeak: String) {
         let utterance = AVSpeechUtterance(string: toSpeak)

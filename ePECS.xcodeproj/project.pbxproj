@@ -31,6 +31,9 @@
 		84AB033820C9403300BC639D /* FourthLevelCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB033720C9403300BC639D /* FourthLevelCardsViewController.swift */; };
 		84AB033A20C9407100BC639D /* FourthLevelCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB033920C9407100BC639D /* FourthLevelCardCollectionViewCell.swift */; };
 		84AB033C20C9408300BC639D /* FourthLevelPhraseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB033B20C9408300BC639D /* FourthLevelPhraseCollectionViewCell.swift */; };
+		84BBD6D620CDD07900D3CB2F /* SelectLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBD6D520CDD07900D3CB2F /* SelectLevelViewController.swift */; };
+		84BBD6D820CE281B00D3CB2F /* ChangeLevelTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBD6D720CE281B00D3CB2F /* ChangeLevelTwoViewController.swift */; };
+		84BBD6DA20CE287D00D3CB2F /* ChangeLevelTwoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBD6D920CE287D00D3CB2F /* ChangeLevelTwoCollectionViewCell.swift */; };
 		84E26F0D20CBCB9200296344 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E26F0C20CBCB9200296344 /* SettingsViewController.swift */; };
 		84E26F0F20CBCBA000296344 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E26F0E20CBCBA000296344 /* SettingsStoryboard.storyboard */; };
 		CE91496520BA905000BC68DE /* SecondLevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91496420BA905000BC68DE /* SecondLevelCollectionViewCell.swift */; };
@@ -92,6 +95,9 @@
 		84AB033720C9403300BC639D /* FourthLevelCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthLevelCardsViewController.swift; sourceTree = "<group>"; };
 		84AB033920C9407100BC639D /* FourthLevelCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthLevelCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		84AB033B20C9408300BC639D /* FourthLevelPhraseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthLevelPhraseCollectionViewCell.swift; sourceTree = "<group>"; };
+		84BBD6D520CDD07900D3CB2F /* SelectLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewController.swift; sourceTree = "<group>"; };
+		84BBD6D720CE281B00D3CB2F /* ChangeLevelTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLevelTwoViewController.swift; sourceTree = "<group>"; };
+		84BBD6D920CE287D00D3CB2F /* ChangeLevelTwoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLevelTwoCollectionViewCell.swift; sourceTree = "<group>"; };
 		84E26F0C20CBCB9200296344 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		84E26F0E20CBCBA000296344 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		89E5469ED74CCE9D9D5646DC /* Pods-ePECSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ePECSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ePECSUITests/Pods-ePECSUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -259,8 +265,11 @@
 		84E26F0B20CBCB6300296344 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				84E26F0C20CBCB9200296344 /* SettingsViewController.swift */,
 				84E26F0E20CBCBA000296344 /* SettingsStoryboard.storyboard */,
+				84E26F0C20CBCB9200296344 /* SettingsViewController.swift */,
+				84BBD6D520CDD07900D3CB2F /* SelectLevelViewController.swift */,
+				84BBD6D720CE281B00D3CB2F /* ChangeLevelTwoViewController.swift */,
+				84BBD6D920CE287D00D3CB2F /* ChangeLevelTwoCollectionViewCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -300,7 +309,6 @@
 				847CFD8820B4424A00D5BE99 /* Frameworks */,
 				847CFD8920B4424A00D5BE99 /* Resources */,
 				4C0CDD9569181E1169E955F0 /* [CP] Embed Pods Frameworks */,
-				FF40F38D2B52B9D1A8BCF8A2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,8 +327,6 @@
 				847CFD9B20B4424D00D5BE99 /* Sources */,
 				847CFD9C20B4424D00D5BE99 /* Frameworks */,
 				847CFD9D20B4424D00D5BE99 /* Resources */,
-				FCB7403FD2E9C34711B91FF9 /* [CP] Embed Pods Frameworks */,
-				010C4760688C50261F5CCBE0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -340,8 +346,6 @@
 				847CFDA620B4424D00D5BE99 /* Sources */,
 				847CFDA720B4424D00D5BE99 /* Frameworks */,
 				847CFDA820B4424D00D5BE99 /* Resources */,
-				907A802CA148EA264D8A060D /* [CP] Embed Pods Frameworks */,
-				90FE654F6E7A2597D9F88874 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -429,21 +433,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		010C4760688C50261F5CCBE0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ePECSTests/Pods-ePECSTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3217306B270A52AEB0F03673 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -522,66 +511,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		907A802CA148EA264D8A060D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ePECSUITests/Pods-ePECSUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		90FE654F6E7A2597D9F88874 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ePECSUITests/Pods-ePECSUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FCB7403FD2E9C34711B91FF9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ePECSTests/Pods-ePECSTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FF40F38D2B52B9D1A8BCF8A2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ePECS/Pods-ePECS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -600,14 +529,17 @@
 				8410E25C20B87ACA00E56A2F /* Extensions.swift in Sources */,
 				CE91497020BB35C600BC68DE /* ThirdLevelCardsViewController.swift in Sources */,
 				8410E25F20B887BA00E56A2F /* SecondLevelViewController.swift in Sources */,
+				84BBD6DA20CE287D00D3CB2F /* ChangeLevelTwoCollectionViewCell.swift in Sources */,
 				84AB033A20C9407100BC639D /* FourthLevelCardCollectionViewCell.swift in Sources */,
 				847CFDC620B4481C00D5BE99 /* HTTPStatusCode.swift in Sources */,
 				84E26F0D20CBCB9200296344 /* SettingsViewController.swift in Sources */,
 				8410E25820B8663D00E56A2F /* FirstLevelViewController.swift in Sources */,
+				84BBD6D620CDD07900D3CB2F /* SelectLevelViewController.swift in Sources */,
 				847CFDCA20B4483D00D5BE99 /* ServerManager.swift in Sources */,
 				847CFD8F20B4424A00D5BE99 /* AppDelegate.swift in Sources */,
 				CE91496520BA905000BC68DE /* SecondLevelCollectionViewCell.swift in Sources */,
 				CE91497220BB361900BC68DE /* CategoryCollectionViewCell.swift in Sources */,
+				84BBD6D820CE281B00D3CB2F /* ChangeLevelTwoViewController.swift in Sources */,
 				CE91497420BB362300BC68DE /* CardCollectionViewCell.swift in Sources */,
 				84AB033C20C9408300BC639D /* FourthLevelPhraseCollectionViewCell.swift in Sources */,
 				CE91496E20BB304300BC68DE /* ThirdLevelCategoryViewController.swift in Sources */,

@@ -11,7 +11,6 @@ import AVFoundation
 
 class FirstLevelViewController: UIViewController, AVSpeechSynthesizerDelegate {
 
-    
     @IBOutlet weak var whiteCardView: UIView! {
         didSet {
             whiteCardView.layer.cornerRadius = 15
@@ -34,20 +33,37 @@ class FirstLevelViewController: UIViewController, AVSpeechSynthesizerDelegate {
     }
     
     @IBOutlet weak var soundImageView: UIImageView!
-    
-    
+    //let settingButton = UIBarButtonItem(image: #imageLiteral(resourceName: "delete"), style: .plain, target: self, action: #selector(goToSettings))
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         soundImageView.isUserInteractionEnabled = true
         soundImageView.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.title = "Этап I"
+        navigationItem.hidesBackButton = true
+        
+    }
 
+    @IBAction func settingsBarButton(_ sender: Any) {
+        let sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        self.navigationController?.show(vc, sender: self)
+    }
+    
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         speakOut(toSpeak: wordLabel.text!)
     }
+    
+//    @objc func goToSettings() {
+//
+//    }
     
     func speakOut(toSpeak: String) {
         let utterance = AVSpeechUtterance(string: toSpeak)

@@ -34,13 +34,14 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Categories"
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        navigationItem.title = "Этап III"
+        navigationItem.hidesBackButton = true
         phraseCollectionView.reloadData()
         categoryCollectionView.reloadData()
     }
@@ -48,6 +49,12 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
      
+    }
+    
+    @IBAction func settingsBarButton(_ sender: Any) {
+        let sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        self.navigationController?.show(vc, sender: self)
     }
     
     func speakOut(toSpeak: String) {

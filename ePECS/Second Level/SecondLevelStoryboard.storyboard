@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hKG-ME-WAm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OfU-ZJ-ctM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,13 +13,13 @@
         <!--Second Level View Controller-->
         <scene sceneID="eoH-jb-lZU">
             <objects>
-                <viewController id="hKG-ME-WAm" customClass="SecondLevelViewController" customModule="ePECS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondLevelViewController" id="hKG-ME-WAm" customClass="SecondLevelViewController" customModule="ePECS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cZc-E0-ku5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YGY-GJ-R5z">
-                                <rect key="frame" x="40" y="20" width="295" height="647"/>
+                                <rect key="frame" x="40" y="64" width="295" height="603"/>
                                 <color key="backgroundColor" red="0.85490196078431369" green="0.26666666666666666" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ojp-00-MuK">
                                     <size key="itemSize" width="173" height="139"/>
@@ -100,6 +100,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rDv-c6-yT1"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ML6-c6-g7G">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="OXl-f2-bNT">
+                            <color key="tintColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="settingsBarButton:" destination="hKG-ME-WAm" id="bG1-27-kVn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cardsCollectionView" destination="YGY-GJ-R5z" id="Wt4-Xx-lcP"/>
                         <outlet property="dismissButton" destination="D7T-l5-o9J" id="qzw-vl-0bw"/>
@@ -114,44 +122,35 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fz9-8u-Ez4">
                             <rect key="frame" x="8" y="229" width="234" height="24"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6f1-4z-WpB">
-                                    <rect key="frame" x="0.0" y="0.0" width="234" height="24"/>
-                                    <state key="normal">
-                                        <attributedString key="attributedTitle">
-                                            <fragment content="Button">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" metaFont="system" size="18"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                    </state>
-                                    <connections>
-                                        <action selector="soundButton:" destination="hKG-ME-WAm" eventType="touchUpInside" id="vse-Gg-lbg"/>
-                                    </connections>
-                                </button>
-                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="6f1-4z-WpB" firstAttribute="leading" secondItem="fz9-8u-Ez4" secondAttribute="leading" id="MBM-Cl-L1D"/>
-                                <constraint firstAttribute="bottom" secondItem="6f1-4z-WpB" secondAttribute="bottom" id="Yne-7f-vC7"/>
                                 <constraint firstAttribute="height" constant="24" id="vHG-5Q-l1b"/>
-                                <constraint firstAttribute="trailing" secondItem="6f1-4z-WpB" secondAttribute="trailing" id="xCl-Mi-Hu4"/>
-                                <constraint firstItem="6f1-4z-WpB" firstAttribute="top" secondItem="fz9-8u-Ez4" secondAttribute="top" id="xmF-kw-ekz"/>
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QOX-OJ-eP3">
                             <rect key="frame" x="8" y="4" width="234" height="213"/>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6f1-4z-WpB">
+                            <rect key="frame" x="112" y="226" width="30" height="30"/>
+                            <state key="normal" image="sound(with button)">
+                                <attributedString key="attributedTitle"/>
+                            </state>
+                            <connections>
+                                <action selector="soundButton:" destination="hKG-ME-WAm" eventType="touchUpInside" id="vse-Gg-lbg"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="6f1-4z-WpB" firstAttribute="top" secondItem="QOX-OJ-eP3" secondAttribute="bottom" constant="9" id="36y-eS-BOn"/>
                         <constraint firstItem="fz9-8u-Ez4" firstAttribute="centerX" secondItem="lYP-I4-CpC" secondAttribute="centerX" id="FNF-Ex-ixW"/>
                         <constraint firstItem="fz9-8u-Ez4" firstAttribute="leading" secondItem="wBH-pb-z2l" secondAttribute="leading" constant="8" id="P0F-B3-c5f"/>
                         <constraint firstItem="fz9-8u-Ez4" firstAttribute="top" secondItem="QOX-OJ-eP3" secondAttribute="bottom" constant="12" id="Pih-Ab-5Cp"/>
+                        <constraint firstItem="wBH-pb-z2l" firstAttribute="bottom" secondItem="6f1-4z-WpB" secondAttribute="bottom" constant="9" id="VhB-qt-r7H"/>
+                        <constraint firstItem="wBH-pb-z2l" firstAttribute="trailing" secondItem="6f1-4z-WpB" secondAttribute="trailing" constant="108" id="dL3-jM-Jry"/>
                         <constraint firstItem="wBH-pb-z2l" firstAttribute="bottom" secondItem="fz9-8u-Ez4" secondAttribute="bottom" constant="12" id="diQ-NI-0bB"/>
                         <constraint firstItem="wBH-pb-z2l" firstAttribute="trailing" secondItem="QOX-OJ-eP3" secondAttribute="trailing" constant="8" id="eLE-lQ-702"/>
+                        <constraint firstItem="6f1-4z-WpB" firstAttribute="leading" secondItem="wBH-pb-z2l" secondAttribute="leading" constant="112" id="hYF-At-tTC"/>
                         <constraint firstItem="QOX-OJ-eP3" firstAttribute="top" secondItem="wBH-pb-z2l" secondAttribute="top" constant="4" id="nZR-xO-8M1"/>
                         <constraint firstItem="wBH-pb-z2l" firstAttribute="trailing" secondItem="fz9-8u-Ez4" secondAttribute="trailing" constant="8" id="v3E-pO-5Pa"/>
                         <constraint firstItem="QOX-OJ-eP3" firstAttribute="leading" secondItem="wBH-pb-z2l" secondAttribute="leading" constant="8" id="zmV-f8-xee"/>
@@ -159,7 +158,28 @@
                     <viewLayoutGuide key="safeArea" id="wBH-pb-z2l"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="144.80000000000001" y="88.605697151424295"/>
+            <point key="canvasLocation" x="1084" y="88.605697151424295"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oKi-Jm-2EB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OfU-ZJ-ctM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ywc-fY-sa9">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hKG-ME-WAm" kind="relationship" relationship="rootViewController" id="Q0b-DS-1gG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="53y-bS-pY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298" y="89"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sound(with button)" width="200" height="200"/>
+    </resources>
 </document>

@@ -152,7 +152,7 @@
                                     <outlet property="delegate" destination="W4u-gn-WCz" id="wyg-WR-7sl"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hkQ-Yx-Zu1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hkQ-Yx-Zu1">
                                 <rect key="frame" x="16" y="629" width="343" height="30"/>
                                 <color key="tintColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal">
@@ -185,7 +185,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WLA-NM-m9n"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ocg-dl-l0y"/>
+                    <navigationItem key="navigationItem" id="ocg-dl-l0y">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="Ctp-2W-lL0">
+                            <color key="tintColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="settingsBarButton:" destination="W4u-gn-WCz" id="JRA-Y9-hcm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="categoryCollectionView" destination="D4A-As-Qg6" id="Ksk-sV-lAE"/>
                         <outlet property="phraseCollectionView" destination="JiC-ME-8YZ" id="Q7N-UV-hAz"/>
