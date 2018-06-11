@@ -226,29 +226,77 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="al8-l7-YkE">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="al8-l7-YkE">
                                 <rect key="frame" x="16" y="173" width="343" height="2"/>
                                 <color key="backgroundColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="caG-d8-UPI"/>
+                                </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ps8-dB-bCJ">
-                                <rect key="frame" x="16" y="213" width="343" height="414"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ps8-dB-bCJ">
+                                <rect key="frame" x="16" y="205" width="343" height="438"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oDR-FN-RBt">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="186" height="203"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2kB-hN-a0h">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChangeLevelTwoCollectionViewCell" id="2kB-hN-a0h" customClass="ChangeLevelTwoCollectionViewCell" customModule="ePECS" customModuleProvider="target">
+                                        <rect key="frame" x="78.5" y="0.0" width="186" height="203"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="186" height="203"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="0gu-bi-4bP" customClass="CustomView" customModule="ePECS" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="149"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PyF-pu-clP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="186" height="149"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="PyF-pu-clP" firstAttribute="leading" secondItem="0gu-bi-4bP" secondAttribute="leading" id="16p-RB-P8G"/>
+                                                        <constraint firstAttribute="trailing" secondItem="PyF-pu-clP" secondAttribute="trailing" id="2KI-o0-QMx"/>
+                                                        <constraint firstItem="PyF-pu-clP" firstAttribute="top" secondItem="0gu-bi-4bP" secondAttribute="top" id="POQ-yP-368"/>
+                                                        <constraint firstAttribute="bottom" secondItem="PyF-pu-clP" secondAttribute="bottom" id="ZOZ-oM-zuU"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2P1-fF-MEG">
+                                                    <rect key="frame" x="78" y="161" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="DvI-ct-bda"/>
+                                                        <constraint firstAttribute="height" constant="30" id="sgb-xv-NuE"/>
+                                                    </constraints>
+                                                    <state key="normal" image="delete">
+                                                        <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteCard:" destination="PNn-SB-1O4" eventType="touchUpInside" id="rLx-7w-Sn1"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="0gu-bi-4bP" firstAttribute="top" secondItem="2kB-hN-a0h" secondAttribute="top" id="2KV-Yr-xFe"/>
+                                            <constraint firstAttribute="bottom" secondItem="2P1-fF-MEG" secondAttribute="bottom" constant="12" id="FIA-ho-Ffl"/>
+                                            <constraint firstItem="0gu-bi-4bP" firstAttribute="leading" secondItem="2kB-hN-a0h" secondAttribute="leading" id="FQK-uc-DcZ"/>
+                                            <constraint firstItem="2P1-fF-MEG" firstAttribute="centerX" secondItem="2kB-hN-a0h" secondAttribute="centerX" id="I7F-Dc-9aU"/>
+                                            <constraint firstItem="2P1-fF-MEG" firstAttribute="top" secondItem="0gu-bi-4bP" secondAttribute="bottom" constant="12" id="Zst-eL-ZIt"/>
+                                            <constraint firstAttribute="trailing" secondItem="0gu-bi-4bP" secondAttribute="trailing" id="tIg-lT-jyB"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="changeLevelTwoImageView" destination="PyF-pu-clP" id="8Ui-3p-pC1"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="PNn-SB-1O4" id="l8g-ao-ajg"/>
+                                    <outlet property="delegate" destination="PNn-SB-1O4" id="cgF-Iz-Quf"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -258,7 +306,7 @@
                             <constraint firstItem="UPI-yd-Hmm" firstAttribute="top" secondItem="nWv-Ag-lfZ" secondAttribute="bottom" constant="50" id="F41-3J-RbR"/>
                             <constraint firstItem="35x-Ic-p06" firstAttribute="bottom" secondItem="Ps8-dB-bCJ" secondAttribute="bottom" constant="24" id="HJe-vw-eRx"/>
                             <constraint firstItem="al8-l7-YkE" firstAttribute="top" secondItem="UPI-yd-Hmm" secondAttribute="bottom" constant="2" id="TWC-N1-F9s"/>
-                            <constraint firstItem="Ps8-dB-bCJ" firstAttribute="top" secondItem="al8-l7-YkE" secondAttribute="bottom" constant="38" id="YQI-4X-eEA"/>
+                            <constraint firstItem="Ps8-dB-bCJ" firstAttribute="top" secondItem="al8-l7-YkE" secondAttribute="bottom" constant="30" id="YQI-4X-eEA"/>
                             <constraint firstItem="35x-Ic-p06" firstAttribute="trailing" secondItem="UPI-yd-Hmm" secondAttribute="trailing" constant="16" id="b1u-YW-t0D"/>
                             <constraint firstItem="Ps8-dB-bCJ" firstAttribute="leading" secondItem="35x-Ic-p06" secondAttribute="leading" constant="16" id="dsA-Cb-xde"/>
                             <constraint firstItem="35x-Ic-p06" firstAttribute="trailing" secondItem="Ps8-dB-bCJ" secondAttribute="trailing" constant="16" id="k2O-IQ-i4R"/>
@@ -269,6 +317,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="35x-Ic-p06"/>
                     </view>
+                    <connections>
+                        <outlet property="changeLevelTwoCollectionView" destination="Ps8-dB-bCJ" id="Y7H-GI-JRj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qa8-Ni-SqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -293,4 +344,7 @@
             <point key="canvasLocation" x="-66.400000000000006" y="30.134932533733135"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="delete" width="125" height="125"/>
+    </resources>
 </document>

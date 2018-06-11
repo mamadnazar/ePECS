@@ -9,5 +9,8 @@
 import UIKit
 
 class ChangeLevelTwoCollectionViewCell: UICollectionViewCell {
+ 
+    
+    @IBOutlet weak var changeLevelTwoImageView: UIImageView!
     
 }
