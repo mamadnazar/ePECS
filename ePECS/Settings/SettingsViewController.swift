@@ -28,21 +28,7 @@ class SettingsViewController: UIViewController {
         navigationItem.title = "Настройки"
         navigationItem.hidesBackButton = true
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
-        let width: CGFloat = 240.0
-        let height: CGFloat = 160.0
-
-        let curve = Curve(frame: CGRect(x: self.view.frame.size.width / 2 - width / 2,
-                                        y: self.view.frame.size.height / 2 - height / 2,
-                                        width: width,
-                                        height: height))
-
-        self.view.addSubview(curve)
-    }
-    
     @IBAction func setupLevels(_ sender: Any) {
         //setupLevels.isHighlighted = true
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SelectLevelViewController") as! SelectLevelViewController

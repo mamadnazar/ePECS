@@ -16,13 +16,7 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
     var categories_names = ["Transport", "Eating", "Drinking", "Helping", "Technology"]
     var categories_images = [#imageLiteral(resourceName: "car"), #imageLiteral(resourceName: "кушать"), #imageLiteral(resourceName: "пить"), #imageLiteral(resourceName: "помоги"), #imageLiteral(resourceName: "компьютер")]
     
-    @IBOutlet weak var playAllButton: UIButton! {
-        didSet {
-            playAllButton.layer.cornerRadius = 20
-            playAllButton.layer.borderWidth = 1
-            playAllButton.layer.borderColor = UIColor.gray.cgColor
-        }
-    }
+    @IBOutlet weak var playAllButton: UIButton!
     @IBAction func playAllButton(_ sender: Any) {
        
         phrasesToSpeak = ""
@@ -80,7 +74,6 @@ extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollecti
         if collectionView == phraseCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhraseCollectionViewCell", for: indexPath) as! PhraseCollectionViewCell 
             cell.phraseImageView.image = phrases_images[indexPath.row]
-            cell.phraseLabel.text = phrases_names[indexPath.row]
             return cell
         }
         else {
@@ -108,10 +101,11 @@ extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let width = UIScreen.main.bounds.width / 2.2 - 16
-
+        let width = categoryCollectionView.frame.size.height / 2
+        let phrase_width = phraseCollectionView.frame.size.height / 1.5
+        
         if collectionView == phraseCollectionView {
-            return CGSize(width: 130, height: 120)
+            return CGSize(width: phrase_width, height: phrase_width)
         }
         
         return CGSize(width: width, height: width)
@@ -123,8 +117,5 @@ extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
-    }
-    
-    
-    
+    } 
 }

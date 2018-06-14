@@ -58,10 +58,12 @@ class Curve: UIView {
 
     override func draw(_ rect: CGRect) {
         
-        path = UIBezierPath(arcCenter: CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2), radius: self.frame.size.height/2, startAngle: CGFloat(4.7), endAngle: CGFloat(1.5), clockwise: true)
+        path = UIBezierPath(arcCenter: CGPoint(x: self.frame.size.width/2 + 10, y: self.frame.size.height/2), radius: self.frame.size.height/2, startAngle: CGFloat(4.7), endAngle: CGFloat(1.5), clockwise: true)
         
+        path.lineWidth = 3
         UIColor.red.setStroke()
         path.stroke()
+        
             
     }
     

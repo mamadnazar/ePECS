@@ -416,25 +416,25 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HS-Eo-CgI" customClass="CustomView" customModule="ePECS" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="346" height="244"/>
+                            <rect key="frame" x="24" y="0.0" width="298" height="244"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="su0-rf-PUl">
-                                    <rect key="frame" x="8" y="8" width="330" height="228"/>
+                                    <rect key="frame" x="12" y="12" width="274" height="220"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="su0-rf-PUl" firstAttribute="top" secondItem="8HS-Eo-CgI" secondAttribute="top" constant="8" id="3Wh-mt-nTa"/>
-                                <constraint firstAttribute="trailing" secondItem="su0-rf-PUl" secondAttribute="trailing" constant="8" id="NU9-id-9iu"/>
-                                <constraint firstAttribute="bottom" secondItem="su0-rf-PUl" secondAttribute="bottom" constant="8" id="iNi-O7-YtP"/>
-                                <constraint firstItem="su0-rf-PUl" firstAttribute="leading" secondItem="8HS-Eo-CgI" secondAttribute="leading" constant="8" id="yMD-XF-cXv"/>
+                                <constraint firstItem="su0-rf-PUl" firstAttribute="top" secondItem="8HS-Eo-CgI" secondAttribute="top" constant="12" id="3Wh-mt-nTa"/>
+                                <constraint firstAttribute="trailing" secondItem="su0-rf-PUl" secondAttribute="trailing" constant="12" id="NU9-id-9iu"/>
+                                <constraint firstAttribute="bottom" secondItem="su0-rf-PUl" secondAttribute="bottom" constant="12" id="iNi-O7-YtP"/>
+                                <constraint firstItem="su0-rf-PUl" firstAttribute="leading" secondItem="8HS-Eo-CgI" secondAttribute="leading" constant="12" id="yMD-XF-cXv"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgy-Rg-aC5" customClass="CustomView" customModule="ePECS" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="256" width="346" height="70"/>
+                            <rect key="frame" x="32" y="256" width="282" height="70"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i04-Gp-fJE">
-                                    <rect key="frame" x="255" y="20" width="30" height="30"/>
+                                    <rect key="frame" x="208" y="20" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Add">
                                         <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -444,7 +444,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e77-IX-0VM">
-                                    <rect key="frame" x="57" y="20" width="30" height="30"/>
+                                    <rect key="frame" x="48" y="20" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Play">
                                         <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -453,6 +453,11 @@
                                         <action selector="playButton:" destination="jXk-8x-jYc" eventType="touchUpInside" id="eAy-ZG-zFW"/>
                                     </connections>
                                 </button>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13h-UD-BNt">
+                                    <rect key="frame" x="140" y="13" width="2" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -464,11 +469,12 @@
                     <constraints>
                         <constraint firstItem="8HS-Eo-CgI" firstAttribute="top" secondItem="xab-Ii-jvA" secondAttribute="top" id="7uZ-HI-qcs"/>
                         <constraint firstItem="Kgy-Rg-aC5" firstAttribute="top" secondItem="8HS-Eo-CgI" secondAttribute="bottom" constant="12" id="8kh-FZ-lbR"/>
-                        <constraint firstItem="8HS-Eo-CgI" firstAttribute="leading" secondItem="xab-Ii-jvA" secondAttribute="leading" id="Cww-Pk-mZK"/>
+                        <constraint firstItem="Kgy-Rg-aC5" firstAttribute="centerX" secondItem="WkU-Vw-xhH" secondAttribute="centerX" id="9gd-oq-Odf"/>
+                        <constraint firstItem="8HS-Eo-CgI" firstAttribute="leading" secondItem="xab-Ii-jvA" secondAttribute="leading" constant="24" id="Cww-Pk-mZK"/>
                         <constraint firstItem="xab-Ii-jvA" firstAttribute="bottom" secondItem="Kgy-Rg-aC5" secondAttribute="bottom" id="Gli-t1-EZC"/>
-                        <constraint firstItem="xab-Ii-jvA" firstAttribute="trailing" secondItem="Kgy-Rg-aC5" secondAttribute="trailing" id="Uxt-OE-c95"/>
-                        <constraint firstItem="Kgy-Rg-aC5" firstAttribute="leading" secondItem="xab-Ii-jvA" secondAttribute="leading" id="YEY-AY-FyE"/>
-                        <constraint firstItem="xab-Ii-jvA" firstAttribute="trailing" secondItem="8HS-Eo-CgI" secondAttribute="trailing" id="sTQ-0V-fta"/>
+                        <constraint firstItem="xab-Ii-jvA" firstAttribute="trailing" secondItem="Kgy-Rg-aC5" secondAttribute="trailing" constant="32" id="Uxt-OE-c95"/>
+                        <constraint firstItem="Kgy-Rg-aC5" firstAttribute="leading" secondItem="xab-Ii-jvA" secondAttribute="leading" constant="32" id="YEY-AY-FyE"/>
+                        <constraint firstItem="xab-Ii-jvA" firstAttribute="trailing" secondItem="8HS-Eo-CgI" secondAttribute="trailing" constant="24" id="sTQ-0V-fta"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="xab-Ii-jvA"/>
                 </view>
