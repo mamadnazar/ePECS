@@ -11,6 +11,10 @@ import UIKit
 class SecondLevelCollectionViewCell: UICollectionViewCell {
  
     @IBOutlet weak var cardImageView: UIImageView!
-    @IBOutlet weak var cardNameLabel: UILabel!
+    @IBOutlet weak var cardView: CustomView! {
+        didSet {
+            self.cardView.layer.cornerRadius = 10
+        }
+    }
     
 }

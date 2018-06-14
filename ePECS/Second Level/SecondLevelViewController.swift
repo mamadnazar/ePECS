@@ -15,8 +15,20 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
     let cards_names = ChangeLevelTwoViewController.shared.getCardsNames()
     var toSpeak = ""
     
-    @IBOutlet weak var cardsCollectionView: UICollectionView!
+    
+   
+    @IBOutlet weak var zoomInUpperView: UIView! {
+        didSet {
+            self.zoomInUpperView.layer.cornerRadius = 20
+        }
+    }
+    @IBOutlet weak var zoomInDownView: UIView! {
+        didSet {
+            self.zoomInDownView.layer.cornerRadius = 20
+        }
+    }
     @IBOutlet var zoomInView: UIView!
+    @IBOutlet weak var cardsCollectionView: UICollectionView!
     @IBOutlet weak var zoomInImageView: UIImageView!
     @IBOutlet weak var dismissButton: UIButton!
     @IBAction func dismissButton(_ sender: Any) {
@@ -87,7 +99,6 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondLevelCollectionViewCell", for: indexPath) as! SecondLevelCollectionViewCell
         
         cell.cardImageView.image = cards_images[indexPath.row]
-        cell.cardNameLabel.text = cards_names[indexPath.row]
         
         return cell
     }
@@ -98,8 +109,8 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: collectionView.frame.size.width/2.1, height: 150)
+        let width = collectionView.frame.size.width / 2
+        return CGSize(width: width, height: width)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
