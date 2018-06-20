@@ -36,7 +36,7 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
             downZoomInView.layer.cornerRadius = 20
         }
     }
-    @IBOutlet weak var categoryCollectionView: UICollectionView!
+    @IBOutlet weak var cardsCollectionView: UICollectionView!
     @IBOutlet weak var phraseCollectionView: UICollectionView!
     @IBOutlet weak var playAllButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
@@ -53,7 +53,7 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
         super.viewWillAppear(true)
         
         setupCardsArray()
-        categoryCollectionView.reloadData()
+        cardsCollectionView.reloadData()
         phraseCollectionView.reloadData()
     }
     
@@ -139,6 +139,19 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
     
 }
 
+extension ThirdLevelCardsViewController: PhraseCollectionViewCellDelegate {
+    
+    func didTapDelete(cardToDelete: Card) {
+        
+        let index = phrase_cards.index(of: cardToDelete)
+        if (index != 0 && index != 1) {
+            phrase_cards.remove(at: index!)
+        }
+        phraseCollectionView.reloadData()
+    }
+    
+}
+
 extension ThirdLevelCardsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == phraseCollectionView {
@@ -151,6 +164,7 @@ extension ThirdLevelCardsViewController: UICollectionViewDelegate, UICollectionV
         if collectionView == phraseCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhraseCollectionViewCell", for: indexPath) as! PhraseCollectionViewCell
             cell.setPhraseCard(card: phrase_cards[indexPath.row])
+            cell.delegate = self
             return cell
         }
         else {
@@ -161,10 +175,7 @@ extension ThirdLevelCardsViewController: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if collectionView == phraseCollectionView {
-            phraseCollectionView.reloadData()
-        } else {
+        if collectionView == cardsCollectionView {
             selectedCard = indexPath.row
             toSpeak = cards[indexPath.row].name
             setupZoomInView(image: cards[indexPath.row].image)
@@ -173,10 +184,11 @@ extension ThirdLevelCardsViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = UIScreen.main.bounds.width / 2.2 - 16
+        let width = cardsCollectionView.frame.size.height / 2
+        let phrase_width = phraseCollectionView.frame.size.height / 1.4
         
         if collectionView == phraseCollectionView {
-            return CGSize(width: 130, height: 120)
+            return CGSize(width: phrase_width, height: phrase_width)
         }
         
         return CGSize(width: width, height: width)

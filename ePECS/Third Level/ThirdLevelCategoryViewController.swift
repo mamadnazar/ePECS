@@ -35,7 +35,7 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        categoryCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +46,6 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
         setupSettingsButton()
         
         setupCategoriesCardsArray()
-        categoryCollectionView.reloadData()
         phraseCollectionView.reloadData()
     }
 
@@ -139,13 +138,6 @@ extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollecti
             vc.navTitle = categories_cards[indexPath.row].name
             navigationController?.pushViewController(vc, animated: true)
         }
-//        else {
-//            if (indexPath.row != 0 && indexPath.row != 1) {
-//                phrases_names.remove(at: indexPath.row)
-//                phrases_images.remove(at: indexPath.row)
-//            }
-//            phraseCollectionView.reloadData()
-//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
