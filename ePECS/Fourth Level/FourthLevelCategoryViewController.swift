@@ -16,13 +16,7 @@ class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDe
     var categories_names = ["Transport", "Eating", "Drinking", "Helping", "Technology"]
     var categories_images = [#imageLiteral(resourceName: "car"), #imageLiteral(resourceName: "кушать"), #imageLiteral(resourceName: "пить"), #imageLiteral(resourceName: "помоги"), #imageLiteral(resourceName: "компьютер")]
     
-    @IBOutlet weak var playAllButton: UIButton! {
-        didSet {
-            playAllButton.layer.cornerRadius = 20
-            playAllButton.layer.borderWidth = 1
-            playAllButton.layer.borderColor = UIColor.gray.cgColor
-        }
-    }
+    @IBOutlet weak var playAllButton: UIButton!
     @IBAction func playAllButton(_ sender: Any) {
         
         fourthLevel_phrasesToSpeak = ""
@@ -44,14 +38,29 @@ class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDe
         navigationItem.hidesBackButton = true
         phraseCollectionView.reloadData()
         categoryCollectionView.reloadData()
+        
+        setupSettingsButton()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
+
+    private func setupSettingsButton() {
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage(named: "settings"), for: UIControlState.normal)
+        button.frame = CGRect(x: 0, y: 0, width: 26, height: 26)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.widthAnchor.constraint(equalToConstant: 26).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        button.addTarget(self, action: #selector(settingsButtonPressed), for: UIControlEvents.touchUpInside)
+        let barButton = UIBarButtonItem(customView: button)
+        
+        self.navigationItem.rightBarButtonItem = barButton
+    }
     
-    @IBAction func settingsBarButton(_ sender: Any) {
+    @objc private func settingsButtonPressed() {
         let sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         self.navigationController?.show(vc, sender: self)

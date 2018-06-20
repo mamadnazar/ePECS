@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dmy-bC-J0a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dmy-bC-J0a">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -159,7 +159,7 @@
                                     <constraint firstAttribute="height" constant="30" id="in6-H3-hBb"/>
                                 </constraints>
                                 <color key="tintColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="sound(with button)">
+                                <state key="normal" image="sound_all">
                                     <attributedString key="attributedTitle"/>
                                 </state>
                                 <connections>
@@ -184,9 +184,6 @@
                     <navigationItem key="navigationItem" id="ocg-dl-l0y">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="Ctp-2W-lL0">
                             <color key="tintColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="settingsBarButton:" destination="W4u-gn-WCz" id="JRA-Y9-hcm"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -365,7 +362,7 @@
                                     <constraint firstAttribute="width" constant="30" id="mUm-Gy-UTI"/>
                                 </constraints>
                                 <color key="tintColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="sound(with button)">
+                                <state key="normal" image="sound_all">
                                     <attributedString key="attributedTitle"/>
                                 </state>
                                 <connections>
@@ -433,20 +430,20 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgy-Rg-aC5" customClass="CustomView" customModule="ePECS" customModuleProvider="target">
                             <rect key="frame" x="32" y="256" width="282" height="70"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i04-Gp-fJE">
-                                    <rect key="frame" x="208" y="20" width="30" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i04-Gp-fJE">
+                                    <rect key="frame" x="211" y="21" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Add">
+                                    <state key="normal" image="add">
                                         <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="addButton:" destination="jXk-8x-jYc" eventType="touchUpInside" id="hkf-R1-CwY"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e77-IX-0VM">
-                                    <rect key="frame" x="48" y="20" width="30" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e77-IX-0VM">
+                                    <rect key="frame" x="53" y="21" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Play">
+                                    <state key="normal" image="sound">
                                         <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
@@ -483,7 +480,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add" width="125" height="125"/>
         <image name="car" width="512" height="512"/>
-        <image name="sound(with button)" width="200" height="200"/>
+        <image name="sound" width="20" height="29"/>
+        <image name="sound_all" width="200" height="200"/>
     </resources>
 </document>

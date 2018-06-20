@@ -36,13 +36,7 @@ class FourthLevelCardsViewController: UIViewController, AVSpeechSynthesizerDeleg
     }
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var phraseCollectionView: UICollectionView!
-    @IBOutlet weak var playAllButton: UIButton! {
-        didSet {
-            playAllButton.layer.cornerRadius = 20
-            playAllButton.layer.borderWidth = 1
-            playAllButton.layer.borderColor = UIColor.gray.cgColor
-        }
-    }
+    @IBOutlet weak var playAllButton: UIButton! 
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var zoomInImageView: UIImageView!
     

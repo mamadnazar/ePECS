@@ -49,9 +49,23 @@ class FirstLevelViewController: UIViewController, AVSpeechSynthesizerDelegate {
         navigationItem.title = "Этап I"
         navigationItem.hidesBackButton = true
         
+        setupSettingsButton()
     }
 
-    @IBAction func settingsBarButton(_ sender: Any) {
+    private func setupSettingsButton() {
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage(named: "settings"), for: UIControlState.normal)
+        button.frame = CGRect(x: 0, y: 0, width: 26, height: 26)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.widthAnchor.constraint(equalToConstant: 26).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        button.addTarget(self, action: #selector(settingsButtonPressed), for: UIControlEvents.touchUpInside)
+        let barButton = UIBarButtonItem(customView: button)
+        
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+    
+    @objc private func settingsButtonPressed() {
         let sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         self.navigationController?.show(vc, sender: self)
@@ -60,10 +74,6 @@ class FirstLevelViewController: UIViewController, AVSpeechSynthesizerDelegate {
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         speakOut(toSpeak: wordLabel.text!)
     }
-    
-//    @objc func goToSettings() {
-//
-//    }
     
     func speakOut(toSpeak: String) {
         let utterance = AVSpeechUtterance(string: toSpeak)

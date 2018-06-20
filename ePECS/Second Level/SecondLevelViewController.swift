@@ -15,8 +15,6 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
     let cards_names = ChangeLevelTwoViewController.shared.getCardsNames()
     var toSpeak = ""
     
-    
-   
     @IBOutlet weak var zoomInUpperView: UIView! {
         didSet {
             self.zoomInUpperView.layer.cornerRadius = 20
@@ -42,16 +40,31 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         dismissButton.isHidden = true
+        
+        setupSettingsButton()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationItem.title = "Этап II"
         navigationItem.hidesBackButton = true
     }
+
+    private func setupSettingsButton() {
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage(named: "settings"), for: UIControlState.normal)
+        button.frame = CGRect(x: 0, y: 0, width: 26, height: 26)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.widthAnchor.constraint(equalToConstant: 26).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        button.addTarget(self, action: #selector(settingsButtonPressed), for: UIControlEvents.touchUpInside)
+        let barButton = UIBarButtonItem(customView: button)
+        
+        self.navigationItem.rightBarButtonItem = barButton
+    }
     
-    @IBAction func settingsBarButton(_ sender: Any) {
+    @objc private func settingsButtonPressed() {
         let sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         self.navigationController?.show(vc, sender: self)
