@@ -11,17 +11,17 @@ import AVFoundation
 
 class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
+    private var categories_cards: [Card] = []
+    
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var phraseCollectionView: UICollectionView!
-    var categories_names = ["Transport", "Eating", "Drinking", "Helping", "Technology"]
-    var categories_images = [#imageLiteral(resourceName: "car"), #imageLiteral(resourceName: "кушать"), #imageLiteral(resourceName: "пить"), #imageLiteral(resourceName: "помоги"), #imageLiteral(resourceName: "компьютер")]
     
     @IBOutlet weak var playAllButton: UIButton!
     @IBAction func playAllButton(_ sender: Any) {
         
         fourthLevel_phrasesToSpeak = ""
-        for i in fourthLevel_phrases_names {
-            fourthLevel_phrasesToSpeak += "\(i)"
+        for i in fourthLevel_phrases_cards {
+            fourthLevel_phrasesToSpeak += "\(i.name)"
         }
         speakOut(toSpeak: fourthLevel_phrasesToSpeak)
     }
@@ -36,17 +36,27 @@ class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDe
         
         navigationItem.title = "Этап IV"
         navigationItem.hidesBackButton = true
-        phraseCollectionView.reloadData()
-        categoryCollectionView.reloadData()
-        
         setupSettingsButton()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
         
+        setupCategoriesCardsArray()
+        phraseCollectionView.reloadData()
     }
 
+    private func setupCategoriesCardsArray() {
+        
+        let card1 = Card(index: 0, name: "Transport", image: #imageLiteral(resourceName: "car"))
+        let card2 = Card(index: 1, name: "Eating", image: #imageLiteral(resourceName: "кушать"))
+        let card3 = Card(index: 2, name: "Drinking", image: #imageLiteral(resourceName: "пить"))
+        let card4 = Card(index: 3, name: "Helping", image: #imageLiteral(resourceName: "помоги"))
+        let card5 = Card(index: 4, name: "Technology", image: #imageLiteral(resourceName: "компьютер"))
+        
+        categories_cards.append(card1)
+        categories_cards.append(card2)
+        categories_cards.append(card3)
+        categories_cards.append(card4)
+        categories_cards.append(card5)
+    }
+    
     private func setupSettingsButton() {
         let button = UIButton.init(type: .custom)
         button.setImage(UIImage(named: "settings"), for: UIControlState.normal)
@@ -74,27 +84,40 @@ class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDe
         readSound.speak(utterance)
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+    
+}
+
+extension FourthLevelCategoryViewController: FourthLevelPhraseCollectionViewCellDelegate {
+    
+    func didTapDelete(cardToDelete: Card) {
+        let index = fourthLevel_phrases_cards.index(of: cardToDelete)
+        fourthLevel_phrases_cards.remove(at: index!)
+        phraseCollectionView.reloadData()
+    }
 }
 
 extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == phraseCollectionView {
-            return fourthLevel_phrases_names.count
+            return fourthLevel_phrases_cards.count
         }
-        return categories_names.count
+        return categories_cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == phraseCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FourthLevelPhraseCollectionViewCell", for: indexPath) as! FourthLevelPhraseCollectionViewCell
-            cell.phraseImageView.image = fourthLevel_phrases_images[indexPath.row]
-            cell.phraseLabel.text = fourthLevel_phrases_names[indexPath.row]
+            cell.setPhraseCard(card: fourthLevel_phrases_cards[indexPath.row])
+            cell.delegate = self
             return cell
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FourthLevelCategoryCollectionViewCell", for: indexPath) as! FourthLevelCategoryCollectionViewCell
-            cell.categoryNameLabel.text = categories_names[indexPath.row]
-            cell.categoryImageView.image = categories_images[indexPath.row]
+            cell.setCategoryCard(card: categories_cards[indexPath.row])
             return cell
         }
     }
@@ -102,22 +125,18 @@ extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoryCollectionView {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "FourthLevelCardsViewController") as! FourthLevelCardsViewController
-            vc.categoryId = categories_names.index(of: categories_names[indexPath.row])!
-            vc.navTitle = categories_names[indexPath.row]
+            vc.navTitle = categories_cards[indexPath.row].name
             navigationController?.pushViewController(vc, animated: true)
-        } else {
-            fourthLevel_phrases_names.remove(at: indexPath.row)
-            fourthLevel_phrases_images.remove(at: indexPath.row)
-            phraseCollectionView.reloadData()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = UIScreen.main.bounds.width / 2.2 - 16
+        let width = categoryCollectionView.frame.size.height / 2
+        let phrase_width = phraseCollectionView.frame.size.height / 1.4
         
         if collectionView == phraseCollectionView {
-            return CGSize(width: 130, height: 120)
+            return CGSize(width: phrase_width, height: phrase_width)
         }
         
         return CGSize(width: width, height: width)

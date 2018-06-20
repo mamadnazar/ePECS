@@ -13,4 +13,8 @@ class FourthLevelCategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var categoryImageView: UIImageView!
     
+    func setCategoryCard(card: Card) {
+        categoryNameLabel.text = card.name
+        categoryImageView.image = card.image
+    }
 }

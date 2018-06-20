@@ -12,4 +12,9 @@ class FourthLevelCardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cardImageView: UIImageView!
     @IBOutlet weak var cardLabel: UILabel!
+    
+    func setCard(card: Card) {
+        cardLabel.text = card.name
+        cardImageView.image = card.image
+    }
 }
