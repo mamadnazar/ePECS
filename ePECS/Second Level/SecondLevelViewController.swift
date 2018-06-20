@@ -112,7 +112,6 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondLevelCollectionViewCell", for: indexPath) as! SecondLevelCollectionViewCell
         
         cell.cardImageView.image = cards_images[indexPath.row]
-        
         return cell
     }
     

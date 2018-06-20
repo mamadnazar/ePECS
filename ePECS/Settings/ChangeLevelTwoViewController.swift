@@ -102,9 +102,16 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         myImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
         let newCard = Card(index: 88, name: "new card", image: myImage!) // should generate index that is free, 88 is an example
-                                                                        
+        
+        var additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
+        for i in cards {
+            if (i.index == 99) {
+                additionCard = i
+                break
+            }
+        }
+        
         cards[cards.index(of: additionCard)!] = newCard
         changeLevelTwoCollectionView.reloadData()
         dismiss(animated: true, completion: nil)

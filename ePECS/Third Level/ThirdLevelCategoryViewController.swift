@@ -93,14 +93,12 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
 extension ThirdLevelCategoryViewController: PhraseCollectionViewCellDelegate {
     
     func didTapDelete(cardToDelete: Card) {
-        
         let index = phrase_cards.index(of: cardToDelete)
         if (index != 0 && index != 1) {
             phrase_cards.remove(at: index!)
         }
         phraseCollectionView.reloadData()
     }
-    
 }
 
 extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

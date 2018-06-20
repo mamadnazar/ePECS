@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Card: Equatable {
+class Card: NSObject, NSCoding {
     
     var index: Int
     var name: String
@@ -19,6 +19,18 @@ class Card: Equatable {
         self.index = index
         self.name = name
         self.image = image
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.index = (aDecoder.decodeObject(forKey: "index") as? Int)!
+        self.name = (aDecoder.decodeObject(forKey: "name") as? String)!
+        self.image = (aDecoder.decodeObject(forKey: "image") as? UIImage)!
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.index, forKey: "index")
+        aCoder.encode(self.name, forKey: "name")
+        aCoder.encode(self.image, forKey: "image")
     }
     
     static func == (lhs: Card, rhs: Card) -> Bool {
