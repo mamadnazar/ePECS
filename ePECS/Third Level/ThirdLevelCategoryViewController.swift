@@ -11,14 +11,7 @@ import AVFoundation
 
 class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
-    class var shared: ThirdLevelCategoryViewController {
-        struct Static {
-            static let instance = ThirdLevelCategoryViewController()
-        }
-        return Static.instance
-    }
-    
-    var categories_cards: [Card] = []
+    private var categories_cards: [Card] = []
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var phraseCollectionView: UICollectionView!
@@ -35,7 +28,7 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryCollectionView.reloadData()
+        //categoryCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

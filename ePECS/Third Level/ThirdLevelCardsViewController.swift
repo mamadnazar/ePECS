@@ -9,8 +9,6 @@
 import UIKit
 import AVFoundation
 
-//var phrases_names: [String] = ["я", "хочу"]
-//var phrases_images: [UIImage] = [#imageLiteral(resourceName: "meGirl"), #imageLiteral(resourceName: "хочу")]
 var phrase_cards: [Card] = [Card(index: 1, name: "Я", image: #imageLiteral(resourceName: "meGirl")), Card(index: 2, name: "Хочу", image: #imageLiteral(resourceName: "хочу"))]
 var phraseToSpeak = ""
 
@@ -23,7 +21,7 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
     var navTitle = ""
     var selectedCard = 0
     var toSpeak = ""
-    var cards: [Card] = []
+    private var cards: [Card] = []
     
     @IBOutlet var zoomInView: UIView!
     @IBOutlet weak var upperZoomInView: UIView! {
@@ -149,7 +147,6 @@ extension ThirdLevelCardsViewController: PhraseCollectionViewCellDelegate {
         }
         phraseCollectionView.reloadData()
     }
-    
 }
 
 extension ThirdLevelCardsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

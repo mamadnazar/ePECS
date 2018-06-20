@@ -11,6 +11,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--First Level View Controller-->
         <scene sceneID="ggO-F8-pfz">
@@ -24,14 +29,14 @@
                                 <rect key="frame" x="0.0" y="64" width="300" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apT-Qf-BLe">
-                                        <rect key="frame" x="24" y="135.5" width="252" height="332.5"/>
+                                        <rect key="frame" x="24" y="133.5" width="252" height="337"/>
                                         <subviews>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EY5-Xf-zSh">
-                                                <rect key="frame" x="24" y="292.5" width="204" height="40.5"/>
+                                                <rect key="frame" x="24" y="292.5" width="204" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xочу" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3d-WR-8kB">
-                                                        <rect key="frame" x="24" y="10" width="156" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <rect key="frame" x="24" y="10.5" width="156" height="25"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -76,10 +81,10 @@
                                 <rect key="frame" x="300" y="64" width="75" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYM-9L-eIH">
-                                        <rect key="frame" x="0.0" y="135.5" width="75" height="332.5"/>
+                                        <rect key="frame" x="0.0" y="133.5" width="75" height="337"/>
                                         <subviews>
                                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sound_all" translatesAutoresizingMaskIntoConstraints="NO" id="nuX-d6-J92">
-                                                <rect key="frame" x="-62.5" y="291.5" width="200" height="40.5"/>
+                                                <rect key="frame" x="-62.5" y="296" width="200" height="40.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40.5" id="XSU-BO-xKl"/>
                                                 </constraints>

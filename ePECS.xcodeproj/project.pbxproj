@@ -302,11 +302,11 @@
 		84E26F0B20CBCB6300296344 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				84E26F0E20CBCBA000296344 /* SettingsStoryboard.storyboard */,
-				84E26F0C20CBCB9200296344 /* SettingsViewController.swift */,
-				84BBD6D520CDD07900D3CB2F /* SelectLevelViewController.swift */,
-				84BBD6D720CE281B00D3CB2F /* ChangeLevelTwoViewController.swift */,
 				84BBD6D920CE287D00D3CB2F /* ChangeLevelTwoCollectionViewCell.swift */,
+				84BBD6D720CE281B00D3CB2F /* ChangeLevelTwoViewController.swift */,
+				84BBD6D520CDD07900D3CB2F /* SelectLevelViewController.swift */,
+				84E26F0C20CBCB9200296344 /* SettingsViewController.swift */,
+				84E26F0E20CBCBA000296344 /* SettingsStoryboard.storyboard */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
