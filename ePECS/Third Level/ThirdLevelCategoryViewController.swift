@@ -11,19 +11,26 @@ import AVFoundation
 
 class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
+    class var shared: ThirdLevelCategoryViewController {
+        struct Static {
+            static let instance = ThirdLevelCategoryViewController()
+        }
+        return Static.instance
+    }
+    
+    var categories_cards: [Card] = []
+    
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var phraseCollectionView: UICollectionView!
-    var categories_names = ["Transport", "Eating", "Drinking", "Helping", "Technology"]
-    var categories_images = [#imageLiteral(resourceName: "car"), #imageLiteral(resourceName: "кушать"), #imageLiteral(resourceName: "пить"), #imageLiteral(resourceName: "помоги"), #imageLiteral(resourceName: "компьютер")]
     
     @IBOutlet weak var playAllButton: UIButton!
     @IBAction func playAllButton(_ sender: Any) {
        
-        phrasesToSpeak = ""
-        for i in phrases_names {
-            phrasesToSpeak += "\(i)"
+        phraseToSpeak = ""
+        for i in phrase_cards {
+            phraseToSpeak += "\(i.name)"
         }
-        speakOut(toSpeak: phrasesToSpeak)
+        speakOut(toSpeak: phraseToSpeak)
     }
     
     override func viewDidLoad() {
@@ -36,17 +43,42 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
         
         navigationItem.title = "Этап III"
         navigationItem.hidesBackButton = true
-        phraseCollectionView.reloadData()
+        setupSettingsButton()
+        
+        setupCategoriesCardsArray()
         categoryCollectionView.reloadData()
+        phraseCollectionView.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-     
+    private func setupCategoriesCardsArray() {
+    
+        let card1 = Card(index: 0, name: "Transport", image: #imageLiteral(resourceName: "car"))
+        let card2 = Card(index: 1, name: "Eating", image: #imageLiteral(resourceName: "кушать"))
+        let card3 = Card(index: 2, name: "Drinking", image: #imageLiteral(resourceName: "пить"))
+        let card4 = Card(index: 3, name: "Helping", image: #imageLiteral(resourceName: "помоги"))
+        let card5 = Card(index: 4, name: "Technology", image: #imageLiteral(resourceName: "компьютер"))
+
+        categories_cards.append(card1)
+        categories_cards.append(card2)
+        categories_cards.append(card3)
+        categories_cards.append(card4)
+        categories_cards.append(card5)
     }
     
-    @IBAction func settingsBarButton(_ sender: Any) {
-        print("SHFioHFSNkv")
+    private func setupSettingsButton() {
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage(named: "settings"), for: UIControlState.normal)
+        button.frame = CGRect(x: 0, y: 0, width: 26, height: 26)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.widthAnchor.constraint(equalToConstant: 26).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        button.addTarget(self, action: #selector(settingsButtonPressed), for: UIControlEvents.touchUpInside)
+        let barButton = UIBarButtonItem(customView: button)
+        
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+    
+    @objc private func settingsButtonPressed() {
         let sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         self.navigationController?.show(vc, sender: self)
@@ -59,27 +91,44 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
         readSound.delegate = self
         readSound.speak(utterance)
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+}
 
+extension ThirdLevelCategoryViewController: PhraseCollectionViewCellDelegate {
+    
+    func didTapDelete(cardToDelete: Card) {
+        
+        let index = phrase_cards.index(of: cardToDelete)
+        if (index != 0 && index != 1) {
+            phrase_cards.remove(at: index!)
+        }
+        phraseCollectionView.reloadData()
+    }
+    
 }
 
 extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == phraseCollectionView {
-            return phrases_names.count
+            return phrase_cards.count
         }
-        return categories_names.count
+        return categories_cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == phraseCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhraseCollectionViewCell", for: indexPath) as! PhraseCollectionViewCell 
-            cell.phraseImageView.image = phrases_images[indexPath.row]
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhraseCollectionViewCell", for: indexPath) as! PhraseCollectionViewCell
+            cell.setPhraseCard(card: phrase_cards[indexPath.row])
+            cell.delegate = self
             return cell
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
-            cell.categoryNameLabel.text = categories_names[indexPath.row]
-            cell.categoryImageView.image = categories_images[indexPath.row]
+            cell.setCategoryCard(card: categories_cards[indexPath.row])
             return cell
         }
     }
@@ -87,22 +136,22 @@ extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoryCollectionView {
             let vc = UIStoryboard(name: "ThirdLevelStoryboard", bundle: nil).instantiateViewController(withIdentifier: "ThirdLevelCardsViewController") as! ThirdLevelCardsViewController
-            vc.categoryId = categories_names.index(of: categories_names[indexPath.row])!
-            vc.navTitle = categories_names[indexPath.row]
+            vc.navTitle = categories_cards[indexPath.row].name
             navigationController?.pushViewController(vc, animated: true)
-        } else {
-            if (indexPath.row != 0 && indexPath.row != 1) {
-                phrases_names.remove(at: indexPath.row)
-                phrases_images.remove(at: indexPath.row)
-            }
-            phraseCollectionView.reloadData()
         }
+//        else {
+//            if (indexPath.row != 0 && indexPath.row != 1) {
+//                phrases_names.remove(at: indexPath.row)
+//                phrases_images.remove(at: indexPath.row)
+//            }
+//            phraseCollectionView.reloadData()
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let width = categoryCollectionView.frame.size.height / 2
-        let phrase_width = phraseCollectionView.frame.size.height / 1.5
+        let phrase_width = phraseCollectionView.frame.size.height / 1.4
         
         if collectionView == phraseCollectionView {
             return CGSize(width: phrase_width, height: phrase_width)

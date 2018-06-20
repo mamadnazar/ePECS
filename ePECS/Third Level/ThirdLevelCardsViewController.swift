@@ -9,19 +9,21 @@
 import UIKit
 import AVFoundation
 
-var phrases_names: [String] = ["я", "хочу"]
-var phrases_images: [UIImage] = [#imageLiteral(resourceName: "meGirl"), #imageLiteral(resourceName: "хочу")]
-var phrasesToSpeak = ""
+//var phrases_names: [String] = ["я", "хочу"]
+//var phrases_images: [UIImage] = [#imageLiteral(resourceName: "meGirl"), #imageLiteral(resourceName: "хочу")]
+var phrase_cards: [Card] = [Card(index: 1, name: "Я", image: #imageLiteral(resourceName: "meGirl")), Card(index: 2, name: "Хочу", image: #imageLiteral(resourceName: "хочу"))]
+var phraseToSpeak = ""
 
 class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelegate {
+    
+    //private var phrasesToSpeak = ThirdLevelCategoryViewController.shared.phrasesToSpeak
+    //private var phrase_cards = ThirdLevelCategoryViewController.shared.phrase_cards
     
     var categoryId = 0
     var navTitle = ""
     var selectedCard = 0
     var toSpeak = ""
-    
-    var cards_names = ["машина", "кушать", "пить", "помоги", "компьютер"]
-    var cards_images = [#imageLiteral(resourceName: "car"), #imageLiteral(resourceName: "кушать"), #imageLiteral(resourceName: "пить"), #imageLiteral(resourceName: "помоги"), #imageLiteral(resourceName: "компьютер")]
+    var cards: [Card] = []
     
     @IBOutlet var zoomInView: UIView!
     @IBOutlet weak var upperZoomInView: UIView! {
@@ -36,13 +38,7 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
     }
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var phraseCollectionView: UICollectionView!
-    @IBOutlet weak var playAllButton: UIButton! {
-        didSet {
-            playAllButton.layer.cornerRadius = 20
-            playAllButton.layer.borderWidth = 1
-            playAllButton.layer.borderColor = UIColor.gray.cgColor
-        }
-    }
+    @IBOutlet weak var playAllButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var zoomInImageView: UIImageView!
     
@@ -51,12 +47,12 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
         
         navigationItem.title = navTitle
         dismissButton.isHidden = true
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        setupCardsArray()
         categoryCollectionView.reloadData()
         phraseCollectionView.reloadData()
     }
@@ -66,6 +62,18 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
         
     }
     
+    private func setupCardsArray() {
+        let card1 = Card(index: 11, name: "Компьютер", image: #imageLiteral(resourceName: "компьютер"))
+        let card2 = Card(index: 9, name: "Помоги", image: #imageLiteral(resourceName: "помоги"))
+        let card3 = Card(index: 8, name: "Пить", image: #imageLiteral(resourceName: "пить"))
+        let card4 = Card(index: 7, name: "Кушать", image: #imageLiteral(resourceName: "кушать"))
+        
+        cards.append(card1)
+        cards.append(card2)
+        cards.append(card3)
+        cards.append(card4)
+    }
+    
     @IBAction func dismissButton(_ sender: Any) {
         hideZoomInView()
         dismissButton.isHidden = true
@@ -73,11 +81,11 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
     
     @IBAction func playAllButton(_ sender: Any) {
         
-        phrasesToSpeak = ""
-        for i in phrases_names {
-            phrasesToSpeak += "\(i)"
+        phraseToSpeak = ""
+        for i in phrase_cards {
+            phraseToSpeak += "\(i.name)"
         }
-        speakOut(toSpeak: phrasesToSpeak)
+        speakOut(toSpeak: phraseToSpeak)
     }
     
     @IBAction func playButton(_ sender: Any) {
@@ -113,10 +121,8 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
     }
     
     private func addToPhrase(index: Int) {
-        let name = cards_names[index]
-        let image = cards_images[index]
-        phrases_names.append(name)
-        phrases_images.append(image)
+        let phraseCard = Card(index: cards[index].index, name: cards[index].name, image: cards[index].image)
+        phrase_cards.append(phraseCard)
         phraseCollectionView.reloadData()
         
         hideZoomInView()
@@ -136,22 +142,20 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
 extension ThirdLevelCardsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == phraseCollectionView {
-            return phrases_names.count
+            return phrase_cards.count
         }
-        return cards_names.count
+        return cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == phraseCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhraseCollectionViewCell", for: indexPath) as! PhraseCollectionViewCell
-            cell.phraseImageView.image = phrases_images[indexPath.row]
-            cell.phraseLabel.text = phrases_names[indexPath.row]
+            cell.setPhraseCard(card: phrase_cards[indexPath.row])
             return cell
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardsCollectionViewCell", for: indexPath) as! CardCollectionViewCell
-            cell.cardImageView.image = cards_images[indexPath.row]
-            cell.cardLabel.text = cards_names[indexPath.row]
+            cell.setCard(card: cards[indexPath.row])
             return cell
         }
     }
@@ -159,15 +163,11 @@ extension ThirdLevelCardsViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if collectionView == phraseCollectionView {
-            if (indexPath.row != 0 && indexPath.row != 1) {
-                phrases_names.remove(at: indexPath.row)
-                phrases_images.remove(at: indexPath.row)
-            }
             phraseCollectionView.reloadData()
         } else {
             selectedCard = indexPath.row
-            toSpeak = cards_names[indexPath.row]
-            setupZoomInView(image: cards_images[indexPath.row])
+            toSpeak = cards[indexPath.row].name
+            setupZoomInView(image: cards[indexPath.row].image)
         }
     }
     

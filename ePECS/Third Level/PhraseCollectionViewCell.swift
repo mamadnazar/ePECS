@@ -8,8 +8,24 @@
 
 import UIKit
 
+protocol PhraseCollectionViewCellDelegate {
+    
+    func didTapDelete(cardToDelete: Card)
+}
+
 class PhraseCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var phraseLabel: UILabel!
     @IBOutlet weak var phraseImageView: UIImageView!
+    
+    var card: Card!
+    var delegate: PhraseCollectionViewCellDelegate?
+    
+    func setPhraseCard(card: Card) {
+        self.card = card
+        phraseImageView.image = card.image
+    }
+    
+    @IBAction func deleteCardTapped(_ sender: Any) {
+        delegate?.didTapDelete(cardToDelete: card)
+    }
 }
