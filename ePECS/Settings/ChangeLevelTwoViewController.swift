@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChangeLevelTwoViewController: UIViewController {
+class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     class var shared: ChangeLevelTwoViewController {
         struct Static {
@@ -20,6 +20,7 @@ class ChangeLevelTwoViewController: UIViewController {
     private var cards_images = [#imageLiteral(resourceName: "meGirl"), #imageLiteral(resourceName: "хочу"), #imageLiteral(resourceName: "да"), #imageLiteral(resourceName: "нет"), #imageLiteral(resourceName: "мяч"), #imageLiteral(resourceName: "car"), #imageLiteral(resourceName: "кушать"), #imageLiteral(resourceName: "пить"), #imageLiteral(resourceName: "помоги"), #imageLiteral(resourceName: "спать")]
     private var cards_names = ["Я", "Хочу", "Да", "Нет", "Мяч", "Машина", "Кушать", "Пить", "Помоги", "Спать"]
     private var cards: [Card] = []
+    private var myImage: UIImage?
     
     var selectedCard: Int?
     var cellCardCount = 0
@@ -50,6 +51,65 @@ class ChangeLevelTwoViewController: UIViewController {
         return cards_names
     }
 
+    func showActionSheet() {
+        let actionSheet = UIAlertController(title: "Выберете", message: "", preferredStyle: .actionSheet)
+        
+        let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        let camera = UIAlertAction(title: "Камера", style: .default) { action in
+            self.openCamera()
+        }
+        let gallery = UIAlertAction(title: "Галерея", style: .default) { actionSheet in
+            self.openGallery()
+        }
+        let cardsLibrary = UIAlertAction(title: "Библиотека карточек", style: .default) { action in
+            self.openLibrary()
+        }
+        
+        actionSheet.addAction(cancel)
+        actionSheet.addAction(camera)
+        actionSheet.addAction(gallery)
+        actionSheet.addAction(cardsLibrary)
+        
+        present(actionSheet, animated: true, completion: nil)
+        
+    }
+    
+    func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func openGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func openLibrary() {
+        let sb = UIStoryboard(name: "CardsLibraryStoryboard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "CardsLibraryViewController") as! CardsLibraryViewController
+        self.navigationController?.show(vc, sender: self)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        myImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
+        let newCard = Card(index: 88, name: "new card", image: myImage!) // should generate index that is free, 88 is an example
+                                                                        
+        cards[cards.index(of: additionCard)!] = newCard
+        changeLevelTwoCollectionView.reloadData()
+        dismiss(animated: true, completion: nil)
+     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,6 +119,7 @@ class ChangeLevelTwoViewController: UIViewController {
 extension ChangeLevelTwoViewController: ChangeLevelTwoCollectionViewCellDelegate {
     func didTapDelete(cardToDelete: Card) {
         cards.remove(at: cards.index(of: cardToDelete)!)
+        cards.append(Card(index: 99, name: "", image: #imageLiteral(resourceName: "add")))
         changeLevelTwoCollectionView.reloadData()
     }
     
@@ -75,6 +136,12 @@ extension ChangeLevelTwoViewController: UICollectionViewDataSource, UICollection
         cell.setPhraseCard(card: cards[indexPath.row])
         cell.delegate = self
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (cards[indexPath.row].index == 99) {
+            showActionSheet()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
