@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y4R-Cg-3OX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y4R-Cg-3OX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,17 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+        <array key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Settings View Controller-->
         <scene sceneID="O26-Ed-j43">
@@ -23,11 +34,11 @@
                                 <rect key="frame" x="150" y="64" width="225" height="603"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="Kb2-sn-wdi">
-                                        <rect key="frame" x="97.5" y="24" width="30" height="555"/>
+                                        <rect key="frame" x="94.5" y="24" width="36" height="555"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSm-fr-Y2L">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="110.5"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="110.5"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="28"/>
                                                 <state key="normal" title="I.">
                                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -36,8 +47,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1j-k2-jUq">
-                                                <rect key="frame" x="0.0" y="148.5" width="30" height="110"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <rect key="frame" x="0.0" y="148.5" width="36" height="110"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="28"/>
                                                 <state key="normal" title="II.">
                                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -46,8 +57,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-8a-6K2">
-                                                <rect key="frame" x="0.0" y="296.5" width="30" height="110.5"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <rect key="frame" x="0.0" y="296.5" width="36" height="110.5"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="28"/>
                                                 <state key="normal" title="III.">
                                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -56,8 +67,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8o-XJ-Cyt">
-                                                <rect key="frame" x="0.0" y="445" width="30" height="110"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <rect key="frame" x="0.0" y="445" width="36" height="110"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="28"/>
                                                 <state key="normal" title="IV.">
                                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -79,8 +90,8 @@
                                 <rect key="frame" x="0.0" y="64" width="150" height="603"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJq-cC-W5h">
-                                        <rect key="frame" x="10.5" y="287" width="129" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <rect key="frame" x="10.5" y="285.5" width="129" height="32"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                                         <state key="normal" title="Настройки этапов">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -89,11 +100,11 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbF-So-wuI">
-                                        <rect key="frame" x="12" y="24" width="126" height="239"/>
+                                        <rect key="frame" x="12" y="24" width="126" height="237.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Этапы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doU-sT-F7H">
-                                                <rect key="frame" x="0.5" y="95.5" width="125.5" height="48"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                                <rect key="frame" x="9" y="96" width="108.5" height="46.5"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="34"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -105,7 +116,8 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTf-cp-wkB">
-                                        <rect key="frame" x="22" y="549" width="106" height="30"/>
+                                        <rect key="frame" x="25.5" y="549" width="99" height="30"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                         <state key="normal" title="О приложении">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -157,7 +169,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4t-I7-66y">
                                 <rect key="frame" x="149" y="184" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
                                 <state key="normal" title="I.">
                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -168,7 +180,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW0-7t-tjx">
                                 <rect key="frame" x="149" y="293" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
                                 <state key="normal" title="II.">
                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -177,9 +189,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rz-ss-9PQ">
-                                <rect key="frame" x="149" y="402" width="77" height="30"/>
+                                <rect key="frame" x="150" y="402" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
                                 <state key="normal" title="III.">
                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -190,7 +202,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5x-bg-bsV">
                                 <rect key="frame" x="149" y="502" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
                                 <state key="normal" title="IV.">
                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -214,10 +226,10 @@
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Выберете этап для изменения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M05-wX-ji3">
-                                <rect key="frame" x="78" y="100" width="218" height="18"/>
+                                <rect key="frame" x="48" y="95" width="278" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
+                                <color key="textColor" red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -239,25 +251,25 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Этап II" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWv-Ag-lfZ">
                                 <rect key="frame" x="16" y="70" width="343" height="33"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
                                 <color key="textColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Изменить карточки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPI-yd-Hmm">
-                                <rect key="frame" x="16" y="153" width="343" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="16" y="153" width="343" height="19.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="al8-l7-YkE">
-                                <rect key="frame" x="16" y="173" width="343" height="2"/>
+                                <rect key="frame" x="16" y="174.5" width="343" height="2"/>
                                 <color key="backgroundColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="caG-d8-UPI"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ps8-dB-bCJ">
-                                <rect key="frame" x="16" y="205" width="343" height="438"/>
+                                <rect key="frame" x="0.0" y="176.5" width="375" height="490.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oDR-FN-RBt">
                                     <size key="itemSize" width="186" height="203"/>
@@ -267,25 +279,25 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChangeLevelTwoCollectionViewCell" id="2kB-hN-a0h" customClass="ChangeLevelTwoCollectionViewCell" customModule="ePECS" customModuleProvider="target">
-                                        <rect key="frame" x="78.5" y="0.0" width="186" height="203"/>
+                                        <rect key="frame" x="94.5" y="0.0" width="186" height="203"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="186" height="203"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="0gu-bi-4bP" customClass="CustomView" customModule="ePECS" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="149"/>
+                                                    <rect key="frame" x="10" y="12" width="166" height="137"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PyF-pu-clP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="186" height="149"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PyF-pu-clP">
+                                                            <rect key="frame" x="8" y="8" width="150" height="121"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="PyF-pu-clP" firstAttribute="leading" secondItem="0gu-bi-4bP" secondAttribute="leading" id="16p-RB-P8G"/>
-                                                        <constraint firstAttribute="trailing" secondItem="PyF-pu-clP" secondAttribute="trailing" id="2KI-o0-QMx"/>
-                                                        <constraint firstItem="PyF-pu-clP" firstAttribute="top" secondItem="0gu-bi-4bP" secondAttribute="top" id="POQ-yP-368"/>
-                                                        <constraint firstAttribute="bottom" secondItem="PyF-pu-clP" secondAttribute="bottom" id="ZOZ-oM-zuU"/>
+                                                        <constraint firstItem="PyF-pu-clP" firstAttribute="leading" secondItem="0gu-bi-4bP" secondAttribute="leading" constant="8" id="16p-RB-P8G"/>
+                                                        <constraint firstAttribute="trailing" secondItem="PyF-pu-clP" secondAttribute="trailing" constant="8" id="2KI-o0-QMx"/>
+                                                        <constraint firstItem="PyF-pu-clP" firstAttribute="top" secondItem="0gu-bi-4bP" secondAttribute="top" constant="8" id="POQ-yP-368"/>
+                                                        <constraint firstAttribute="bottom" secondItem="PyF-pu-clP" secondAttribute="bottom" constant="8" id="ZOZ-oM-zuU"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2P1-fF-MEG">
@@ -298,20 +310,21 @@
                                                         <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="deleteCard:" destination="PNn-SB-1O4" eventType="touchUpInside" id="rLx-7w-Sn1"/>
+                                                        <action selector="deleteButtonTapped:" destination="2kB-hN-a0h" eventType="touchUpInside" id="rnD-sf-TMK"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="0gu-bi-4bP" firstAttribute="top" secondItem="2kB-hN-a0h" secondAttribute="top" id="2KV-Yr-xFe"/>
+                                            <constraint firstItem="0gu-bi-4bP" firstAttribute="top" secondItem="2kB-hN-a0h" secondAttribute="top" constant="12" id="2KV-Yr-xFe"/>
                                             <constraint firstAttribute="bottom" secondItem="2P1-fF-MEG" secondAttribute="bottom" constant="12" id="FIA-ho-Ffl"/>
-                                            <constraint firstItem="0gu-bi-4bP" firstAttribute="leading" secondItem="2kB-hN-a0h" secondAttribute="leading" id="FQK-uc-DcZ"/>
+                                            <constraint firstItem="0gu-bi-4bP" firstAttribute="leading" secondItem="2kB-hN-a0h" secondAttribute="leading" constant="10" id="FQK-uc-DcZ"/>
                                             <constraint firstItem="2P1-fF-MEG" firstAttribute="centerX" secondItem="2kB-hN-a0h" secondAttribute="centerX" id="I7F-Dc-9aU"/>
                                             <constraint firstItem="2P1-fF-MEG" firstAttribute="top" secondItem="0gu-bi-4bP" secondAttribute="bottom" constant="12" id="Zst-eL-ZIt"/>
-                                            <constraint firstAttribute="trailing" secondItem="0gu-bi-4bP" secondAttribute="trailing" id="tIg-lT-jyB"/>
+                                            <constraint firstAttribute="trailing" secondItem="0gu-bi-4bP" secondAttribute="trailing" constant="10" id="tIg-lT-jyB"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="changeLevelTwoCustomView" destination="0gu-bi-4bP" id="LVy-IX-djn"/>
                                             <outlet property="changeLevelTwoImageView" destination="PyF-pu-clP" id="8Ui-3p-pC1"/>
                                         </connections>
                                     </collectionViewCell>
@@ -327,12 +340,12 @@
                             <constraint firstAttribute="trailing" secondItem="al8-l7-YkE" secondAttribute="trailing" constant="16" id="6a9-sn-dan"/>
                             <constraint firstItem="nWv-Ag-lfZ" firstAttribute="top" secondItem="35x-Ic-p06" secondAttribute="top" constant="50" id="9I6-Xi-0VG"/>
                             <constraint firstItem="UPI-yd-Hmm" firstAttribute="top" secondItem="nWv-Ag-lfZ" secondAttribute="bottom" constant="50" id="F41-3J-RbR"/>
-                            <constraint firstItem="35x-Ic-p06" firstAttribute="bottom" secondItem="Ps8-dB-bCJ" secondAttribute="bottom" constant="24" id="HJe-vw-eRx"/>
+                            <constraint firstItem="35x-Ic-p06" firstAttribute="bottom" secondItem="Ps8-dB-bCJ" secondAttribute="bottom" id="HJe-vw-eRx"/>
                             <constraint firstItem="al8-l7-YkE" firstAttribute="top" secondItem="UPI-yd-Hmm" secondAttribute="bottom" constant="2" id="TWC-N1-F9s"/>
-                            <constraint firstItem="Ps8-dB-bCJ" firstAttribute="top" secondItem="al8-l7-YkE" secondAttribute="bottom" constant="30" id="YQI-4X-eEA"/>
+                            <constraint firstItem="Ps8-dB-bCJ" firstAttribute="top" secondItem="al8-l7-YkE" secondAttribute="bottom" id="YQI-4X-eEA"/>
                             <constraint firstItem="35x-Ic-p06" firstAttribute="trailing" secondItem="UPI-yd-Hmm" secondAttribute="trailing" constant="16" id="b1u-YW-t0D"/>
-                            <constraint firstItem="Ps8-dB-bCJ" firstAttribute="leading" secondItem="35x-Ic-p06" secondAttribute="leading" constant="16" id="dsA-Cb-xde"/>
-                            <constraint firstItem="35x-Ic-p06" firstAttribute="trailing" secondItem="Ps8-dB-bCJ" secondAttribute="trailing" constant="16" id="k2O-IQ-i4R"/>
+                            <constraint firstItem="Ps8-dB-bCJ" firstAttribute="leading" secondItem="35x-Ic-p06" secondAttribute="leading" id="dsA-Cb-xde"/>
+                            <constraint firstItem="35x-Ic-p06" firstAttribute="trailing" secondItem="Ps8-dB-bCJ" secondAttribute="trailing" id="k2O-IQ-i4R"/>
                             <constraint firstItem="al8-l7-YkE" firstAttribute="leading" secondItem="YC7-68-yCw" secondAttribute="leading" constant="16" id="kqm-Bo-qNW"/>
                             <constraint firstItem="nWv-Ag-lfZ" firstAttribute="leading" secondItem="35x-Ic-p06" secondAttribute="leading" constant="16" id="n8e-Ph-oPt"/>
                             <constraint firstItem="35x-Ic-p06" firstAttribute="trailing" secondItem="nWv-Ag-lfZ" secondAttribute="trailing" constant="16" id="ugq-18-lfb"/>
