@@ -17,8 +17,8 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
         return Static.instance
     }
     
-    private var cards_images = [#imageLiteral(resourceName: "meGirl"), #imageLiteral(resourceName: "хочу"), #imageLiteral(resourceName: "да"), #imageLiteral(resourceName: "нет"), #imageLiteral(resourceName: "мяч"), #imageLiteral(resourceName: "car"), #imageLiteral(resourceName: "кушать"), #imageLiteral(resourceName: "пить"), #imageLiteral(resourceName: "помоги"), #imageLiteral(resourceName: "спать")]
-    private var cards_names = ["Я", "Хочу", "Да", "Нет", "Мяч", "Машина", "Кушать", "Пить", "Помоги", "Спать"]
+    //private var cards_images = [#imageLiteral(resourceName: "meGirl"), #imageLiteral(resourceName: "хочу"), #imageLiteral(resourceName: "да"), #imageLiteral(resourceName: "нет"), #imageLiteral(resourceName: "мяч"), #imageLiteral(resourceName: "car"), #imageLiteral(resourceName: "кушать"), #imageLiteral(resourceName: "пить"), #imageLiteral(resourceName: "помоги"), #imageLiteral(resourceName: "спать")]
+    //private var cards_names = ["Я", "Хочу", "Да", "Нет", "Мяч", "Машина", "Кушать", "Пить", "Помоги", "Спать"]
     private var cards: [Card] = []
     private var myImage: UIImage?
     
@@ -29,26 +29,12 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        setupCards()
-    }
-    
-    private func setupCards() {
-        var card: Card?
-        var index: Int?
-        for i in cards_names {
-            index = cards_names.index(of: i)
-            card = Card(index: index!, name: cards_names[index!], image: cards_images[index!])
-            cards.append(card!)
-        }
-    }
-       
-    func getCardsImages() -> [UIImage] {
-        return cards_images
-    }
-    
-    func getCardsNames() -> [String] {
-        return cards_names
+        cards = DataManager.shared.getBasicCards()
     }
 
     func showActionSheet() {
@@ -101,20 +87,42 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        myImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let newCard = Card(index: 88, name: "new card", image: myImage!) // should generate index that is free, 88 is an example
-        
-        var additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
-        for i in cards {
-            if (i.index == 99) {
-                additionCard = i
-                break
-            }
-        }
-        
-        cards[cards.index(of: additionCard)!] = newCard
-        changeLevelTwoCollectionView.reloadData()
+        myImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         dismiss(animated: true, completion: nil)
+        
+        let alert = UIAlertController(title: "Имя карточки", message: "Назовите карточку", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: nil)
+        let okAction = UIAlertAction(title: "ok", style: .default) { action in
+            print("inside okAction")
+            let newCardName = alert.textFields![0].text!
+            let newCard = Card(index: 88, name: newCardName, image: self.myImage!) // should generate index that is free, 88 is an example
+            
+            var additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
+            for i in self.cards {
+                if (i.index == 99) {
+                    additionCard = i
+                    break
+                }
+            }
+
+            self.cards[self.cards.index(of: additionCard)!] = newCard
+            self.changeLevelTwoCollectionView.reloadData()
+//            if (self.cards[self.cards.count-1].index == 99) {
+//                print("HERE")
+//                self.cards[self.cards.count-1] = newCard
+//                self.changeLevelTwoCollectionView.reloadData()
+//            }
+//            //print(additionCard?.name)
+            //self.cards[self.cards.index(of: additionCard!)!] = newCard
+            
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+        
+        DataManager.shared.setBasicCards(cards: cards)
+        changeLevelTwoCollectionView.reloadData()
      }
     
     override func didReceiveMemoryWarning() {
@@ -127,9 +135,9 @@ extension ChangeLevelTwoViewController: ChangeLevelTwoCollectionViewCellDelegate
     func didTapDelete(cardToDelete: Card) {
         cards.remove(at: cards.index(of: cardToDelete)!)
         cards.append(Card(index: 99, name: "", image: #imageLiteral(resourceName: "add")))
+        DataManager.shared.setBasicCards(cards: cards)
         changeLevelTwoCollectionView.reloadData()
     }
-    
 }
 
 extension ChangeLevelTwoViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
