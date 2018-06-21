@@ -11,8 +11,8 @@ import AVFoundation
 
 class SecondLevelViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AVSpeechSynthesizerDelegate {
     
-    let cards_images = ChangeLevelTwoViewController.shared.getCardsImages()
-    let cards_names = ChangeLevelTwoViewController.shared.getCardsNames()
+    //check if every card is deleted
+    var cards = [Card]()
     var toSpeak = ""
     
     @IBOutlet weak var zoomInUpperView: UIView! {
@@ -40,8 +40,6 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         dismissButton.isHidden = true
-        
-        setupSettingsButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +47,8 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
         
         navigationItem.title = "Этап II"
         navigationItem.hidesBackButton = true
+        cards = DataManager.shared.getBasicCards()
+        setupSettingsButton()
     }
 
     private func setupSettingsButton() {
@@ -104,20 +104,19 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cards_names.count
+        return cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondLevelCollectionViewCell", for: indexPath) as! SecondLevelCollectionViewCell
-        
-        cell.cardImageView.image = cards_images[indexPath.row]
+        cell.setCard(card: cards[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        toSpeak = cards_names[indexPath.row]
-        setupZoomInView(image: cards_images[indexPath.row])
+        toSpeak = cards[indexPath.row].name
+        setupZoomInView(image: cards[indexPath.row].image)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

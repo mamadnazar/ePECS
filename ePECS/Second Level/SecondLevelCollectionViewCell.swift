@@ -17,4 +17,7 @@ class SecondLevelCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func setCard(card: Card) {
+        cardImageView.image = card.image
+    }
 }
