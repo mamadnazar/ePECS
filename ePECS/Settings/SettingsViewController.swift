@@ -19,8 +19,6 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataManager.shared.initBasicCards()
-        DataManager.shared.initCategories()
     }
 
     override func viewWillAppear(_ animated: Bool) {

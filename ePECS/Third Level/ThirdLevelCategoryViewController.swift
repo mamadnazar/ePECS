@@ -28,7 +28,7 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //categoryCollectionView.reloadData()
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +39,6 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
         setupSettingsButton()
         
         allCards = DataManager.shared.getCategories()
-        //setupCategoriesCardsArray()
         phraseCollectionView.reloadData()
     }
     
@@ -104,7 +103,6 @@ extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollecti
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
-            
             let category = Array(allCards.keys)[indexPath.row]
             cell.categoryNameLabel.text = category
             cell.categoryImageView.image = allCards[category]?[0].image

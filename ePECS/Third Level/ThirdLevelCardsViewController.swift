@@ -19,7 +19,6 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
     var navTitle = ""
     var selectedCard = 0
     var toSpeak = ""
-    private var cards: [Card] = []
     
     @IBOutlet var zoomInView: UIView!
     @IBOutlet weak var upperZoomInView: UIView! {
@@ -49,7 +48,6 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
         super.viewWillAppear(true)
         
         allCards = DataManager.shared.getCategories()
-        //setupCardsArray()
         cardsCollectionView.reloadData()
         phraseCollectionView.reloadData()
     }
@@ -57,18 +55,6 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
-    }
-    
-    private func setupCardsArray() {
-        let card1 = Card(index: 11, name: "Компьютер", image: #imageLiteral(resourceName: "компьютер"))
-        let card2 = Card(index: 9, name: "Помоги", image: #imageLiteral(resourceName: "помоги"))
-        let card3 = Card(index: 8, name: "Пить", image: #imageLiteral(resourceName: "пить"))
-        let card4 = Card(index: 7, name: "Кушать", image: #imageLiteral(resourceName: "кушать"))
-        
-        cards.append(card1)
-        cards.append(card2)
-        cards.append(card3)
-        cards.append(card4)
     }
     
     @IBAction func dismissButton(_ sender: Any) {

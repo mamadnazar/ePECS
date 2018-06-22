@@ -14,11 +14,11 @@ var fourthLevel_phrasesToSpeak = ""
 
 class FourthLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelegate {
 
+    private var allCards: [String : Array<Card>] = [:]
     var categoryId = 0
     var navTitle = ""
     var selectedCard = 0
     var toSpeak = ""
-    private var cards: [Card] = []
     
     @IBOutlet var zoomInView: UIView!
     @IBOutlet weak var upperZoomInView: UIView! {
@@ -49,26 +49,14 @@ class FourthLevelCardsViewController: UIViewController, AVSpeechSynthesizerDeleg
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        setupCardsArray()
-        //cardsCollectionView.reloadData()
+        allCards = DataManager.shared.getCategories()
+        cardsCollectionView.reloadData()
         phraseCollectionView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
-    }
-    
-    private func setupCardsArray() {
-        let card1 = Card(index: 11, name: "Компьютер", image: #imageLiteral(resourceName: "компьютер"))
-        let card2 = Card(index: 9, name: "Помоги", image: #imageLiteral(resourceName: "помоги"))
-        let card3 = Card(index: 8, name: "Пить", image: #imageLiteral(resourceName: "пить"))
-        let card4 = Card(index: 7, name: "Кушать", image: #imageLiteral(resourceName: "кушать"))
-        
-        cards.append(card1)
-        cards.append(card2)
-        cards.append(card3)
-        cards.append(card4)
     }
     
     @IBAction func dismissButton(_ sender: Any) {
@@ -118,7 +106,7 @@ class FourthLevelCardsViewController: UIViewController, AVSpeechSynthesizerDeleg
     }
     
     private func addToPhrase(index: Int) {
-        let phraseCard = Card(index: cards[index].index, name: cards[index].name, image: cards[index].image)
+        let phraseCard = Card(index: allCards[navTitle]![index].index, name: allCards[navTitle]![index].name, image: allCards[navTitle]![index].image)
         fourthLevel_phrases_cards.append(phraseCard)
         phraseCollectionView.reloadData()
         
@@ -150,7 +138,7 @@ extension FourthLevelCardsViewController: UICollectionViewDelegate, UICollection
         if collectionView == phraseCollectionView {
             return fourthLevel_phrases_cards.count
         }
-        return cards.count
+        return (allCards[navTitle]?.count)!
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -162,7 +150,7 @@ extension FourthLevelCardsViewController: UICollectionViewDelegate, UICollection
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FourthLevelCardsCollectionViewCell", for: indexPath) as! FourthLevelCardCollectionViewCell
-            cell.setCard(card: cards[indexPath.row])
+            cell.setCard(card: allCards[navTitle]![indexPath.row])
             return cell
         }
     }
@@ -171,8 +159,8 @@ extension FourthLevelCardsViewController: UICollectionViewDelegate, UICollection
         
         if collectionView == cardsCollectionView {
             selectedCard = indexPath.row
-            toSpeak = cards[indexPath.row].name
-            setupZoomInView(image: cards[indexPath.row].image)
+            toSpeak = allCards[navTitle]![indexPath.row].name
+            setupZoomInView(image: allCards[navTitle]![indexPath.row].image)
         }
     }
     

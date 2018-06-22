@@ -34,9 +34,15 @@ class SelectLevelViewController: UIViewController {
     }
     
     @IBAction func changeLevelThree(_ sender: Any) {
+        let sb = UIStoryboard(name: "CardsLibraryStoryboard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "CardsLibraryViewController") as! CardsLibraryViewController
+        self.navigationController?.show(vc, sender: nil)
     }
     
     @IBAction func changeLevelFour(_ sender: Any) {
+        let sb = UIStoryboard(name: "CardsLibraryStoryboard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "CardsLibraryViewController") as! CardsLibraryViewController
+        self.navigationController?.show(vc, sender: nil)
     }
     
     override func didReceiveMemoryWarning() {

@@ -53,20 +53,16 @@ class DataManager {
     var card_sceptic = Card(index: 304, name: "сомнительно", image: #imageLiteral(resourceName: "sceptic"))
     var card_smile = Card(index: 305, name: "улыбка", image: #imageLiteral(resourceName: "smile"))
     var card_thinking = Card(index: 306, name: "думаю", image: #imageLiteral(resourceName: "thinking"))
-
     
     var categories: [String: Array<Card>]?
     var basicCards: Array<Card>?
     
-    func initCategories() {
+    init() {
         categories = [
             "Семья": [card_meGirl, card_meGirl2, card_meBoy, card_mother,      card_father, card_father2, card_grandfather, card_grandmother, card_baby, card_twins, card_family],
             "Ежедневные слова": [card_yes, card_no, card_want, card_eat, card_drink, card_help, card_forAWalk, card_sleep, ],
             "Эмоции": [card_laughing, card_sad, card_sad2, card_inLove, card_sceptic, card_smile, card_thinking]
         ]
-    }
-    
-    func initBasicCards() {
         basicCards = [card_meGirl, card_want, card_yes, card_no, card_father, card_mother, card_eat, card_drink, card_help, card_sleep]
     }
     

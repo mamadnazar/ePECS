@@ -93,7 +93,6 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
         let alert = UIAlertController(title: "Имя карточки", message: "Назовите карточку", preferredStyle: .alert)
         alert.addTextField(configurationHandler: nil)
         let okAction = UIAlertAction(title: "ok", style: .default) { action in
-            print("inside okAction")
             let newCardName = alert.textFields![0].text!
             let newCard = Card(index: 88, name: newCardName, image: self.myImage!) // should generate index that is free, 88 is an example
             
@@ -106,14 +105,8 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
             }
 
             self.cards[self.cards.index(of: additionCard)!] = newCard
+            DataManager.shared.setBasicCards(cards: self.cards)
             self.changeLevelTwoCollectionView.reloadData()
-//            if (self.cards[self.cards.count-1].index == 99) {
-//                print("HERE")
-//                self.cards[self.cards.count-1] = newCard
-//                self.changeLevelTwoCollectionView.reloadData()
-//            }
-//            //print(additionCard?.name)
-            //self.cards[self.cards.index(of: additionCard!)!] = newCard
             
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
@@ -121,8 +114,8 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
         
-        DataManager.shared.setBasicCards(cards: cards)
-        changeLevelTwoCollectionView.reloadData()
+        //DataManager.shared.setBasicCards(cards: cards)
+        //changeLevelTwoCollectionView.reloadData()
      }
     
     override func didReceiveMemoryWarning() {

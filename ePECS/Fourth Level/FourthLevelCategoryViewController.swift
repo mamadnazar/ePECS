@@ -11,7 +11,7 @@ import AVFoundation
 
 class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
-    private var categories_cards: [Card] = []
+    private var allCards: [String : Array<Card>] = [:]
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var phraseCollectionView: UICollectionView!
@@ -38,23 +38,8 @@ class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDe
         navigationItem.hidesBackButton = true
         setupSettingsButton()
         
-        setupCategoriesCardsArray()
+        allCards = DataManager.shared.getCategories()
         phraseCollectionView.reloadData()
-    }
-
-    private func setupCategoriesCardsArray() {
-        
-        let card1 = Card(index: 0, name: "Transport", image: #imageLiteral(resourceName: "car"))
-        let card2 = Card(index: 1, name: "Eating", image: #imageLiteral(resourceName: "кушать"))
-        let card3 = Card(index: 2, name: "Drinking", image: #imageLiteral(resourceName: "пить"))
-        let card4 = Card(index: 3, name: "Helping", image: #imageLiteral(resourceName: "помоги"))
-        let card5 = Card(index: 4, name: "Technology", image: #imageLiteral(resourceName: "компьютер"))
-        
-        categories_cards.append(card1)
-        categories_cards.append(card2)
-        categories_cards.append(card3)
-        categories_cards.append(card4)
-        categories_cards.append(card5)
     }
     
     private func setupSettingsButton() {
@@ -105,7 +90,7 @@ extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollect
         if collectionView == phraseCollectionView {
             return fourthLevel_phrases_cards.count
         }
-        return categories_cards.count
+        return allCards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -117,7 +102,9 @@ extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollect
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FourthLevelCategoryCollectionViewCell", for: indexPath) as! FourthLevelCategoryCollectionViewCell
-            cell.setCategoryCard(card: categories_cards[indexPath.row])
+            let category = Array(allCards.keys)[indexPath.row]
+            cell.categoryNameLabel.text = category
+            cell.categoryImageView.image = allCards[category]?[0].image
             return cell
         }
     }
@@ -125,7 +112,7 @@ extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoryCollectionView {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "FourthLevelCardsViewController") as! FourthLevelCardsViewController
-            vc.navTitle = categories_cards[indexPath.row].name
+            vc.navTitle = Array(allCards.keys)[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
