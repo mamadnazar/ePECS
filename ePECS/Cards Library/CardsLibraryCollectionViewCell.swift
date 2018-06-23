@@ -7,12 +7,11 @@
 //
 
 import UIKit
-
 class CardsLibraryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cardsLibraryCustomView: UIView! {
         didSet {
-            cardsLibraryCustomView.layer.cornerRadius = 20
+            cardsLibraryCustomView.layer.cornerRadius = 12
         }
     }
     @IBOutlet weak var cardsLibraryImage: UIImageView!
@@ -20,5 +19,4 @@ class CardsLibraryCollectionViewCell: UICollectionViewCell {
     func setCard(card: Card) {
         cardsLibraryImage.image = card.image
     }
-    
 }
