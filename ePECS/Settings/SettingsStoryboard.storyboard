@@ -89,7 +89,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmI-Xu-jwl">
                                 <rect key="frame" x="0.0" y="64" width="150" height="603"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJq-cC-W5h">
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJq-cC-W5h">
                                         <rect key="frame" x="10.5" y="285.5" width="129" height="32"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                                         <state key="normal" title="Настройки этапов">
@@ -166,74 +166,127 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4t-I7-66y">
-                                <rect key="frame" x="149" y="184" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
-                                <state key="normal" title="I.">
-                                    <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeLevelOne:" destination="6Y1-Ww-lKe" eventType="touchUpInside" id="vHP-jn-0zg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW0-7t-tjx">
-                                <rect key="frame" x="149" y="293" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
-                                <state key="normal" title="II.">
-                                    <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeLevelTwo:" destination="6Y1-Ww-lKe" eventType="touchUpInside" id="mIs-bf-Fu6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rz-ss-9PQ">
-                                <rect key="frame" x="150" y="402" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
-                                <state key="normal" title="III.">
-                                    <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeLevelThree:" destination="6Y1-Ww-lKe" eventType="touchUpInside" id="Pf2-kf-kyH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5x-bg-bsV">
-                                <rect key="frame" x="149" y="502" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
-                                <state key="normal" title="IV.">
-                                    <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeLevelFour:" destination="6Y1-Ww-lKe" eventType="touchUpInside" id="zJG-I7-RKb"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bjr-o2-LZK">
-                                <rect key="frame" x="163" y="252" width="50" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SOJ-MS-kjW">
-                                <rect key="frame" x="163" y="365" width="50" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dmR-tX-Yix">
-                                <rect key="frame" x="163" y="471" width="50" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Выберете этап для изменения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M05-wX-ji3">
-                                <rect key="frame" x="48" y="95" width="278" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберете этап для изменения" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M05-wX-ji3">
+                                <rect key="frame" x="24" y="50" width="327" height="74.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
                                 <color key="textColor" red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ny-Wq-i0J">
+                                <rect key="frame" x="103" y="134.5" width="168" height="398"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4t-I7-66y" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
+                                        <rect key="frame" x="24" y="8" width="120" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="EZR-JQ-Fl7"/>
+                                            <constraint firstAttribute="width" constant="120" id="Ig3-q4-7by"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
+                                        <state key="normal" title="I">
+                                            <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeLevelOne:" destination="6Y1-Ww-lKe" eventType="touchUpInside" id="vHP-jn-0zg"/>
+                                        </connections>
+                                    </button>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rz-ss-9PQ" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
+                                        <rect key="frame" x="24.5" y="216" width="120" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="4r8-cL-LoJ"/>
+                                            <constraint firstAttribute="width" constant="120" id="f8e-12-kYt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
+                                        <state key="normal" title="III">
+                                            <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeLevelThree:" destination="6Y1-Ww-lKe" eventType="touchUpInside" id="Pf2-kf-kyH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5x-bg-bsV" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
+                                        <rect key="frame" x="23.5" y="320" width="120" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="7Fr-bF-UfN"/>
+                                            <constraint firstAttribute="width" constant="120" id="Ybn-cO-mrq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
+                                        <state key="normal" title="IV">
+                                            <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeLevelFour:" destination="6Y1-Ww-lKe" eventType="touchUpInside" id="zJG-I7-RKb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW0-7t-tjx" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
+                                        <rect key="frame" x="23.5" y="112" width="120" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="F0d-eB-fKc"/>
+                                            <constraint firstAttribute="height" constant="70" id="Tbd-4i-Ja5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
+                                        <state key="normal" title="II">
+                                            <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeLevelTwo:" destination="6Y1-Ww-lKe" eventType="touchUpInside" id="mIs-bf-Fu6"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjr-o2-LZK">
+                                        <rect key="frame" x="45" y="198" width="78" height="2"/>
+                                        <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="78" id="ODN-fE-rcI"/>
+                                            <constraint firstAttribute="height" constant="2" id="osO-JH-kKY"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dp-9y-PJe">
+                                        <rect key="frame" x="45" y="302" width="78" height="2"/>
+                                        <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="78" id="Plx-eD-nZv"/>
+                                            <constraint firstAttribute="height" constant="2" id="ivi-kz-fDu"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nfm-5r-u1Z">
+                                        <rect key="frame" x="44.5" y="94" width="78" height="2"/>
+                                        <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="78" id="4Lr-aR-0FI"/>
+                                            <constraint firstAttribute="height" constant="2" id="uB1-LU-CkE"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Nfm-5r-u1Z" firstAttribute="centerX" secondItem="6ny-Wq-i0J" secondAttribute="centerX" id="2Ni-th-c2B"/>
+                                    <constraint firstItem="rW0-7t-tjx" firstAttribute="centerX" secondItem="6ny-Wq-i0J" secondAttribute="centerX" id="5wL-qx-oPx"/>
+                                    <constraint firstItem="Nfm-5r-u1Z" firstAttribute="top" secondItem="m4t-I7-66y" secondAttribute="bottom" constant="16" id="66L-lO-fmQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="h5x-bg-bsV" secondAttribute="bottom" constant="8" id="7OQ-h7-hRz"/>
+                                    <constraint firstItem="bjr-o2-LZK" firstAttribute="centerX" secondItem="6ny-Wq-i0J" secondAttribute="centerX" id="Hf9-6L-ZIV"/>
+                                    <constraint firstItem="bjr-o2-LZK" firstAttribute="top" secondItem="rW0-7t-tjx" secondAttribute="bottom" constant="16" id="L7T-lm-QD2"/>
+                                    <constraint firstAttribute="height" constant="398" id="QTC-Pd-QVq"/>
+                                    <constraint firstItem="9dp-9y-PJe" firstAttribute="centerX" secondItem="6ny-Wq-i0J" secondAttribute="centerX" id="ReN-jw-nFt"/>
+                                    <constraint firstItem="m4t-I7-66y" firstAttribute="centerX" secondItem="6ny-Wq-i0J" secondAttribute="centerX" id="TIG-hc-uzA"/>
+                                    <constraint firstItem="9dp-9y-PJe" firstAttribute="top" secondItem="5rz-ss-9PQ" secondAttribute="bottom" constant="16" id="XRg-IT-W5F"/>
+                                    <constraint firstItem="5rz-ss-9PQ" firstAttribute="centerX" secondItem="6ny-Wq-i0J" secondAttribute="centerX" id="YWl-TM-7iq"/>
+                                    <constraint firstItem="rW0-7t-tjx" firstAttribute="top" secondItem="Nfm-5r-u1Z" secondAttribute="bottom" constant="16" id="YgD-QC-ARl"/>
+                                    <constraint firstItem="5rz-ss-9PQ" firstAttribute="top" secondItem="bjr-o2-LZK" secondAttribute="bottom" constant="16" id="ftb-1m-JXc"/>
+                                    <constraint firstItem="h5x-bg-bsV" firstAttribute="centerX" secondItem="6ny-Wq-i0J" secondAttribute="centerX" id="gHO-hG-c0C"/>
+                                    <constraint firstItem="h5x-bg-bsV" firstAttribute="top" secondItem="9dp-9y-PJe" secondAttribute="bottom" constant="16" id="pRu-po-7Cg"/>
+                                    <constraint firstAttribute="width" constant="168" id="rNw-Em-oWq"/>
+                                    <constraint firstItem="m4t-I7-66y" firstAttribute="top" secondItem="6ny-Wq-i0J" secondAttribute="top" constant="8" id="yrg-31-vT9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="M05-wX-ji3" firstAttribute="leading" secondItem="cwE-j9-N9S" secondAttribute="leading" constant="24" id="1G6-lK-FES"/>
+                            <constraint firstItem="M05-wX-ji3" firstAttribute="top" secondItem="cwE-j9-N9S" secondAttribute="top" constant="30" id="S24-9M-LBD"/>
+                            <constraint firstItem="cwE-j9-N9S" firstAttribute="trailing" secondItem="M05-wX-ji3" secondAttribute="trailing" constant="24" id="Vnt-As-3qv"/>
+                            <constraint firstItem="6ny-Wq-i0J" firstAttribute="centerX" secondItem="sKQ-EZ-vnD" secondAttribute="centerX" id="kym-WO-peG"/>
+                            <constraint firstItem="6ny-Wq-i0J" firstAttribute="centerY" secondItem="sKQ-EZ-vnD" secondAttribute="centerY" id="tqn-Jh-E4F"/>
+                            <constraint firstItem="6ny-Wq-i0J" firstAttribute="top" secondItem="M05-wX-ji3" secondAttribute="bottom" constant="10" id="viq-Cr-lhu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cwE-j9-N9S"/>
                     </view>
                 </viewController>

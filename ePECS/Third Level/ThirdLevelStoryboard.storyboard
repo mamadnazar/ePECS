@@ -445,9 +445,12 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgy-Rg-aC5" customClass="CustomView" customModule="ePECS" customModuleProvider="target">
                             <rect key="frame" x="32" y="256" width="282" height="70"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e77-IX-0VM">
-                                    <rect key="frame" x="46" y="21" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e77-IX-0VM">
+                                    <rect key="frame" x="45.5" y="20" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="41Z-lu-7CM"/>
+                                        <constraint firstAttribute="height" constant="30" id="uEW-MR-dNt"/>
+                                    </constraints>
                                     <state key="normal" image="sound">
                                         <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -455,14 +458,20 @@
                                         <action selector="playButton:" destination="jXk-8x-jYc" eventType="touchUpInside" id="2vv-Vp-fBL"/>
                                     </connections>
                                 </button>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0aT-DS-6K8">
-                                    <rect key="frame" x="142" y="13" width="2" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0aT-DS-6K8">
+                                    <rect key="frame" x="139.5" y="13" width="3" height="44"/>
+                                    <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="Wpm-x7-yJz"/>
+                                        <constraint firstAttribute="width" constant="3" id="po5-3M-PIA"/>
+                                    </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i04-Gp-fJE">
-                                    <rect key="frame" x="209" y="19" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i04-Gp-fJE">
+                                    <rect key="frame" x="206.5" y="20" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="MIa-tp-ETT"/>
+                                        <constraint firstAttribute="height" constant="30" id="MYv-6v-Rjc"/>
+                                    </constraints>
                                     <state key="normal" image="add">
                                         <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -473,7 +482,13 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="i04-Gp-fJE" firstAttribute="leading" secondItem="0aT-DS-6K8" secondAttribute="trailing" constant="64" id="3Et-gl-0Gv"/>
+                                <constraint firstItem="i04-Gp-fJE" firstAttribute="centerY" secondItem="Kgy-Rg-aC5" secondAttribute="centerY" id="GDH-SZ-nxt"/>
+                                <constraint firstItem="0aT-DS-6K8" firstAttribute="centerX" secondItem="Kgy-Rg-aC5" secondAttribute="centerX" id="IJZ-ye-2ej"/>
+                                <constraint firstItem="0aT-DS-6K8" firstAttribute="leading" secondItem="e77-IX-0VM" secondAttribute="trailing" constant="64" id="cBu-Rr-d6e"/>
+                                <constraint firstItem="0aT-DS-6K8" firstAttribute="centerY" secondItem="Kgy-Rg-aC5" secondAttribute="centerY" id="dBO-lW-rQA"/>
                                 <constraint firstAttribute="height" constant="70" id="mWN-hT-PgU"/>
+                                <constraint firstItem="e77-IX-0VM" firstAttribute="centerY" secondItem="Kgy-Rg-aC5" secondAttribute="centerY" id="qf5-AI-dAh"/>
                             </constraints>
                         </view>
                     </subviews>

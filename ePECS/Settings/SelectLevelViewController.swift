@@ -19,6 +19,7 @@ class SelectLevelViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationItem.title = "Настройки этапов"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func changeLevelOne(_ sender: Any) {

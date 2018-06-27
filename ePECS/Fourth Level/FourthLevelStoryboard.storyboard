@@ -437,9 +437,12 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgy-Rg-aC5" customClass="CustomView" customModule="ePECS" customModuleProvider="target">
                             <rect key="frame" x="32" y="256" width="282" height="70"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i04-Gp-fJE">
-                                    <rect key="frame" x="211" y="21" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i04-Gp-fJE">
+                                    <rect key="frame" x="206.5" y="20" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="Dmy-hj-5zS"/>
+                                        <constraint firstAttribute="width" constant="30" id="oLg-lg-QVA"/>
+                                    </constraints>
                                     <state key="normal" image="add">
                                         <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -447,9 +450,12 @@
                                         <action selector="addButton:" destination="jXk-8x-jYc" eventType="touchUpInside" id="hkf-R1-CwY"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e77-IX-0VM">
-                                    <rect key="frame" x="53" y="21" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e77-IX-0VM">
+                                    <rect key="frame" x="45.5" y="20" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="ZA0-Pi-d6F"/>
+                                        <constraint firstAttribute="height" constant="30" id="h6w-Kx-zzD"/>
+                                    </constraints>
                                     <state key="normal" image="sound">
                                         <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -457,14 +463,23 @@
                                         <action selector="playButton:" destination="jXk-8x-jYc" eventType="touchUpInside" id="eAy-ZG-zFW"/>
                                     </connections>
                                 </button>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13h-UD-BNt">
-                                    <rect key="frame" x="140" y="13" width="2" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13h-UD-BNt">
+                                    <rect key="frame" x="139.5" y="13" width="3" height="44"/>
+                                    <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="I1S-A2-Nad"/>
+                                        <constraint firstAttribute="width" constant="3" id="iUU-r4-NY4"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="i04-Gp-fJE" firstAttribute="leading" secondItem="13h-UD-BNt" secondAttribute="trailing" constant="64" id="HsA-mC-w1e"/>
+                                <constraint firstItem="13h-UD-BNt" firstAttribute="centerX" secondItem="Kgy-Rg-aC5" secondAttribute="centerX" id="KsL-ny-XIX"/>
+                                <constraint firstItem="13h-UD-BNt" firstAttribute="leading" secondItem="e77-IX-0VM" secondAttribute="trailing" constant="64" id="Oq1-gV-bSI"/>
+                                <constraint firstItem="i04-Gp-fJE" firstAttribute="centerY" secondItem="Kgy-Rg-aC5" secondAttribute="centerY" id="Zpa-3S-H1q"/>
+                                <constraint firstItem="13h-UD-BNt" firstAttribute="centerY" secondItem="Kgy-Rg-aC5" secondAttribute="centerY" id="aba-1r-sGg"/>
+                                <constraint firstItem="e77-IX-0VM" firstAttribute="centerY" secondItem="Kgy-Rg-aC5" secondAttribute="centerY" id="hCY-zO-g7I"/>
                                 <constraint firstAttribute="height" constant="70" id="mWN-hT-PgU"/>
                             </constraints>
                         </view>

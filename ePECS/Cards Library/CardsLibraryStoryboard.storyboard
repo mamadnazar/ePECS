@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tlh-7B-H41">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tlh-7B-H41">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xG7-Ag-2Lx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xG7-Ag-2Lx">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -160,26 +160,46 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgJ-xg-nov">
                             <rect key="frame" x="16" y="249" width="258" height="70"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kV-pp-EkX">
-                                    <rect key="frame" x="39" y="20" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kV-pp-EkX">
+                                    <rect key="frame" x="33" y="20" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="g7w-oG-s4w"/>
+                                        <constraint firstAttribute="width" constant="30" id="r3l-TP-TVC"/>
+                                    </constraints>
                                     <state key="normal" image="sound"/>
                                     <connections>
                                         <action selector="playButton:" destination="Tlh-7B-H41" eventType="touchUpInside" id="L7N-gw-2vb"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwZ-G8-WdW">
-                                    <rect key="frame" x="191" y="20" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwZ-G8-WdW">
+                                    <rect key="frame" x="194" y="20" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="d0t-mo-gz2"/>
+                                        <constraint firstAttribute="height" constant="30" id="yaY-bD-Njj"/>
+                                    </constraints>
                                     <state key="normal" image="add"/>
                                     <connections>
                                         <action selector="addButton:" destination="Tlh-7B-H41" eventType="touchUpInside" id="O7x-EG-1yE"/>
                                     </connections>
                                 </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="74z-ZT-KIQ">
+                                    <rect key="frame" x="127" y="13" width="3" height="44"/>
+                                    <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="mJ0-Al-5Nq"/>
+                                        <constraint firstAttribute="width" constant="3" id="rCM-or-IdA"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="jwZ-G8-WdW" firstAttribute="leading" secondItem="74z-ZT-KIQ" secondAttribute="trailing" constant="64" id="P8u-AY-zFh"/>
+                                <constraint firstItem="0kV-pp-EkX" firstAttribute="centerY" secondItem="tgJ-xg-nov" secondAttribute="centerY" id="QXc-j7-i9F"/>
+                                <constraint firstItem="74z-ZT-KIQ" firstAttribute="leading" secondItem="0kV-pp-EkX" secondAttribute="trailing" constant="64" id="aj3-6C-1N8"/>
                                 <constraint firstAttribute="height" constant="70" id="iWT-uK-xIV"/>
+                                <constraint firstItem="74z-ZT-KIQ" firstAttribute="centerX" secondItem="tgJ-xg-nov" secondAttribute="centerX" id="l5h-DF-pEF"/>
+                                <constraint firstItem="74z-ZT-KIQ" firstAttribute="centerY" secondItem="tgJ-xg-nov" secondAttribute="centerY" id="odg-iy-vIW"/>
+                                <constraint firstItem="jwZ-G8-WdW" firstAttribute="centerY" secondItem="tgJ-xg-nov" secondAttribute="centerY" id="vZQ-MG-Jj6"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XoF-W0-DUe">
@@ -196,11 +216,6 @@
                                 <constraint firstItem="6q8-AG-Qxo" firstAttribute="leading" secondItem="XoF-W0-DUe" secondAttribute="leading" constant="12" id="XSr-Wb-LVo"/>
                                 <constraint firstItem="6q8-AG-Qxo" firstAttribute="top" secondItem="XoF-W0-DUe" secondAttribute="top" constant="12" id="qfe-hD-F8E"/>
                             </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74z-ZT-KIQ">
-                            <rect key="frame" x="144" y="264" width="3" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

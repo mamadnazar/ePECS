@@ -69,25 +69,32 @@ class Curve: UIView {
     
 }
 
-//class CustomButton: UIButton {
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//
-//        setupButton()
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//
-//        setupButton()
-//    }
-//
-//    private func setupButton() {
-//        backgroundColor = Colors.lightRed
-//        layer.cornerRadius = frame.height / 2
-//        setTitleColor(.white, for: .normal)
-//        titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-//    }
-//}
+class CustomButton: UIButton {
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        layer.cornerRadius = 12
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        layer.cornerRadius = 12
+    }
+
+    override open var isHighlighted: Bool {
+        didSet {
+            let highlightedColor = UIColor(red: 233, green: 233, blue: 233)
+            backgroundColor = isHighlighted ? highlightedColor : UIColor.white
+        }
+    }
+    
+    override open var isSelected: Bool {
+        didSet {
+            let highlightedColor = UIColor(red: 233, green: 233, blue: 233)
+            backgroundColor = isHighlighted ? highlightedColor : UIColor.white
+        }
+    }
+}
 

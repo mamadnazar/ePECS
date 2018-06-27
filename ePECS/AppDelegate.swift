@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.white
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor(red: 218, green: 68, blue: 83),
-                                                            NSAttributedStringKey.font: UIFont(name: "OpenSans-Bold", size: 20)!]
+                                                            NSAttributedStringKey.font: UIFont(name: "OpenSans-Bold", size: 16)!]
     }
 }
 
