@@ -55,14 +55,13 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationItem.title = "Библиотека карточек"
         cardsLibraryTableView.estimatedRowHeight = 120
         cardsLibraryTableView.tableFooterView = UIView()
-        
         dismissButton.isHidden = true
         
         allCards = DataManager.shared.getCategories()
         addAddingCard()
-        
         cardsLibraryTableView.reloadData()
     }
 

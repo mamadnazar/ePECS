@@ -21,7 +21,8 @@ class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDe
         
         fourthLevel_phrasesToSpeak = ""
         for i in fourthLevel_phrases_cards {
-            fourthLevel_phrasesToSpeak += "\(i.name)"
+            fourthLevel_phrasesToSpeak += " "
+            fourthLevel_phrasesToSpeak += i.name
         }
         speakOut(toSpeak: fourthLevel_phrasesToSpeak)
     }

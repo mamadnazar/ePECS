@@ -18,10 +18,10 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
     
     @IBOutlet weak var playAllButton: UIButton!
     @IBAction func playAllButton(_ sender: Any) {
-       
         phraseToSpeak = ""
         for i in phrase_cards {
-            phraseToSpeak += "\(i.name)"
+            phraseToSpeak += " "
+            phraseToSpeak += i.name
         }
         speakOut(toSpeak: phraseToSpeak)
     }
@@ -79,9 +79,7 @@ extension ThirdLevelCategoryViewController: PhraseCollectionViewCellDelegate {
     
     func didTapDelete(cardToDelete: Card) {
         let index = phrase_cards.index(of: cardToDelete)
-        if (index != 0 && index != 1) {
-            phrase_cards.remove(at: index!)
-        }
+        phrase_cards.remove(at: index!)
         phraseCollectionView.reloadData()
     }
 }
@@ -99,6 +97,7 @@ extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollecti
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhraseCollectionViewCell", for: indexPath) as! PhraseCollectionViewCell
             cell.setPhraseCard(card: phrase_cards[indexPath.row])
             cell.delegate = self
+            cell.deleteButton.isHidden = (indexPath.row < 2 ? true : false)
             return cell
         }
         else {

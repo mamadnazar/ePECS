@@ -16,6 +16,8 @@ protocol PhraseCollectionViewCellDelegate {
 class PhraseCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var phraseImageView: UIImageView!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     
     var card: Card!
     var delegate: PhraseCollectionViewCellDelegate?

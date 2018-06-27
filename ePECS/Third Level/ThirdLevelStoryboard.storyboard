@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dmy-bC-J0a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dmy-bC-J0a">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -154,6 +154,7 @@
                                             <constraint firstItem="6lv-Jl-vWQ" firstAttribute="centerX" secondItem="46j-sk-Imb" secondAttribute="centerX" id="sV8-0X-cR4"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="deleteButton" destination="6lv-Jl-vWQ" id="FwT-Zj-oxo"/>
                                             <outlet property="phraseImageView" destination="SjZ-VM-uK1" id="Oej-dG-k2P"/>
                                         </connections>
                                     </collectionViewCell>
@@ -359,6 +360,7 @@
                                             <constraint firstItem="OaL-tW-1GJ" firstAttribute="top" secondItem="sWX-RX-rgq" secondAttribute="bottom" constant="8" id="fwy-Cp-Qc0"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="deleteButton" destination="OaL-tW-1GJ" id="UoD-Sh-h8P"/>
                                             <outlet property="phraseImageView" destination="EII-Zy-2JN" id="1O6-DD-QmS"/>
                                         </connections>
                                     </collectionViewCell>
