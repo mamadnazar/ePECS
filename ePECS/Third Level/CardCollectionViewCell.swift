@@ -17,5 +17,4 @@ class CardCollectionViewCell: UICollectionViewCell {
         cardLabel.text = card.name
         cardImageView.image = card.image
     }
-    
 }

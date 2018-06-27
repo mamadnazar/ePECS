@@ -111,10 +111,7 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
         alert.addAction(cancelAction)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
-        
-        //DataManager.shared.setBasicCards(cards: cards)
-        //changeLevelTwoCollectionView.reloadData()
-     }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -152,8 +149,8 @@ extension ChangeLevelTwoViewController: UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = changeLevelTwoCollectionView.frame.size.width / 2
-        return CGSize(width: width, height: width)
+        let width = changeLevelTwoCollectionView.frame.size.width / 4
+        return CGSize(width: width, height: width + 40)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

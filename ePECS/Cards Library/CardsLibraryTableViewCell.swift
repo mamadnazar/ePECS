@@ -7,12 +7,16 @@
 //
 
 import UIKit
+
 protocol CardsLibraryCollectionViewCellDelegate: class {
-    func collectionViewCellDidTap(image: UIImage )
+    func collectionViewCellDidTap(card: Card)
+    func collectionViewCellDidTapToAdd(categoryIndex: Int)
 }
+
 class CardsLibraryTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     var cards: [Card] = []
+    var categoryIndex: Int?
     @IBOutlet weak var cardsLibraryCollectionView: UICollectionView!
     @IBOutlet weak var categoryNameLabel: UILabel!
     var cardsLibraryCollectionViewCellDelegate: CardsLibraryCollectionViewCellDelegate!
@@ -22,9 +26,14 @@ class CardsLibraryTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
         self.cardsLibraryCollectionView.dataSource = self
         self.cardsLibraryCollectionView.delegate = self
         
-        self.cardsLibraryCollectionView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        
     }
 
+    @objc func loadList(notification: NSNotification) {
+        self.cardsLibraryCollectionView.reloadData()
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -41,12 +50,10 @@ class CardsLibraryTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (cards[indexPath.row].index == 99) {
-            CardsLibraryViewController.shared.showActionSheet()
+            cardsLibraryCollectionViewCellDelegate.collectionViewCellDidTapToAdd(categoryIndex: categoryIndex!)
         }
         else {
-            cardsLibraryCollectionViewCellDelegate.collectionViewCellDidTap(image: cards[indexPath.row].image)
-            CardsLibraryViewController.shared.toSpeak = cards[indexPath.row].name
-           // CardsLibraryViewController.shared.setupZoomInView(image: cards[indexPath.row].image)
+            cardsLibraryCollectionViewCellDelegate.collectionViewCellDidTap(card: cards[indexPath.row])
         }
     }
     

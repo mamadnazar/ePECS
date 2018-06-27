@@ -19,7 +19,8 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
     }
     
     private var allCards: [String : Array<Card>] = [:]
-    var toSpeak = ""
+    private var toSpeak = ""
+    private var categoryIndex: Int?
     private var myImage: UIImage?
     @IBOutlet weak var cardsLibraryTableView: UITableView!
     @IBOutlet var zoomInView: UIView!
@@ -40,7 +41,6 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         dismissButton.isHidden = true
     }
     @IBAction func playButton(_ sender: Any) {
-        print(toSpeak)
         speakOut(toSpeak: toSpeak)
     }
     @IBAction func addButton(_ sender: Any) {
@@ -61,13 +61,18 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         dismissButton.isHidden = true
         
         allCards = DataManager.shared.getCategories()
+        addAddingCard()
+        
+        cardsLibraryTableView.reloadData()
+    }
+
+    private func addAddingCard() {
         let addingCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
         for i in allCards {
             allCards[i.key]?.append(addingCard)
         }
-        cardsLibraryTableView.reloadData()
     }
-
+    
     func setupZoomInView(image: UIImage) {
         
         //UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(zoomInView)
@@ -140,42 +145,45 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         }
     }
     
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        myImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-//        dismiss(animated: true, completion: nil)
-//
-//        let alert = UIAlertController(title: "Имя карточки", message: "Назовите карточку", preferredStyle: .alert)
-//        alert.addTextField(configurationHandler: nil)
-//        let okAction = UIAlertAction(title: "ok", style: .default) { action in
-//            let newCardName = alert.textFields![0].text!
-//            let newCard = Card(index: 88, name: newCardName, image: self.myImage!) // should generate index that is free, 88 is an example
-//
-//            var additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
-//            for i in self.cards {
-//                if (i.index == 99) {
-//                    additionCard = i
-//                    break
-//                }
-//            }
-//
-//            self.cards[self.cards.index(of: additionCard)!] = newCard
-//            DataManager.shared.setBasicCards(cards: self.cards)
-//            self.changeLevelTwoCollectionView.reloadData()
-//
-//        }
-//        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-//        alert.addAction(cancelAction)
-//        alert.addAction(okAction)
-//        self.present(alert, animated: true, completion: nil)
-//
-//    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        myImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        dismiss(animated: true, completion: nil)
+
+        let alert = UIAlertController(title: "Имя карточки", message: "Назовите карточку", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: nil)
+        let okAction = UIAlertAction(title: "ok", style: .default) { action in
+            let newCardName = alert.textFields![0].text!
+            let newCard = Card(index: 88, name: newCardName, image: self.myImage!) // should generate index that is free, 88 is an example
+
+            var additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
+            let category = Array(self.allCards.keys)[self.categoryIndex!]
+            self.allCards[category]![(self.allCards[category]?.count)! - 1] = newCard
+            self.allCards[category]?.append(additionCard)
+            
+            self.cardsLibraryTableView.reloadData()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
 }
+
 extension CardsLibraryViewController: CardsLibraryCollectionViewCellDelegate {
-    func collectionViewCellDidTap(image: UIImage) {
-        setupZoomInView(image: image)
+    func collectionViewCellDidTap(card: Card) {
+        setupZoomInView(image: card.image)
+        toSpeak = card.name
+    }
+    
+    func collectionViewCellDidTapToAdd(categoryIndex: Int) {
+        self.categoryIndex = categoryIndex
+        showActionSheet()
     }
     
 }
+
 extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -191,6 +199,7 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
         cell.categoryNameLabel.text = Array(allCards.keys)[indexPath.section]
         cell.cards = allCards[Array(allCards.keys)[indexPath.section]]!
         cell.cardsLibraryCollectionViewCellDelegate = self
+        cell.categoryIndex = indexPath.section
         return cell
     }
     

@@ -17,7 +17,7 @@ class ChangeLevelTwoCollectionViewCell: UICollectionViewCell {
  
     @IBOutlet weak var changeLevelTwoCustomView: CustomView! {
         didSet {
-            self.changeLevelTwoCustomView.layer.cornerRadius = 20
+            self.changeLevelTwoCustomView.layer.cornerRadius = 12
         }
     }
     @IBOutlet weak var changeLevelTwoImageView: UIImageView!
