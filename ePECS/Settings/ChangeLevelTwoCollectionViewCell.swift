@@ -21,6 +21,8 @@ class ChangeLevelTwoCollectionViewCell: UICollectionViewCell {
         }
     }
     @IBOutlet weak var changeLevelTwoImageView: UIImageView!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     var card: Card!
     var delegate: ChangeLevelTwoCollectionViewCellDelegate?
     

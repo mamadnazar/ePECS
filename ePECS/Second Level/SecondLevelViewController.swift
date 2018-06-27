@@ -47,10 +47,17 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
         
         navigationItem.title = "Этап II"
         navigationItem.hidesBackButton = true
-        cards = DataManager.shared.getBasicCards()
+        setupCards()
         setupSettingsButton()
     }
-
+    
+    private func setupCards() {
+        cards = DataManager.shared.getBasicCards()
+        if (cards[cards.count - 1].index == 99) {
+                cards.remove(at: cards.count-1 )
+        }
+    }
+    
     private func setupSettingsButton() {
         let button = UIButton.init(type: .custom)
         button.setImage(UIImage(named: "settings"), for: UIControlState.normal)

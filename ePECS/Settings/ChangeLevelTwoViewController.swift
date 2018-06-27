@@ -103,6 +103,9 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
             }
 
             self.cards[self.cards.index(of: additionCard)!] = newCard
+            if (self.cards.count < 10) {
+                self.cards.append(additionCard)
+            }
             DataManager.shared.setBasicCards(cards: self.cards)
             self.changeLevelTwoCollectionView.reloadData()
             
@@ -111,6 +114,7 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
         alert.addAction(cancelAction)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -121,8 +125,10 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
 
 extension ChangeLevelTwoViewController: ChangeLevelTwoCollectionViewCellDelegate {
     func didTapDelete(cardToDelete: Card) {
-        cards.remove(at: cards.index(of: cardToDelete)!)
-        cards.append(Card(index: 99, name: "", image: #imageLiteral(resourceName: "add")))
+        if (cards[cards.count - 1].index != 99) {
+            cards.remove(at: cards.index(of: cardToDelete)!)
+            cards.append(Card(index: 99, name: "", image: #imageLiteral(resourceName: "add")))
+        } else { cards.remove(at: cards.index(of: cardToDelete)!) }
         DataManager.shared.setBasicCards(cards: cards)
         changeLevelTwoCollectionView.reloadData()
     }
@@ -138,6 +144,7 @@ extension ChangeLevelTwoViewController: UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChangeLevelTwoCollectionViewCell", for: indexPath) as! ChangeLevelTwoCollectionViewCell
         cell.setPhraseCard(card: cards[indexPath.row])
         cell.delegate = self
+        cell.deleteButton.isHidden = (cards[indexPath.row].index == 99 ? true : false)
         return cell
     }
     
