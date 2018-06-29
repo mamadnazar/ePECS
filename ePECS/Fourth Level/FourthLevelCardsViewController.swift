@@ -17,7 +17,7 @@ class FourthLevelCardsViewController: UIViewController, AVSpeechSynthesizerDeleg
     private var allCards: [String : Array<Card>] = [:]
     var categoryId = 0
     var navTitle = ""
-    var selectedCard = 0
+    private var selectedCard = 0
     var toSpeak = ""
     
     @IBOutlet var zoomInView: UIView!

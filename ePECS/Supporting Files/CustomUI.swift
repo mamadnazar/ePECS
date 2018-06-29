@@ -15,7 +15,7 @@ class CustomView: UIView {
             if isRounded {
                 layer.cornerRadius = frame.width / 2
             } else {
-                layer.cornerRadius = 15
+                layer.cornerRadius = 20
             }
         }
     }
@@ -34,6 +34,7 @@ class CustomView: UIView {
     
     private func setupView() {
         backgroundColor = .white
+        layer.cornerRadius = 12
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowRadius = 3
