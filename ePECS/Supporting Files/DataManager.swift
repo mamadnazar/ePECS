@@ -18,6 +18,7 @@ class DataManager {
         return Static.instance
     }
     
+    private let additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
     // Not yet in category
     var card_ball = Card(index: 9, name: "мяч", image: #imageLiteral(resourceName: "мяч"))
     var card_pc = Card(index: 10, name: "компьютер", image: #imageLiteral(resourceName: "компьютер"))
@@ -56,13 +57,18 @@ class DataManager {
     
     var categories: [String: Array<Card>]?
     var basicCards: Array<Card>?
+    var categories2 = [(name: String, value: Array<Card>)]()
     
     init() {
         categories = [
-            "Семья": [card_meGirl, card_meGirl2, card_meBoy, card_mother,      card_father, card_father2, card_grandfather, card_grandmother, card_baby, card_twins, card_family],
-            "Ежедневные слова": [card_yes, card_no, card_want, card_eat, card_drink, card_help, card_forAWalk, card_sleep, ],
-            "Эмоции": [card_laughing, card_sad, card_sad2, card_inLove, card_sceptic, card_smile, card_thinking]
+            "Семья": [card_meGirl, card_meGirl2, card_meBoy, card_mother,      card_father, card_father2, card_grandfather, card_grandmother, card_baby, card_twins, card_family, additionCard],
+            "Ежедневные слова": [card_yes, card_no, card_want, card_eat, card_drink, card_help, card_forAWalk, card_sleep, additionCard],
+            "Эмоции": [card_laughing, card_sad, card_sad2, card_inLove, card_sceptic, card_smile, card_thinking, additionCard]
         ]
+        categories2 = [ ("Семья", [card_meGirl, card_meGirl2, card_meBoy, card_mother, card_father, card_father2, card_grandfather, card_grandmother, card_baby, card_twins, card_family, additionCard]),
+                        ("Ежедневные слова", [card_yes, card_no, card_want, card_eat, card_drink, card_help, card_forAWalk, card_sleep, additionCard]),
+            ("Эмоции", [card_laughing, card_sad, card_sad2, card_inLove, card_sceptic, card_smile, card_thinking, additionCard])
+            ]
         basicCards = [card_meGirl, card_want, card_yes, card_no, card_father, card_mother, card_eat, card_drink, card_help, card_sleep]
     }
     
@@ -74,13 +80,20 @@ class DataManager {
         return categories!
     }
     
+    public func getCategories2() -> [(String, Array<Card>)] {
+        return categories2
+    }
+    
     public func setBasicCards(cards: [Card]) {
         basicCards = cards
     }
     
-    public func setCategories(category: String, cards: Array<Card>){
-        
+    public func setCategories(allCards: [String: [Card]]){
+        categories = allCards
     }
     
+    public func setCategories2(categories: [(String, Array<Card>)]) {
+        categories2 = categories
+    }
     
 }

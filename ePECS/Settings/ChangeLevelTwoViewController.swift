@@ -18,9 +18,9 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
     }
     
     private var cards: [Card] = []
-    private var myImage: UIImage?
+    var myImage: UIImage?
     
-    var selectedCard: Int?
+    private var selectedCard: Int?
     var cellCardCount = 0
     
     @IBOutlet weak var changeLevelTwoCollectionView: UICollectionView!
@@ -81,7 +81,26 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
     func openLibrary() {
         let sb = UIStoryboard(name: "CardsLibraryStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "CardsLibraryViewController") as! CardsLibraryViewController
+        vc.fromVC = true
+        vc.addCardToLevelTwoDelegate = self
         self.navigationController?.show(vc, sender: self)
+    }
+    
+    func setCardFromLibrary(newCard: Card) {
+        var additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
+        for i in self.cards {
+            if (i.index == 99) {
+                additionCard = i
+                break
+            }
+        }
+        
+        self.cards[self.cards.index(of: additionCard)!] = newCard
+        if (self.cards.count < 10) {
+            self.cards.append(additionCard)
+        }
+        DataManager.shared.setBasicCards(cards: self.cards)
+        self.changeLevelTwoCollectionView.reloadData()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -123,6 +142,13 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
     }
 }
 
+extension ChangeLevelTwoViewController: AddCardToLevelTwoDelegate {
+    func didTapAddCard(card: Card) {
+        myImage = card.image
+        setCardFromLibrary(newCard: card)
+    }
+}
+
 extension ChangeLevelTwoViewController: ChangeLevelTwoCollectionViewCellDelegate {
     func didTapDelete(cardToDelete: Card) {
         if (cards[cards.count - 1].index != 99) {
@@ -154,8 +180,8 @@ extension ChangeLevelTwoViewController: UICollectionViewDataSource, UICollection
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
         let width = changeLevelTwoCollectionView.frame.size.width / 4
         return CGSize(width: width, height: width + 40)
     }

@@ -144,9 +144,13 @@
                         <viewLayoutGuide key="safeArea" id="kTi-zE-d65"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="jwZ-G8-WdW" id="6VP-vC-sab"/>
                         <outlet property="cardsLibraryTableView" destination="xG7-Ag-2Lx" id="yJI-p8-A8D"/>
                         <outlet property="dismissButton" destination="hid-gG-Ndd" id="H4v-od-zmu"/>
                         <outlet property="downZoomInView" destination="tgJ-xg-nov" id="0Mw-je-fSY"/>
+                        <outlet property="playButton" destination="0kV-pp-EkX" id="vCk-jY-tvx"/>
+                        <outlet property="playButtonHorizontalConstraint" destination="euf-gf-uh7" id="NCM-iM-TW2"/>
+                        <outlet property="smallView" destination="74z-ZT-KIQ" id="3cV-at-YAD"/>
                         <outlet property="upperZoomInView" destination="XoF-W0-DUe" id="BiJ-OW-Dgg"/>
                         <outlet property="zoomInImage" destination="6q8-AG-Qxo" id="r8p-TA-fGM"/>
                         <outlet property="zoomInView" destination="pvl-Kj-Da3" id="JtP-wl-f4a"/>
@@ -154,14 +158,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzW-ye-xBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="pvl-Kj-Da3">
-                    <rect key="frame" x="0.0" y="0.0" width="290" height="331"/>
+                    <rect key="frame" x="0.0" y="0.0" width="290" height="421"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgJ-xg-nov">
-                            <rect key="frame" x="16" y="249" width="258" height="70"/>
+                            <rect key="frame" x="16" y="339" width="258" height="70"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kV-pp-EkX">
-                                    <rect key="frame" x="33" y="20" width="30" height="30"/>
+                                    <rect key="frame" x="33.5" y="20" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="g7w-oG-s4w"/>
                                         <constraint firstAttribute="width" constant="30" id="r3l-TP-TVC"/>
@@ -195,7 +199,7 @@
                             <constraints>
                                 <constraint firstItem="jwZ-G8-WdW" firstAttribute="leading" secondItem="74z-ZT-KIQ" secondAttribute="trailing" constant="64" id="P8u-AY-zFh"/>
                                 <constraint firstItem="0kV-pp-EkX" firstAttribute="centerY" secondItem="tgJ-xg-nov" secondAttribute="centerY" id="QXc-j7-i9F"/>
-                                <constraint firstItem="74z-ZT-KIQ" firstAttribute="leading" secondItem="0kV-pp-EkX" secondAttribute="trailing" constant="64" id="aj3-6C-1N8"/>
+                                <constraint firstItem="0kV-pp-EkX" firstAttribute="centerX" secondItem="tgJ-xg-nov" secondAttribute="centerX" constant="-80.5" id="euf-gf-uh7"/>
                                 <constraint firstAttribute="height" constant="70" id="iWT-uK-xIV"/>
                                 <constraint firstItem="74z-ZT-KIQ" firstAttribute="centerX" secondItem="tgJ-xg-nov" secondAttribute="centerX" id="l5h-DF-pEF"/>
                                 <constraint firstItem="74z-ZT-KIQ" firstAttribute="centerY" secondItem="tgJ-xg-nov" secondAttribute="centerY" id="odg-iy-vIW"/>
@@ -203,10 +207,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XoF-W0-DUe">
-                            <rect key="frame" x="16" y="16" width="258" height="217"/>
+                            <rect key="frame" x="16" y="39" width="258" height="284"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6q8-AG-Qxo">
-                                    <rect key="frame" x="12" y="12" width="234" height="193"/>
+                                    <rect key="frame" x="12" y="12" width="234" height="260"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -215,6 +219,29 @@
                                 <constraint firstAttribute="trailing" secondItem="6q8-AG-Qxo" secondAttribute="trailing" constant="12" id="7jx-my-Dhz"/>
                                 <constraint firstItem="6q8-AG-Qxo" firstAttribute="leading" secondItem="XoF-W0-DUe" secondAttribute="leading" constant="12" id="XSr-Wb-LVo"/>
                                 <constraint firstItem="6q8-AG-Qxo" firstAttribute="top" secondItem="XoF-W0-DUe" secondAttribute="top" constant="12" id="qfe-hD-F8E"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sa4-0N-FuD" customClass="CustomView" customModule="ePECS" customModuleProvider="target">
+                            <rect key="frame" x="16" y="8" width="46" height="46"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JE0-g3-YLT">
+                                    <rect key="frame" x="8" y="8" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="6H7-C0-wsr"/>
+                                        <constraint firstAttribute="width" constant="30" id="khG-xB-tEI"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="delete"/>
+                                    <connections>
+                                        <action selector="deleteCardButton:" destination="Tlh-7B-H41" eventType="touchUpInside" id="tho-rk-nHX"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="JE0-g3-YLT" secondAttribute="bottom" constant="8" id="9Q3-r9-YFX"/>
+                                <constraint firstAttribute="trailing" secondItem="JE0-g3-YLT" secondAttribute="trailing" constant="8" id="YzZ-XR-OIZ"/>
+                                <constraint firstItem="JE0-g3-YLT" firstAttribute="leading" secondItem="sa4-0N-FuD" secondAttribute="leading" constant="8" id="c7n-Ya-LV6"/>
+                                <constraint firstItem="JE0-g3-YLT" firstAttribute="top" secondItem="sa4-0N-FuD" secondAttribute="top" constant="8" id="mfM-Xk-xUY"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -226,8 +253,10 @@
                         <constraint firstItem="QRD-hm-X9w" firstAttribute="trailing" secondItem="tgJ-xg-nov" secondAttribute="trailing" constant="16" id="MZq-XK-sdh"/>
                         <constraint firstItem="QRD-hm-X9w" firstAttribute="bottom" secondItem="tgJ-xg-nov" secondAttribute="bottom" constant="12" id="WNZ-2w-CjP"/>
                         <constraint firstItem="tgJ-xg-nov" firstAttribute="top" secondItem="XoF-W0-DUe" secondAttribute="bottom" constant="16" id="d1X-KD-uS2"/>
-                        <constraint firstItem="XoF-W0-DUe" firstAttribute="top" secondItem="QRD-hm-X9w" secondAttribute="top" constant="16" id="h0Q-Wm-fwW"/>
+                        <constraint firstItem="sa4-0N-FuD" firstAttribute="top" secondItem="QRD-hm-X9w" secondAttribute="top" constant="8" id="dyT-Mo-yBL"/>
+                        <constraint firstItem="XoF-W0-DUe" firstAttribute="top" secondItem="sa4-0N-FuD" secondAttribute="bottom" constant="-15" id="een-e7-9Au"/>
                         <constraint firstItem="QRD-hm-X9w" firstAttribute="trailing" secondItem="XoF-W0-DUe" secondAttribute="trailing" constant="16" id="lb1-7X-Sn1"/>
+                        <constraint firstItem="sa4-0N-FuD" firstAttribute="leading" secondItem="QRD-hm-X9w" secondAttribute="leading" constant="16" id="uMC-cr-Xts"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="QRD-hm-X9w"/>
                 </view>
@@ -237,6 +266,7 @@
     </scenes>
     <resources>
         <image name="add" width="125" height="125"/>
+        <image name="delete" width="125" height="125"/>
         <image name="family" width="256" height="256"/>
         <image name="sound" width="20" height="29"/>
     </resources>
