@@ -16,7 +16,8 @@ class SettingsViewController: UIViewController {
             self.setupLevels.layer.cornerRadius = 10
         }
     }
-
+    @IBOutlet weak var aboutApp: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -58,9 +59,10 @@ class SettingsViewController: UIViewController {
         self.navigationController?.show(vc, sender: self)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func aboutApp(_ sender: Any) {
+        let sb = UIStoryboard(name: "AboutApp", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "AboutAppViewController") as! AboutAppViewController
+        self.navigationController?.show(vc, sender: self)
     }
-
+    
 }

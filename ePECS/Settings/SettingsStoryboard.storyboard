@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y4R-Cg-3OX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y4R-Cg-3OX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,7 +36,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="Kb2-sn-wdi">
                                         <rect key="frame" x="94.5" y="24" width="36" height="555"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSm-fr-Y2L">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSm-fr-Y2L" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="36" height="110.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="28"/>
                                                 <state key="normal" title="I.">
@@ -46,7 +46,7 @@
                                                     <action selector="levelOne:" destination="Or5-WA-neV" eventType="touchUpInside" id="K4t-eN-1Pp"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1j-k2-jUq">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1j-k2-jUq" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="148.5" width="36" height="110"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="28"/>
                                                 <state key="normal" title="II.">
@@ -56,7 +56,7 @@
                                                     <action selector="levelTwo:" destination="Or5-WA-neV" eventType="touchUpInside" id="XLz-db-Yuf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-8a-6K2">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-8a-6K2" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="296.5" width="36" height="110.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="28"/>
                                                 <state key="normal" title="III.">
@@ -66,7 +66,7 @@
                                                     <action selector="levelThree:" destination="Or5-WA-neV" eventType="touchUpInside" id="kNJ-PG-cE2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8o-XJ-Cyt">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8o-XJ-Cyt" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="445" width="36" height="110"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="28"/>
                                                 <state key="normal" title="IV.">
@@ -121,6 +121,9 @@
                                         <state key="normal" title="О приложении">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="aboutApp:" destination="Or5-WA-neV" eventType="touchUpInside" id="OWE-pk-fXM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -151,6 +154,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wLM-jT-X1Q"/>
                     <connections>
+                        <outlet property="aboutApp" destination="DTf-cp-wkB" id="j4S-il-6KD"/>
                         <outlet property="setupLevels" destination="hJq-cC-W5h" id="pui-xw-WOC"/>
                     </connections>
                 </viewController>
