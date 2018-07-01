@@ -18,7 +18,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
     // variables
     //private var allCards: [String : Array<Card>] = [:]
     private var allCards2 = [(name: String, value: Array<Card>)]()
-    var cards: [Card] = []
+    //var cards: [Card] = []
     var cardsLibraryCollectionViewCellDelegate: CardsLibraryCollectionViewCellDelegate?
     private var toSpeak = ""
     private var categoryIndex: Int?
@@ -290,8 +290,8 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
         cell.categoryNameLabel.text = allCards2[indexPath.row].name
         cell.cards = allCards2[indexPath.row].value
         cell.cardsLibraryCollectionViewCellDelegate = self
-        cards = allCards2[indexPath.row].value
-        categoryIndex = indexPath.row
+        //cards = allCards2[indexPath.row].value
+        //categoryIndex = indexPath.row
         lastRow = indexPath.row
         return cell
         
@@ -321,21 +321,24 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
 extension CardsLibraryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cards.count
+        return allCards2[collectionView.tag].value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardsLibraryCollectionViewCell", for: indexPath) as! CardsLibraryCollectionViewCell
-        cell.setCard(card: cards[indexPath.row])
+        cell.setCard(card: allCards2[collectionView.tag].value[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (cards[indexPath.row].index == 99) {
-            cardsLibraryCollectionViewCellDelegate?.collectionViewCellDidTapToAdd(categoryIndex: categoryIndex!)
+        if (allCards2[collectionView.tag].value[indexPath.row].index == 99) {
+            self.collectionViewCellDidTapToAdd(categoryIndex: collectionView.tag)
+            //cardsLibraryCollectionViewCellDelegate?.collectionViewCellDidTapToAdd(categoryIndex: categoryIndex!)
         }
         else {
-            cardsLibraryCollectionViewCellDelegate?.collectionViewCellDidTap(card: cards[indexPath.row])
+            self.collectionViewCellDidTap(card: allCards2[collectionView.tag].value[indexPath.row])
+
+            //cardsLibraryCollectionViewCellDelegate?.collectionViewCellDidTap(card: cards[indexPath.row])
         }
     }
     
