@@ -11,7 +11,7 @@ import AVFoundation
 
 class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
-    private var allCards: [String : Array<Card>] = [:]
+    private var allCards2 = [(name: String, value: Array<Card>)]()
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var phraseCollectionView: UICollectionView!
@@ -38,7 +38,7 @@ class ThirdLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDel
         navigationItem.hidesBackButton = true
         setupSettingsButton()
         
-        allCards = DataManager.shared.getCategories()
+        allCards2 = DataManager.shared.getCategories2()
         phraseCollectionView.reloadData()
     }
     
@@ -85,11 +85,12 @@ extension ThirdLevelCategoryViewController: PhraseCollectionViewCellDelegate {
 }
 
 extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == phraseCollectionView {
             return phrase_cards.count
         }
-        return allCards.count
+        return allCards2.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -102,9 +103,9 @@ extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollecti
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
-            let category = Array(allCards.keys)[indexPath.row]
+            let category = allCards2[indexPath.row].name
             cell.categoryNameLabel.text = category
-            cell.categoryImageView.image = allCards[category]?[0].image
+            cell.categoryImageView.image = allCards2[indexPath.row].value[0].image
             return cell
         }
     }
@@ -112,7 +113,8 @@ extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoryCollectionView {
             let vc = UIStoryboard(name: "ThirdLevelStoryboard", bundle: nil).instantiateViewController(withIdentifier: "ThirdLevelCardsViewController") as! ThirdLevelCardsViewController
-            vc.navTitle = Array(allCards.keys)[indexPath.row]
+            vc.categoryId = indexPath.row
+            vc.navTitle = allCards2[indexPath.row].name
             navigationController?.pushViewController(vc, animated: true)
         }
     }

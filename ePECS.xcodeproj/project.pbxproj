@@ -54,6 +54,8 @@
 		CE91497220BB361900BC68DE /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91497120BB361900BC68DE /* CategoryCollectionViewCell.swift */; };
 		CE91497420BB362300BC68DE /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91497320BB362300BC68DE /* CardCollectionViewCell.swift */; };
 		CE91497620BB36F900BC68DE /* PhraseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91497520BB36F900BC68DE /* PhraseCollectionViewCell.swift */; };
+		CEAB28F920E959840036DC80 /* AboutApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAB28F820E959840036DC80 /* AboutApp.storyboard */; };
+		CEAB28FB20E959920036DC80 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB28FA20E959920036DC80 /* AboutAppViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,8 @@
 		CE91497120BB361900BC68DE /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE91497320BB362300BC68DE /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE91497520BB36F900BC68DE /* PhraseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEAB28F820E959840036DC80 /* AboutApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutApp.storyboard; sourceTree = "<group>"; };
+		CEAB28FA20E959920036DC80 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		D48C8F0197BC47A3F227271A /* Pods_ePECSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ePECSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8647635858E6DD48045987 /* Pods-ePECSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ePECSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ePECSUITests/Pods-ePECSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC91E9CDEE7B852787C54EC3 /* Pods-ePECS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ePECS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ePECS/Pods-ePECS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -233,13 +237,14 @@
 		847CFD8D20B4424A00D5BE99 /* ePECS */ = {
 			isa = PBXGroup;
 			children = (
-				84E7CC8D20D9BE9400B111EF /* Models */,
+				CEAB28F720E9593D0036DC80 /* AboutApp */,
 				84BBD6DB20CE475000D3CB2F /* Cards Library */,
 				84E26F0B20CBCB6300296344 /* Settings */,
 				8457A20820C91922006039C6 /* Fourth Level */,
 				CE91496A20BB301500BC68DE /* Third Level */,
 				8410E26220B887CD00E56A2F /* Second Level */,
 				8410E25D20B8800700E56A2F /* First Level */,
+				84E7CC8D20D9BE9400B111EF /* Models */,
 				847CFDC220B446BF00D5BE99 /* Supporting Files */,
 				847CFD9220B4424A00D5BE99 /* Main.storyboard */,
 				847CFD9020B4424A00D5BE99 /* ViewController.swift */,
@@ -336,6 +341,16 @@
 				CE91496B20BB302700BC68DE /* ThirdLevelStoryboard.storyboard */,
 			);
 			path = "Third Level";
+			sourceTree = "<group>";
+		};
+		CEAB28F720E9593D0036DC80 /* AboutApp */ = {
+			isa = PBXGroup;
+			children = (
+				CEAB28F820E959840036DC80 /* AboutApp.storyboard */,
+				CEAB28FA20E959920036DC80 /* AboutAppViewController.swift */,
+			);
+			name = AboutApp;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		D24AD712D78A4C409014B2C0 /* Frameworks */ = {
@@ -457,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				847CFD9920B4424D00D5BE99 /* LaunchScreen.storyboard in Resources */,
+				CEAB28F920E959840036DC80 /* AboutApp.storyboard in Resources */,
 				84907CD920D2A06600E9DE81 /* OpenSans-Regular.ttf in Resources */,
 				84907CDA20D2A06900E9DE81 /* OpenSans-Bold.ttf in Resources */,
 				84AB032D20C93D6900BC639D /* FourthLevelStoryboard.storyboard in Resources */,
@@ -598,6 +614,7 @@
 				CE91496520BA905000BC68DE /* SecondLevelCollectionViewCell.swift in Sources */,
 				CE91497220BB361900BC68DE /* CategoryCollectionViewCell.swift in Sources */,
 				849FA49220DCEBF300BC0B43 /* CardsLibraryTableViewCell.swift in Sources */,
+				CEAB28FB20E959920036DC80 /* AboutAppViewController.swift in Sources */,
 				849FA49420DCEFF800BC0B43 /* CardsLibraryCollectionViewCell.swift in Sources */,
 				84BBD6D820CE281B00D3CB2F /* ChangeLevelTwoViewController.swift in Sources */,
 				CE91497420BB362300BC68DE /* CardCollectionViewCell.swift in Sources */,

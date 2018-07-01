@@ -11,7 +11,7 @@ import AVFoundation
 
 class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
-    private var allCards: [String : Array<Card>] = [:]
+    private var allCards2 = [(name: String, value: Array<Card>)]()
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var phraseCollectionView: UICollectionView!
@@ -39,7 +39,7 @@ class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDe
         navigationItem.hidesBackButton = true
         setupSettingsButton()
         
-        allCards = DataManager.shared.getCategories()
+        allCards2 = DataManager.shared.getCategories2()
         phraseCollectionView.reloadData()
     }
     
@@ -91,7 +91,7 @@ extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollect
         if collectionView == phraseCollectionView {
             return fourthLevel_phrases_cards.count
         }
-        return allCards.count
+        return allCards2.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -103,9 +103,9 @@ extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollect
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FourthLevelCategoryCollectionViewCell", for: indexPath) as! FourthLevelCategoryCollectionViewCell
-            let category = Array(allCards.keys)[indexPath.row]
+            let category = allCards2[indexPath.row].name
             cell.categoryNameLabel.text = category
-            cell.categoryImageView.image = allCards[category]?[0].image
+            cell.categoryImageView.image = allCards2[indexPath.row].value[0].image
             return cell
         }
     }
@@ -113,7 +113,8 @@ extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoryCollectionView {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "FourthLevelCardsViewController") as! FourthLevelCardsViewController
-            vc.navTitle = Array(allCards.keys)[indexPath.row]
+            vc.categoryId = indexPath.row
+            vc.navTitle = allCards2[indexPath.row].name
             navigationController?.pushViewController(vc, animated: true)
         }
     }
