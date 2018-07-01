@@ -10,13 +10,14 @@ import UIKit
 
 protocol CardsLibraryCollectionViewCellDelegate: class {
     func collectionViewCellDidTap(card: Card)
-    func collectionViewCellDidTapToAdd()
+    func collectionViewCellDidTapToAdd(categoryIndex: Int)
 }
 
 class CardsLibraryTableViewCell: UITableViewCell {
 
     var cards: [Card] = []
     var categoryIndex: Int?
+    var cardsLibraryCollectionViewCellDelegate: CardsLibraryCollectionViewCellDelegate?
     @IBOutlet weak var cardsLibraryCollectionView: UICollectionView!
     @IBOutlet weak var categoryNameLabel: UILabel!
     
@@ -29,4 +30,14 @@ class CardsLibraryTableViewCell: UITableViewCell {
         cardsLibraryCollectionView.tag = row
         cardsLibraryCollectionView.reloadData()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (cards[indexPath.row].index == 99) {
+            cardsLibraryCollectionViewCellDelegate?.collectionViewCellDidTapToAdd(categoryIndex: categoryIndex!)
+        }
+        else {
+            cardsLibraryCollectionViewCellDelegate?.collectionViewCellDidTap(card: cards[indexPath.row])
+        }
+    }
+    
 }

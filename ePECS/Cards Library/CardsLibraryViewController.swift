@@ -15,11 +15,11 @@ protocol AddCardToLevelTwoDelegate: class {
 
 class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    private var allCards: [String : Array<Card>] = [:]
+    // variables
+    //private var allCards: [String : Array<Card>] = [:]
     private var allCards2 = [(name: String, value: Array<Card>)]()
     var cards: [Card] = []
-    var cardsLibraryCollectionViewCellDelegate: CardsLibraryCollectionViewCellDelegate!
-    private var levelTwoCards: [Card] = []
+    var cardsLibraryCollectionViewCellDelegate: CardsLibraryCollectionViewCellDelegate?
     private var toSpeak = ""
     private var categoryIndex: Int?
     private var lastRow: Int?
@@ -28,6 +28,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
     var fromVC = false // true for levelTwo vc
     weak var addCardToLevelTwoDelegate: AddCardToLevelTwoDelegate?
     
+    // outlets
     @IBOutlet weak var cardsLibraryTableView: UITableView!
     @IBOutlet var zoomInView: UIView!
     @IBOutlet weak var upperZoomInView: UIView! {
@@ -47,6 +48,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var smallView: UIView!
     
+    // action buttons
     @IBAction func dismissButton(_ sender: Any) {
         hideZoomInView()
         dismissButton.isHidden = true
@@ -71,20 +73,21 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
     }
     
     private func initialize() {
-        setupZoomInButtons(fromVC: fromVC)
         navigationItem.title = "Библиотека карточек"
         cardsLibraryTableView.estimatedRowHeight = 120
         cardsLibraryTableView.tableFooterView = UIView()
+        allCards2 = DataManager.shared.getCategories2()
         dismissButton.isHidden = true
         setupNavigationItemRightButton()
-        allCards2 = DataManager.shared.getCategories2()
-        //allCards = DataManager.shared.getCategories()
-        levelTwoCards = DataManager.shared.getBasicCards()
         cardsLibraryTableView.reloadData()
-        cardsLibraryTableView.beginUpdates()
-        cardsLibraryTableView.endUpdates()
+        setupZoomInButtons(fromVC: fromVC)
+        
+        //allCards = DataManager.shared.getCategories()
+        //cardsLibraryTableView.beginUpdates()
+        //cardsLibraryTableView.endUpdates()
     }
    
+    // initializing and seting up views
     private func setupNavigationItemRightButton() {
         let button = UIButton.init(type: .custom)
         button.setImage(UIImage(named: "add"), for: UIControlState.normal)
@@ -95,47 +98,6 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         button.addTarget(self, action: #selector(addCategoryButtonPressed), for: UIControlEvents.touchUpInside)
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
-    }
-    
-    @objc private func addCategoryButtonPressed() {
-        let alert = UIAlertController(title: "Добавление категории", message: "Назовите категорию", preferredStyle: .alert)
-        alert.addTextField(configurationHandler: nil)
-        let addCategoryAction = UIAlertAction(title: "Добавить", style: .default) { (action) in
-            let newCategoryName = alert.textFields![0].text!
-            
-            let additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
-            self.allCards2.append((name: newCategoryName, value: [additionCard]))
-            //DataManager.shared.setCategories(allCards: self.allCards)
-            DataManager.shared.setCategories2(categories: self.allCards2)
-            self.cardsLibraryTableView.reloadData()
-        }
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        alert.addAction(addCategoryAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
-    private func setupZoomInButtons(fromVC: Bool) {
-        if (fromVC) {
-            addButton.isHidden = false
-            smallView.isHidden = false
-            playButtonHorizontalConstraint.constant = -80.5
-        }
-        else {
-            addButton.isHidden = true
-            smallView.isHidden = true
-            playButtonHorizontalConstraint.constant = 0
-        }
-    }
-    
-    private func hideZoomInView() {
-        UIView.animate(withDuration: 0.4, animations: {
-            self.zoomInView.alpha = 0
-            self.zoomInView.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.maxY)
-        }) { (success) in
-            self.zoomInView.removeFromSuperview()
-        }
     }
     
     func setupZoomInView(image: UIImage) {
@@ -153,6 +115,47 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         view.addSubview(zoomInView)
     }
     
+    private func hideZoomInView() {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.zoomInView.alpha = 0
+            self.zoomInView.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.maxY)
+        }) { (success) in
+            self.zoomInView.removeFromSuperview()
+        }
+    }
+    
+    private func setupZoomInButtons(fromVC: Bool) {
+        if (fromVC) {
+            addButton.isHidden = false
+            smallView.isHidden = false
+            playButtonHorizontalConstraint.constant = -80.5
+        }
+        else {
+            addButton.isHidden = true
+            smallView.isHidden = true
+            playButtonHorizontalConstraint.constant = 0
+        }
+    }
+    
+    // adding category to cards library
+    @objc private func addCategoryButtonPressed() {
+        let alert = UIAlertController(title: "Добавление категории", message: "Назовите категорию", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: nil)
+        let addCategoryAction = UIAlertAction(title: "Добавить", style: .default) { (action) in
+            let newCategoryName = alert.textFields![0].text!
+            let additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
+            self.allCards2.append((name: newCategoryName, value: [additionCard]))
+            DataManager.shared.setCategories2(categories: self.allCards2)
+            self.cardsLibraryTableView.reloadData()
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        alert.addAction(addCategoryAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    // cards sound
     func speakOut(toSpeak: String) {
         let utterance = AVSpeechUtterance(string: toSpeak)
         utterance.voice = AVSpeechSynthesisVoice(language: "ru")
@@ -161,6 +164,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         readSound.speak(utterance)
     }
     
+    // deleting card from cards library
     func showDeleteCardAlert() {
         let alert = UIAlertController(title: "Внимание", message: "Вы действительно хотите удалить эту карточку?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Да", style: .default) { (action) in
@@ -173,6 +177,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         present(alert, animated: true, completion: nil)
     }
     
+    // adding card to level two
     func showAddCardAlert() {
         let alert = UIAlertController(title: "Внимание", message: "Вы действительно хотите выбрать эту карточку?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Да", style: .default) { (action) in
@@ -186,7 +191,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         present(alert, animated: true, completion: nil)
     }
     
-    
+    // adding card for cards library
     func showActionSheet() {
         let actionSheet = UIAlertController(title: "Выберете", message: "", preferredStyle: .actionSheet)
         
@@ -263,8 +268,8 @@ extension CardsLibraryViewController: CardsLibraryCollectionViewCellDelegate {
         selectedCard = card
     }
     
-    func collectionViewCellDidTapToAdd() {
-        //self.categoryIndex = categoryIndex
+    func collectionViewCellDidTapToAdd(categoryIndex: Int) {
+        self.categoryIndex = categoryIndex
         showActionSheet()
     }
     
@@ -284,30 +289,26 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "CardsLibraryTableViewCell") as! CardsLibraryTableViewCell
         cell.categoryNameLabel.text = allCards2[indexPath.row].name
         cell.cards = allCards2[indexPath.row].value
+        cell.cardsLibraryCollectionViewCellDelegate = self
         cards = allCards2[indexPath.row].value
-        //cell.categoryNameLabel.text = Array(allCards.keys)[indexPath.row]
-        //cell.cards = allCards[Array(allCards.keys)[indexPath.row]]!
-        cardsLibraryCollectionViewCellDelegate = self
-        cell.categoryIndex = indexPath.row
         categoryIndex = indexPath.row
         lastRow = indexPath.row
         return cell
+        
+        //cell.categoryNameLabel.text = Array(allCards.keys)[indexPath.row]
+        //cell.cards = allCards[Array(allCards.keys)[indexPath.row]]!
+        //cell.categoryIndex = indexPath.row
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         let count: CGFloat = CGFloat(allCards2[indexPath.row].value.count)
         Constant.totalItem = count
         let itemHeight = Constant.getItemWidth(boundWidth: tableView.bounds.size.width)
-
         let totalRow = ceil(Constant.totalItem / Constant.column)
-        
         let totalTopBottomOffset = Constant.offset + Constant.offset
-        
         let totalSpacing = CGFloat(totalRow - 1) * Constant.minLineSpacing
         
         let totalHeight  = ((itemHeight * CGFloat(totalRow)) + totalTopBottomOffset + totalSpacing)
-        print(totalHeight + 72)
         return totalHeight + 72 // 72: label and thin view with constraints
     }
     
@@ -315,47 +316,40 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
         guard let tableViewCell = cell as? CardsLibraryTableViewCell else { return }
         tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }
 
-extension CardsLibraryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension CardsLibraryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cards.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardsLibraryCollectionViewCell", for: indexPath) as! CardsLibraryCollectionViewCell
-        print(cards.count)
-        print("indexpathrow \(indexPath.row)")
         cell.setCard(card: cards[indexPath.row])
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (cards[indexPath.row].index == 99) {
-            cardsLibraryCollectionViewCellDelegate.collectionViewCellDidTapToAdd()
+            cardsLibraryCollectionViewCellDelegate?.collectionViewCellDidTapToAdd(categoryIndex: categoryIndex!)
         }
         else {
-            cardsLibraryCollectionViewCellDelegate.collectionViewCellDidTap(card: cards[indexPath.row])
+            cardsLibraryCollectionViewCellDelegate?.collectionViewCellDidTap(card: cards[indexPath.row])
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let itemWidth = Constant.getItemWidth(boundWidth: collectionView.bounds.size.width)
         return CGSize(width: itemWidth, height: itemWidth)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
 }
