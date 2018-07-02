@@ -145,14 +145,14 @@ class DataManager {
                         ("Семья", [card_meGirl, card_meGirl2, card_meBoy, card_mother, card_father, card_father2, card_grandfather, card_grandmother, card_baby, card_twins, card_family, additionCard]),
                         ("Ежедневные слова", [card_yes, card_no, card_want, card_eat, card_drink, card_help, card_forAWalk, card_sleep, additionCard]),
                         ("Эмоции", [card_laughing, card_sad, card_sad2, card_inLove, card_sceptic, card_smile, card_thinking, additionCard]),
-                        ("Моя комната", [card_bed, card_mirror, card_picture, card_bookshelf, card_computer, card_armchair, card_fan, card_workspace, card_shelf, card_toys]),
-                        ("В зале", [card_tv, card_couch, card_bookshelf, card_window, card_table, card_door, card_flowers]),
-                        ("В ванне", [card_bath, card_mirror, card_soap, card_cleaners, card_sink, card_washingmachine, card_toilet, card_toiletpaper, card_hairdryer]),
-                        ("На кухне", [card_microoven, card_pan, card_colander, card_eatingtable, card_sink, card_cutlery, card_table, card_plate, card_fridge, card_teapot]),
-                        ("На улице", [card_tree, card_house, card_houses, card_road, card_carousel, card_stall, card_trashbin, card_trafficlight, card_flowers]),
-                        ("Транспорт", [card_car, card_ship, card_bicycle, card_motorcycle, card_train, card_plane, card_ambulance, card_taxi, card_van]),
-                        ("Овощи и фрукты", [card_apple, card_banana, card_watermelon, card_cabbage, card_corn, card_limon, card_onion, card_carrot, card_cucumber, card_tomato, card_pepper, card_cherries]),
-                        ("Продукты", [card_cookie, card_jam, card_cake, card_flour, card_bar, card_donut, card_cheese, card_bread, card_egg]),
+                        ("Моя комната", [card_bed, card_mirror, card_picture, card_bookshelf, card_computer, card_armchair, card_fan, card_workspace, card_shelf, card_toys, additionCard]),
+                        ("В зале", [card_tv, card_couch, card_bookshelf, card_window, card_table, card_door, card_flowers, additionCard]),
+                        ("В ванне", [card_bath, card_mirror, card_soap, card_cleaners, card_sink, card_washingmachine, card_toilet, card_toiletpaper, card_hairdryer, additionCard]),
+                        ("На кухне", [card_microoven, card_pan, card_colander, card_eatingtable, card_sink, card_cutlery, card_table, card_plate, card_fridge, card_teapot, additionCard]),
+                        ("На улице", [card_tree, card_house, card_houses, card_road, card_carousel, card_stall, card_trashbin, card_trafficlight, card_flowers, additionCard]),
+                        ("Транспорт", [card_car, card_ship, card_bicycle, card_motorcycle, card_train, card_plane, card_ambulance, card_taxi, card_van, additionCard]),
+                        ("Овощи и фрукты", [card_apple, card_banana, card_watermelon, card_cabbage, card_corn, card_limon, card_onion, card_carrot, card_cucumber, card_tomato, card_pepper, card_cherries, additionCard]),
+                        ("Продукты", [card_cookie, card_jam, card_cake, card_flour, card_bar, card_donut, card_cheese, card_bread, card_egg, additionCard]),
         ]
         basicCards = [card_meGirl, card_want, card_yes, card_no, card_father, card_mother, card_eat, card_drink, card_help, card_sleep]
     }

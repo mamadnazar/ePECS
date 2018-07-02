@@ -9,7 +9,8 @@
 import UIKit
 import AVFoundation
 
-var phrase_cards: [Card] = [Card(index: 1, name: "я", image: #imageLiteral(resourceName: "meGirl")), Card(index: 2, name: "хочу", image: #imageLiteral(resourceName: "хочу"))]
+
+var phrase_cards: [Card] = [Card(index: 1, name: "я", image: #imageLiteral(resourceName: "я")), Card(index: 2, name: "хочу", image: #imageLiteral(resourceName: "хочу_надпись"))]
 var phraseToSpeak: String = ""
 
 class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelegate {
