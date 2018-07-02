@@ -5,10 +5,6 @@ target 'ePECS' do
   use_frameworks!
 
   # Pods for ePECS
-  	pod 'Alamofire', '~> 4.4'
-	pod 'SwiftyJSON'
-	pod 'IQKeyboardManagerSwift', '5.0.0'
-	pod 'Kingfisher'
 
   target 'ePECSTests' do
     inherit! :search_paths

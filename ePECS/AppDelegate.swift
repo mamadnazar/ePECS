@@ -14,32 +14,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     private var rootVC: UIViewController?
     private var sb: UIStoryboard?
+    var navigationController: UINavigationController = UINavigationController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         setupNavigationBar()
+        sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
+        navigationController = sb?.instantiateInitialViewController() as! UINavigationController
+        
         print(UserDefaults.standard.integer(forKey: "defaultVC"))
         let defaultLevel = UserDefaults.standard.integer(forKey: "defaultVC")
         switch defaultLevel {
         case 1:
             sb = UIStoryboard(name: "FirstLevelStoryboard", bundle: nil)
             rootVC = sb?.instantiateViewController(withIdentifier: "FirstLevelViewController") as! FirstLevelViewController
+            break
         case 2:
             sb = UIStoryboard(name: "SecondLevelStoryboard", bundle: nil)
             rootVC = sb?.instantiateViewController(withIdentifier: "SecondLevelViewController") as! SecondLevelViewController
+            break
         case 3:
             sb = UIStoryboard(name: "ThirdLevelStoryboard", bundle: nil)
             rootVC = sb?.instantiateViewController(withIdentifier: "ThirdLevelCategoryViewController") as! ThirdLevelCategoryViewController
+            break
         case 4:
             sb = UIStoryboard(name: "FourthLevelStoryboard", bundle: nil)
             rootVC = sb?.instantiateViewController(withIdentifier: "FourthLevelCategoryViewController") as! FourthLevelCategoryViewController
+            break
         default:
             sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
             rootVC = sb?.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+            break
         }
+        navigationController.viewControllers = [rootVC] as! [UIViewController]
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
         
-        window?.rootViewController = rootVC
         return true
     }
 

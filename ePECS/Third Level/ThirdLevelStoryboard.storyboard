@@ -194,7 +194,7 @@
                         <viewLayoutGuide key="safeArea" id="WLA-NM-m9n"/>
                     </view>
                     <navigationItem key="navigationItem" id="ocg-dl-l0y">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="0OD-03-I4s">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="0OD-03-I4s">
                             <color key="tintColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
