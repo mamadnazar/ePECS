@@ -13,6 +13,10 @@ protocol AddCardToLevelTwoDelegate: class {
     func didTapAddCard(card: Card)
 }
 
+protocol DeleteCategoryDelegate: class {
+    func didTapDeleteCategory(index: Int)
+}
+
 class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // variables
@@ -22,6 +26,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
     var cardsLibraryCollectionViewCellDelegate: CardsLibraryCollectionViewCellDelegate?
     private var toSpeak = ""
     private var categoryIndex: Int?
+    private var cardIndex: Int?
     private var lastRow: Int?
     private var myImage: UIImage?
     private var selectedCard: Card?
@@ -52,6 +57,9 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
     @IBAction func dismissButton(_ sender: Any) {
         hideZoomInView()
         dismissButton.isHidden = true
+    }
+    @IBAction func deleteCategory(_ sender: Any) {
+        showDeleteCategoryAlert()
     }
     @IBAction func deleteCardButton(_ sender: Any) {
         showDeleteCardAlert()
@@ -164,11 +172,30 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         readSound.speak(utterance)
     }
     
+    // delete category from cards library
+    func showDeleteCategoryAlert() {
+        let alert = UIAlertController(title: "Внимание", message: "Вы действительно хотите удалить эту категорию?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Да", style: .default) { (action) in
+            self.allCards2.remove(at: self.categoryIndex!)
+            DataManager.shared.setCategories2(categories: self.allCards2)
+            self.cardsLibraryTableView.reloadData()
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alert.addAction(yesAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     // deleting card from cards library
     func showDeleteCardAlert() {
         let alert = UIAlertController(title: "Внимание", message: "Вы действительно хотите удалить эту карточку?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Да", style: .default) { (action) in
-            //delete card
+            self.allCards2[self.categoryIndex!].value.remove(at: self.cardIndex!)
+            DataManager.shared.setCategories2(categories: self.allCards2)
+            self.cardsLibraryTableView.reloadData()
+            self.dismissButton.isHidden = true
+            self.hideZoomInView()
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
         alert.addAction(yesAction)
@@ -239,18 +266,10 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
             let newCardName = alert.textFields![0].text!
             let newCard = Card(index: 88, name: newCardName, image: self.myImage!) // should generate index that is free, 88 is an example
             let additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
-            //let category = self.allCards2[self.categoryIndex!].name
-            //let category = Array(self.allCards.keys)[self.categoryIndex!]
             self.allCards2[self.categoryIndex!].value[self.allCards2[self.categoryIndex!].value.count-1] = newCard
             self.allCards2[self.categoryIndex!].value.append(additionCard)
-            //self.allCards[category]![(self.allCards[category]?.count)! - 1] = newCard
-            //self.allCards[category]?.append(additionCard)
             
             DataManager.shared.setCategories2(categories: self.allCards2)
-            //DataManager.shared.setCategories(allCards: self.allCards)
-//            if let cell = self.cardsLibraryTableView.cellForRow(at: IndexPath(row: 0, section: self.categoryIndex!)) as? CardsLibraryTableViewCell {
-//                cell.cardsLibraryCollectionView.reloadData()
-//            }
             self.cardsLibraryTableView.reloadData()
         }
         
@@ -272,7 +291,13 @@ extension CardsLibraryViewController: CardsLibraryCollectionViewCellDelegate {
         self.categoryIndex = categoryIndex
         showActionSheet()
     }
-    
+}
+
+extension CardsLibraryViewController: DeleteCategoryDelegate {
+    func didTapDeleteCategory(index: Int) {
+        self.categoryIndex = index
+        showDeleteCategoryAlert()
+    }
 }
 
 extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate {
@@ -290,9 +315,11 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
         cell.categoryNameLabel.text = allCards2[indexPath.row].name
         cell.cards = allCards2[indexPath.row].value
         cell.cardsLibraryCollectionViewCellDelegate = self
+        cell.deleteCategoryDelegate = self
+        cell.categoryIndex = indexPath.row
         //cards = allCards2[indexPath.row].value
         //categoryIndex = indexPath.row
-        lastRow = indexPath.row
+        //lastRow = indexPath.row
         return cell
         
         //cell.categoryNameLabel.text = Array(allCards.keys)[indexPath.row]
@@ -309,8 +336,12 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
         let totalSpacing = CGFloat(totalRow - 1) * Constant.minLineSpacing
         
         let totalHeight  = ((itemHeight * CGFloat(totalRow)) + totalTopBottomOffset + totalSpacing)
-        print("YEEEEEEEY \(totalHeight)")
+        print("Total Height \(totalHeight)")
         return totalHeight + 72 // 72: label and thin view with constraints
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        categoryIndex = indexPath.row
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -337,6 +368,8 @@ extension CardsLibraryViewController: UICollectionViewDataSource, UICollectionVi
             //cardsLibraryCollectionViewCellDelegate?.collectionViewCellDidTapToAdd(categoryIndex: categoryIndex!)
         }
         else {
+            cardIndex = indexPath.row
+            categoryIndex = collectionView.tag
             self.collectionViewCellDidTap(card: allCards2[collectionView.tag].value[indexPath.row])
 
             //cardsLibraryCollectionViewCellDelegate?.collectionViewCellDidTap(card: cards[indexPath.row])

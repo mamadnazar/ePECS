@@ -18,8 +18,12 @@ class CardsLibraryTableViewCell: UITableViewCell {
     var cards: [Card] = []
     var categoryIndex: Int?
     var cardsLibraryCollectionViewCellDelegate: CardsLibraryCollectionViewCellDelegate?
+    var deleteCategoryDelegate: DeleteCategoryDelegate?
     @IBOutlet weak var cardsLibraryCollectionView: UICollectionView!
     @IBOutlet weak var categoryNameLabel: UILabel!
+    @IBAction func deleteCategory(_ sender: Any) {
+        deleteCategoryDelegate?.didTapDeleteCategory(index: categoryIndex!)
+    }
     
     func setCollectionViewDataSourceDelegate
         <D: UICollectionViewDataSource & UICollectionViewDelegate>
