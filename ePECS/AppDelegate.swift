@@ -12,11 +12,34 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    private var rootVC: UIViewController?
+    private var sb: UIStoryboard?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         setupNavigationBar()
+        print(UserDefaults.standard.integer(forKey: "defaultVC"))
+        let defaultLevel = UserDefaults.standard.integer(forKey: "defaultVC")
+        switch defaultLevel {
+        case 1:
+            sb = UIStoryboard(name: "FirstLevelStoryboard", bundle: nil)
+            rootVC = sb?.instantiateViewController(withIdentifier: "FirstLevelViewController") as! FirstLevelViewController
+        case 2:
+            sb = UIStoryboard(name: "SecondLevelStoryboard", bundle: nil)
+            rootVC = sb?.instantiateViewController(withIdentifier: "SecondLevelViewController") as! SecondLevelViewController
+        case 3:
+            sb = UIStoryboard(name: "ThirdLevelStoryboard", bundle: nil)
+            rootVC = sb?.instantiateViewController(withIdentifier: "ThirdLevelCategoryViewController") as! ThirdLevelCategoryViewController
+        case 4:
+            sb = UIStoryboard(name: "FourthLevelStoryboard", bundle: nil)
+            rootVC = sb?.instantiateViewController(withIdentifier: "FourthLevelCategoryViewController") as! FourthLevelCategoryViewController
+        default:
+            sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
+            rootVC = sb?.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        }
+        
+        window?.rootViewController = rootVC
         return true
     }
 
@@ -50,4 +73,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                             NSAttributedStringKey.font: UIFont(name: "OpenSans-Bold", size: 16)!]
     }
 }
+
+//extension AppDelegate {
+//    static var shared: AppDelegate {
+//        return UIApplication.shared.delegate as! AppDelegate
+//    }
+//
+//    var rootViewController: RootViewController {
+//        return window!.rootViewController as! RootViewController
+//    }
+//}
 

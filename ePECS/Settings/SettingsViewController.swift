@@ -9,7 +9,6 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
     
     @IBOutlet weak var setupLevels: UIButton! {
         didSet {
@@ -17,6 +16,15 @@ class SettingsViewController: UIViewController {
         }
     }
     @IBOutlet weak var aboutApp: UIButton!
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        //fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +48,17 @@ class SettingsViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: "FirstLevelViewController") as! FirstLevelViewController
         self.navigationController?.show(vc, sender: self)
     }
+    @IBAction func levelOneAsDefault(_ sender: Any) {
+        showAlert(level: 1)
+    }
     
     @IBAction func levelTwo(_ sender: Any) {
         let sb = UIStoryboard(name: "SecondLevelStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SecondLevelViewController") as! SecondLevelViewController
         self.navigationController?.show(vc, sender: self)
+    }
+    @IBAction func levelTwoAsDefault(_ sender: Any) {
+        showAlert(level: 2)
     }
     
     @IBAction func levelThree(_ sender: Any) {
@@ -52,17 +66,34 @@ class SettingsViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: "ThirdLevelCategoryViewController") as! ThirdLevelCategoryViewController
         self.navigationController?.show(vc, sender: self)
     }
+    @IBAction func levelThreeAsDefault(_ sender: Any) {
+        showAlert(level: 3)
+    }
     
     @IBAction func levelFour(_ sender: Any) {
         let sb = UIStoryboard(name: "FourthLevelStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "FourthLevelCategoryViewController") as! FourthLevelCategoryViewController
         self.navigationController?.show(vc, sender: self)
     }
+    @IBAction func levelFourAsDefault(_ sender: Any) {
+        showAlert(level: 4)
+    }
     
     @IBAction func aboutApp(_ sender: Any) {
         let sb = UIStoryboard(name: "AboutApp", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "AboutAppViewController") as! AboutAppViewController
         self.navigationController?.show(vc, sender: self)
+    }
+    
+    private func showAlert(level: Int){
+        let alert = UIAlertController(title: "Внимание", message: "Вы действительно хотите выбрать этот этап?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Да", style: .default) { (action) in
+            UserDefaults.standard.set(level, forKey: "defaultVC")
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alert.addAction(yesAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
 }

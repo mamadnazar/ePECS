@@ -239,10 +239,10 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
             let newCardName = alert.textFields![0].text!
             let newCard = Card(index: 88, name: newCardName, image: self.myImage!) // should generate index that is free, 88 is an example
             let additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
-            let category = self.allCards2[self.categoryIndex!].name
+            //let category = self.allCards2[self.categoryIndex!].name
             //let category = Array(self.allCards.keys)[self.categoryIndex!]
             self.allCards2[self.categoryIndex!].value[self.allCards2[self.categoryIndex!].value.count-1] = newCard
-            
+            self.allCards2[self.categoryIndex!].value.append(additionCard)
             //self.allCards[category]![(self.allCards[category]?.count)! - 1] = newCard
             //self.allCards[category]?.append(additionCard)
             
@@ -309,6 +309,7 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
         let totalSpacing = CGFloat(totalRow - 1) * Constant.minLineSpacing
         
         let totalHeight  = ((itemHeight * CGFloat(totalRow)) + totalTopBottomOffset + totalSpacing)
+        print("YEEEEEEEY \(totalHeight)")
         return totalHeight + 72 // 72: label and thin view with constraints
     }
     
