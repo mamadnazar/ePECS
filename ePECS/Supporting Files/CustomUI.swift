@@ -99,3 +99,31 @@ class CustomButton: UIButton {
     }
 }
 
+class CustomButton2: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        layer.cornerRadius = 12
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        layer.cornerRadius = 12
+    }
+    
+    override open var isHighlighted: Bool {
+        didSet {
+            let highlightedColor = UIColor(red: 204, green: 73, blue: 86)
+            backgroundColor = isHighlighted ? highlightedColor : UIColor.clear
+        }
+    }
+    
+    override open var isSelected: Bool {
+        didSet {
+            let highlightedColor = UIColor(red: 204, green: 73, blue: 86)
+            backgroundColor = isHighlighted ? highlightedColor : UIColor.clear
+        }
+    }
+}
+

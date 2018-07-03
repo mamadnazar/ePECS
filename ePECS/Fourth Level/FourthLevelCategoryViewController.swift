@@ -40,6 +40,9 @@ class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDe
         setupSettingsButton()
         
         allCards2 = DataManager.shared.loadAllCards()
+        for i in allCards2 {
+            i.cards.remove(at: i.cards.count-1)
+        }
         phraseCollectionView.reloadData()
     }
     
@@ -105,6 +108,9 @@ extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollect
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FourthLevelCategoryCollectionViewCell", for: indexPath) as! FourthLevelCategoryCollectionViewCell
             let category = allCards2[indexPath.row].categoryName
             cell.categoryNameLabel.text = category
+            if allCards2[indexPath.row].cards.count == 0 {
+                return cell
+            }
             cell.categoryImageView.image = allCards2[indexPath.row].cards[0].image
             return cell
         }

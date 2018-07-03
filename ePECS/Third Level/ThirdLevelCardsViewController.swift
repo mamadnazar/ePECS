@@ -49,6 +49,9 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
         super.viewWillAppear(true)
         
         allCards2 = DataManager.shared.loadAllCards()
+        for i in allCards2 {
+            i.cards.remove(at: i.cards.count-1)
+        }
         cardsCollectionView.reloadData()
         phraseCollectionView.reloadData()
     }
@@ -151,7 +154,9 @@ extension ThirdLevelCardsViewController: UICollectionViewDelegate, UICollectionV
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardsCollectionViewCell", for: indexPath) as! CardCollectionViewCell
-            cell.setCard(card: allCards2[categoryId].cards[indexPath.row])
+            if allCards2[indexPath.row].cards.count > 0 {
+                    cell.setCard(card: allCards2[categoryId].cards[indexPath.row])
+            }
             return cell
         }
     }

@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationItem.title = "Настройки"
+        navigationItem.title = "Главное"
         navigationItem.hidesBackButton = true
     }
         
