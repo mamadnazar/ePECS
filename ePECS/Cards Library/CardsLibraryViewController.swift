@@ -321,14 +321,12 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let count: CGFloat = CGFloat(allCards2[indexPath.row].cards.count)
         Constant.totalItem = count
-        print("COOOOUNT \(count)")
         let itemHeight = Constant.getItemWidth(boundWidth: tableView.bounds.size.width)
         let totalRow = ceil(Constant.totalItem / Constant.column)
         let totalTopBottomOffset = Constant.offset + Constant.offset
         let totalSpacing = CGFloat(totalRow - 1) * Constant.minLineSpacing
         
         let totalHeight  = ((itemHeight * CGFloat(totalRow)) + totalTopBottomOffset + totalSpacing)
-        print("Total Height \(totalHeight)")
         return totalHeight + 72// 72: label and thin view with constraints
     }
     
@@ -368,7 +366,6 @@ extension CardsLibraryViewController: UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let itemWidth = Constant.getItemWidth(boundWidth: collectionView.bounds.size.width)
-        print("itemWidth \(itemWidth)")
         return CGSize(width: itemWidth, height: itemWidth)
     }
     

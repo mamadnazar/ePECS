@@ -40,8 +40,8 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>Photo anything you want to be depicted as an ePECS card</string>
+	<string>Нужно Ваше разрешение использование камеры для того чтобы создать новую карточку</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Choose anything you want to be depicted as an ePECS card</string>
+	<string>Нужно Ваше разрешение использование галереи для того чтобы создать новую карточку</string>
 </dict>
 </plist>

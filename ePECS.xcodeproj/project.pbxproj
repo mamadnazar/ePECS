@@ -19,9 +19,6 @@
 		847CFDA420B4424D00D5BE99 /* ePECSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CFDA320B4424D00D5BE99 /* ePECSTests.swift */; };
 		847CFDAF20B4424D00D5BE99 /* ePECSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CFDAE20B4424D00D5BE99 /* ePECSUITests.swift */; };
 		847CFDC420B4480100D5BE99 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CFDC320B4480100D5BE99 /* DataManager.swift */; };
-		847CFDC620B4481C00D5BE99 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CFDC520B4481C00D5BE99 /* HTTPStatusCode.swift */; };
-		847CFDC820B4482800D5BE99 /* HTTPRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CFDC720B4482800D5BE99 /* HTTPRequestManager.swift */; };
-		847CFDCA20B4483D00D5BE99 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CFDC920B4483D00D5BE99 /* ServerManager.swift */; };
 		84907CD820D2A06400E9DE81 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84907CD720D29FCD00E9DE81 /* OpenSans-Semibold.ttf */; };
 		84907CD920D2A06600E9DE81 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84907CD520D29FCC00E9DE81 /* OpenSans-Regular.ttf */; };
 		84907CDA20D2A06900E9DE81 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84907CD620D29FCC00E9DE81 /* OpenSans-Bold.ttf */; };
@@ -92,9 +89,6 @@
 		847CFDAE20B4424D00D5BE99 /* ePECSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ePECSUITests.swift; sourceTree = "<group>"; };
 		847CFDB020B4424D00D5BE99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847CFDC320B4480100D5BE99 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		847CFDC520B4481C00D5BE99 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
-		847CFDC720B4482800D5BE99 /* HTTPRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestManager.swift; sourceTree = "<group>"; };
-		847CFDC920B4483D00D5BE99 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		84907CD520D29FCC00E9DE81 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		84907CD620D29FCC00E9DE81 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		84907CD720D29FCD00E9DE81 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
@@ -251,9 +245,6 @@
 			children = (
 				84907CCE20D29F8000E9DE81 /* Font */,
 				847CFDC320B4480100D5BE99 /* DataManager.swift */,
-				847CFDC920B4483D00D5BE99 /* ServerManager.swift */,
-				847CFDC720B4482800D5BE99 /* HTTPRequestManager.swift */,
-				847CFDC520B4481C00D5BE99 /* HTTPStatusCode.swift */,
 				8410E25B20B87ACA00E56A2F /* Extensions.swift */,
 				CE91496620BA90E100BC68DE /* CustomUI.swift */,
 				84C85A0920DE3AF500990CED /* Constant.swift */,
@@ -467,7 +458,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				847CFDC820B4482800D5BE99 /* HTTPRequestManager.swift in Sources */,
 				847CFD9120B4424A00D5BE99 /* MainViewController.swift in Sources */,
 				84AB033420C93FFD00BC639D /* FourthLevelCategoryViewController.swift in Sources */,
 				847CFDC420B4480100D5BE99 /* DataManager.swift in Sources */,
@@ -482,13 +472,11 @@
 				8410E25F20B887BA00E56A2F /* SecondLevelViewController.swift in Sources */,
 				84BBD6DA20CE287D00D3CB2F /* ChangeLevelTwoCollectionViewCell.swift in Sources */,
 				84AB033A20C9407100BC639D /* FourthLevelCardCollectionViewCell.swift in Sources */,
-				847CFDC620B4481C00D5BE99 /* HTTPStatusCode.swift in Sources */,
 				84E26F0D20CBCB9200296344 /* SettingsViewController.swift in Sources */,
 				CE9DCCA120EB95E500E08FB8 /* Categories.swift in Sources */,
 				84C85A0A20DE3AF500990CED /* Constant.swift in Sources */,
 				8410E25820B8663D00E56A2F /* FirstLevelViewController.swift in Sources */,
 				84BBD6D620CDD07900D3CB2F /* SelectLevelViewController.swift in Sources */,
-				847CFDCA20B4483D00D5BE99 /* ServerManager.swift in Sources */,
 				847CFD8F20B4424A00D5BE99 /* AppDelegate.swift in Sources */,
 				CE91496520BA905000BC68DE /* SecondLevelCollectionViewCell.swift in Sources */,
 				CE91497220BB361900BC68DE /* CategoryCollectionViewCell.swift in Sources */,
