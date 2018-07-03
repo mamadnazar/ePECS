@@ -42,7 +42,7 @@ class SettingsViewController: UIViewController {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SelectLevelViewController") as! SelectLevelViewController
         self.navigationController?.show(vc, sender: self)
     }
-    
+
     @IBAction func levelOne(_ sender: Any) {
         let sb = UIStoryboard(name: "FirstLevelStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "FirstLevelViewController") as! FirstLevelViewController
@@ -52,11 +52,13 @@ class SettingsViewController: UIViewController {
         showAlert(level: 1)
     }
     
+    
     @IBAction func levelTwo(_ sender: Any) {
         let sb = UIStoryboard(name: "SecondLevelStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SecondLevelViewController") as! SecondLevelViewController
         self.navigationController?.show(vc, sender: self)
     }
+    
     @IBAction func levelTwoAsDefault(_ sender: Any) {
         showAlert(level: 2)
     }
@@ -66,6 +68,7 @@ class SettingsViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: "ThirdLevelCategoryViewController") as! ThirdLevelCategoryViewController
         self.navigationController?.show(vc, sender: self)
     }
+    
     @IBAction func levelThreeAsDefault(_ sender: Any) {
         showAlert(level: 3)
     }
@@ -75,9 +78,11 @@ class SettingsViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: "FourthLevelCategoryViewController") as! FourthLevelCategoryViewController
         self.navigationController?.show(vc, sender: self)
     }
+    
     @IBAction func levelFourAsDefault(_ sender: Any) {
         showAlert(level: 4)
     }
+    
     
     @IBAction func aboutApp(_ sender: Any) {
         let sb = UIStoryboard(name: "AboutApp", bundle: nil)

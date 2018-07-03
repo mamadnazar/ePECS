@@ -11,7 +11,7 @@ import UIKit
 class Constant {
     static var totalItem: CGFloat = 20
     
-    static let column: CGFloat = 4
+    static var column: CGFloat = 4
     
     static let minLineSpacing: CGFloat = 1.0
     static let minItemSpacing: CGFloat = 1.0

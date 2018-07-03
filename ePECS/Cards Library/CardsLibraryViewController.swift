@@ -330,6 +330,7 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let count: CGFloat = CGFloat(allCards2[indexPath.row].value.count)
         Constant.totalItem = count
+        print("COOOOUNT \(count)")
         let itemHeight = Constant.getItemWidth(boundWidth: tableView.bounds.size.width)
         let totalRow = ceil(Constant.totalItem / Constant.column)
         let totalTopBottomOffset = Constant.offset + Constant.offset
@@ -337,7 +338,7 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
         
         let totalHeight  = ((itemHeight * CGFloat(totalRow)) + totalTopBottomOffset + totalSpacing)
         print("Total Height \(totalHeight)")
-        return totalHeight + 72 // 72: label and thin view with constraints
+        return totalHeight + 72// 72: label and thin view with constraints
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -350,7 +351,7 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
     }
 }
 
-extension CardsLibraryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension CardsLibraryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allCards2[collectionView.tag].value.count
@@ -379,6 +380,7 @@ extension CardsLibraryViewController: UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let itemWidth = Constant.getItemWidth(boundWidth: collectionView.bounds.size.width)
+        print("itemWidth \(itemWidth)")
         return CGSize(width: itemWidth, height: itemWidth)
     }
     

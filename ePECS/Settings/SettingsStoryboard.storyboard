@@ -43,8 +43,8 @@
                                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="levelOne:" destination="Or5-WA-neV" eventType="touchUpInside" id="K4t-eN-1Pp"/>
-                                                    <action selector="levelOneAsDefault:" destination="Or5-WA-neV" eventType="touchDragInside" id="AWP-WF-at3"/>
+                                                    <action selector="levelOne:" destination="Or5-WA-neV" eventType="touchUpInside" id="mnU-os-fy6"/>
+                                                    <action selector="levelOneAsDefault:" destination="Or5-WA-neV" eventType="touchDragOutside" id="qpf-e7-eax"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1j-k2-jUq" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
@@ -55,7 +55,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="levelTwo:" destination="Or5-WA-neV" eventType="touchUpInside" id="XLz-db-Yuf"/>
-                                                    <action selector="levelTwoAsDefault:" destination="Or5-WA-neV" eventType="touchDragInside" id="VA6-kX-Ilg"/>
+                                                    <action selector="levelTwoAsDefault:" destination="Or5-WA-neV" eventType="touchDragOutside" id="lJ5-EP-GUf"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-8a-6K2" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
@@ -66,7 +66,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="levelThree:" destination="Or5-WA-neV" eventType="touchUpInside" id="kNJ-PG-cE2"/>
-                                                    <action selector="levelThreeAsDefault:" destination="Or5-WA-neV" eventType="touchDragInside" id="lg7-0b-VQG"/>
+                                                    <action selector="levelThreeAsDefault:" destination="Or5-WA-neV" eventType="touchDragOutside" id="FCv-Pk-990"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8o-XJ-Cyt" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
@@ -77,7 +77,8 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="levelFour:" destination="Or5-WA-neV" eventType="touchUpInside" id="H6L-2E-ZSY"/>
-                                                    <action selector="levelFourAsDefault:" destination="Or5-WA-neV" eventType="touchDragInside" id="SDg-Pg-tCb"/>
+                                                    <action selector="levelFourAsDefault:" destination="Or5-WA-neV" eventType="touchUpInside" id="BqN-aq-Mn0"/>
+                                                    <action selector="levelFourAsDefault:" destination="Or5-WA-neV" eventType="touchDragOutside" id="TbP-M2-ml2"/>
                                                 </connections>
                                             </button>
                                         </subviews>

@@ -155,7 +155,18 @@ class DataManager {
                         ("Продукты", [card_cookie, card_jam, card_cake, card_flour, card_bar, card_donut, card_cheese, card_bread, card_egg, additionCard]),
         ]
         basicCards = [card_meGirl, card_want, card_yes, card_no, card_father, card_mother, card_eat, card_drink, card_help, card_sleep]
+        
+        //UserDefaults.standard.set(categories2, forKey: "allCardsWithCategories")
+        //saveBasicCards()
+        
     }
+    
+//    public func saveBasicCards() {
+//        let archivedBasicCards = archiveBasicCards(cards: basicCards!)
+//
+//        UserDefaults.standard.set(basicCards, forKey: "levelTwoCards")
+//        UserDefaults.standard.synchronize()
+//    }
     
     public func getBasicCards() -> [Card] {
         return basicCards!

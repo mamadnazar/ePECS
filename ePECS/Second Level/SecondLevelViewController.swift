@@ -52,6 +52,7 @@ class SecondLevelViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     private func setupCards() {
+        //cards = UserDefaults.standard.array(forKey: "levelTwoCards") as! [Card]
         cards = DataManager.shared.getBasicCards()
         if (cards[cards.count - 1].index == 99) {
                 cards.remove(at: cards.count-1 )

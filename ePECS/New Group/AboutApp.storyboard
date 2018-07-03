@@ -37,7 +37,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Klx-Bd-LtU">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neobis_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Klx-Bd-LtU">
                                         <rect key="frame" x="24" y="686" width="327" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="SeF-Ce-ato"/>
@@ -73,6 +73,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="151" height="57"/>
+        <image name="neobis_logo" width="1774" height="517"/>
     </resources>
 </document>

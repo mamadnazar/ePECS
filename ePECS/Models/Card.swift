@@ -36,5 +36,16 @@ class Card: NSObject, NSCoding {
     static func == (lhs: Card, rhs: Card) -> Bool {
         return lhs.index == rhs.index
     }
-    
+}
+
+func archiveBasicCards(cards: [Card]) -> Data {
+    let archivedObject = NSKeyedArchiver.archivedData(withRootObject: NSArray.self)
+    return archivedObject
+}
+
+func retrieveBasicCards() -> [Card] {
+    if let unarchivedObject = UserDefaults.standard.object(forKey: "levelTwoCards") as? Data {
+        return (NSKeyedUnarchiver.unarchiveObject(with: unarchivedObject) as? [Card])!
+    }
+    return []
 }
