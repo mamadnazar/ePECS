@@ -11,7 +11,7 @@ import AVFoundation
 
 class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
-    private var allCards2 = [(name: String, value: Array<Card>)]()
+    private var allCards2 = [Categories]()
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var phraseCollectionView: UICollectionView!
@@ -39,7 +39,7 @@ class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDe
         navigationItem.hidesBackButton = true
         setupSettingsButton()
         
-        allCards2 = DataManager.shared.getCategories2()
+        allCards2 = DataManager.shared.loadAllCards()
         phraseCollectionView.reloadData()
     }
     
@@ -103,9 +103,9 @@ extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollect
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FourthLevelCategoryCollectionViewCell", for: indexPath) as! FourthLevelCategoryCollectionViewCell
-            let category = allCards2[indexPath.row].name
+            let category = allCards2[indexPath.row].categoryName
             cell.categoryNameLabel.text = category
-            cell.categoryImageView.image = allCards2[indexPath.row].value[0].image
+            cell.categoryImageView.image = allCards2[indexPath.row].cards[0].image
             return cell
         }
     }
@@ -114,7 +114,7 @@ extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollect
         if collectionView == categoryCollectionView {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "FourthLevelCardsViewController") as! FourthLevelCardsViewController
             vc.categoryId = indexPath.row
-            vc.navTitle = allCards2[indexPath.row].name
+            vc.navTitle = allCards2[indexPath.row].categoryName
             navigationController?.pushViewController(vc, animated: true)
         }
     }

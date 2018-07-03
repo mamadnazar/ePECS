@@ -20,9 +20,7 @@ protocol DeleteCategoryDelegate: class {
 class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // variables
-    //private var allCards: [String : Array<Card>] = [:]
-    private var allCards2 = [(name: String, value: Array<Card>)]()
-    //var cards: [Card] = []
+    private var allCards2 = [Categories]()
     var cardsLibraryCollectionViewCellDelegate: CardsLibraryCollectionViewCellDelegate?
     private var toSpeak = ""
     private var categoryIndex: Int?
@@ -84,7 +82,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         navigationItem.title = "Библиотека карточек"
         cardsLibraryTableView.estimatedRowHeight = 120
         cardsLibraryTableView.tableFooterView = UIView()
-        allCards2 = DataManager.shared.getCategories2()
+        allCards2 = DataManager.shared.loadAllCards()
         dismissButton.isHidden = true
         setupNavigationItemRightButton()
         cardsLibraryTableView.reloadData()
@@ -152,8 +150,8 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         let addCategoryAction = UIAlertAction(title: "Добавить", style: .default) { (action) in
             let newCategoryName = alert.textFields![0].text!
             let additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
-            self.allCards2.append((name: newCategoryName, value: [additionCard]))
-            DataManager.shared.setCategories2(categories: self.allCards2)
+            self.allCards2.append(Categories(categoryName: newCategoryName, cards: [additionCard]))
+            DataManager.shared.saveAllCards(cardsWithCategories: self.allCards2)
             self.cardsLibraryTableView.reloadData()
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
@@ -177,7 +175,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         let alert = UIAlertController(title: "Внимание", message: "Вы действительно хотите удалить эту категорию?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Да", style: .default) { (action) in
             self.allCards2.remove(at: self.categoryIndex!)
-            DataManager.shared.setCategories2(categories: self.allCards2)
+            DataManager.shared.saveAllCards(cardsWithCategories: self.allCards2)
             self.cardsLibraryTableView.reloadData()
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
@@ -191,8 +189,8 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
     func showDeleteCardAlert() {
         let alert = UIAlertController(title: "Внимание", message: "Вы действительно хотите удалить эту карточку?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Да", style: .default) { (action) in
-            self.allCards2[self.categoryIndex!].value.remove(at: self.cardIndex!)
-            DataManager.shared.setCategories2(categories: self.allCards2)
+            self.allCards2[self.categoryIndex!].cards.remove(at: self.cardIndex!)
+            DataManager.shared.saveAllCards(cardsWithCategories: self.allCards2)
             self.cardsLibraryTableView.reloadData()
             self.dismissButton.isHidden = true
             self.hideZoomInView()
@@ -266,10 +264,10 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
             let newCardName = alert.textFields![0].text!
             let newCard = Card(index: 88, name: newCardName, image: self.myImage!) // should generate index that is free, 88 is an example
             let additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
-            self.allCards2[self.categoryIndex!].value[self.allCards2[self.categoryIndex!].value.count-1] = newCard
-            self.allCards2[self.categoryIndex!].value.append(additionCard)
+            self.allCards2[self.categoryIndex!].cards[self.allCards2[self.categoryIndex!].cards.count-1] = newCard
+            self.allCards2[self.categoryIndex!].cards.append(additionCard)
             
-            DataManager.shared.setCategories2(categories: self.allCards2)
+            DataManager.shared.saveAllCards(cardsWithCategories: self.allCards2)
             self.cardsLibraryTableView.reloadData()
         }
         
@@ -312,23 +310,16 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CardsLibraryTableViewCell") as! CardsLibraryTableViewCell
-        cell.categoryNameLabel.text = allCards2[indexPath.row].name
-        cell.cards = allCards2[indexPath.row].value
+        cell.categoryNameLabel.text = allCards2[indexPath.row].categoryName
+        cell.cards = allCards2[indexPath.row].cards
         cell.cardsLibraryCollectionViewCellDelegate = self
         cell.deleteCategoryDelegate = self
         cell.categoryIndex = indexPath.row
-        //cards = allCards2[indexPath.row].value
-        //categoryIndex = indexPath.row
-        //lastRow = indexPath.row
         return cell
-        
-        //cell.categoryNameLabel.text = Array(allCards.keys)[indexPath.row]
-        //cell.cards = allCards[Array(allCards.keys)[indexPath.row]]!
-        //cell.categoryIndex = indexPath.row
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let count: CGFloat = CGFloat(allCards2[indexPath.row].value.count)
+        let count: CGFloat = CGFloat(allCards2[indexPath.row].cards.count)
         Constant.totalItem = count
         print("COOOOUNT \(count)")
         let itemHeight = Constant.getItemWidth(boundWidth: tableView.bounds.size.width)
@@ -354,26 +345,23 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
 extension CardsLibraryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allCards2[collectionView.tag].value.count
+        return allCards2[collectionView.tag].cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardsLibraryCollectionViewCell", for: indexPath) as! CardsLibraryCollectionViewCell
-        cell.setCard(card: allCards2[collectionView.tag].value[indexPath.row])
+        cell.setCard(card: allCards2[collectionView.tag].cards[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (allCards2[collectionView.tag].value[indexPath.row].index == 99) {
+        if (allCards2[collectionView.tag].cards[indexPath.row].index == 99) {
             self.collectionViewCellDidTapToAdd(categoryIndex: collectionView.tag)
-            //cardsLibraryCollectionViewCellDelegate?.collectionViewCellDidTapToAdd(categoryIndex: categoryIndex!)
         }
         else {
             cardIndex = indexPath.row
             categoryIndex = collectionView.tag
-            self.collectionViewCellDidTap(card: allCards2[collectionView.tag].value[indexPath.row])
-
-            //cardsLibraryCollectionViewCellDelegate?.collectionViewCellDidTap(card: cards[indexPath.row])
+            self.collectionViewCellDidTap(card: allCards2[collectionView.tag].cards[indexPath.row])
         }
     }
     

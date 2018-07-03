@@ -22,9 +22,9 @@ class Card: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.index = (aDecoder.decodeObject(forKey: "index") as? Int)!
-        self.name = (aDecoder.decodeObject(forKey: "name") as? String)!
-        self.image = (aDecoder.decodeObject(forKey: "image") as? UIImage)!
+        self.index = aDecoder.decodeInteger(forKey: "index")
+        self.name = aDecoder.decodeObject(forKey: "name") as? String ?? ""
+        self.image = aDecoder.decodeObject(forKey: "image") as? UIImage ?? #imageLiteral(resourceName: "add")
     }
 
     func encode(with aCoder: NSCoder) {
@@ -38,14 +38,14 @@ class Card: NSObject, NSCoding {
     }
 }
 
-func archiveBasicCards(cards: [Card]) -> Data {
-    let archivedObject = NSKeyedArchiver.archivedData(withRootObject: NSArray.self)
-    return archivedObject
-}
-
-func retrieveBasicCards() -> [Card] {
-    if let unarchivedObject = UserDefaults.standard.object(forKey: "levelTwoCards") as? Data {
-        return (NSKeyedUnarchiver.unarchiveObject(with: unarchivedObject) as? [Card])!
-    }
-    return []
-}
+//func archiveBasicCards(cards: [Card]) -> Data {
+//    let archivedObject = NSKeyedArchiver.archivedData(withRootObject: NSArray.self)
+//    return archivedObject
+//}
+//
+//func retrieveBasicCards() -> [Card] {
+//    if let unarchivedObject = UserDefaults.standard.object(forKey: "levelTwoCards") as? Data {
+//        return (NSKeyedUnarchiver.unarchiveObject(with: unarchivedObject) as? [Card])!
+//    }
+//    return []
+//}

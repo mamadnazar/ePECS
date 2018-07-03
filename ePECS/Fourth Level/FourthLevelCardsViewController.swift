@@ -14,7 +14,7 @@ var fourthLevel_phrasesToSpeak = ""
 
 class FourthLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelegate {
 
-    private var allCards2 = [(name: String, value: Array<Card>)]()
+    private var allCards2 = [Categories]()
     var categoryId = 0
     var navTitle = ""
     private var selectedCard = 0
@@ -49,7 +49,7 @@ class FourthLevelCardsViewController: UIViewController, AVSpeechSynthesizerDeleg
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        allCards2 = DataManager.shared.getCategories2()
+        allCards2 = DataManager.shared.loadAllCards()
         cardsCollectionView.reloadData()
         phraseCollectionView.reloadData()
     }
@@ -107,7 +107,7 @@ class FourthLevelCardsViewController: UIViewController, AVSpeechSynthesizerDeleg
     }
     
     private func addToPhrase(index: Int) {
-        let phraseCard = Card(index: allCards2[categoryId].value[index].index, name: allCards2[categoryId].value[index].name, image: allCards2[categoryId].value[index].image)
+        let phraseCard = Card(index: allCards2[categoryId].cards[index].index, name: allCards2[categoryId].cards[index].name, image: allCards2[categoryId].cards[index].image)
         fourthLevel_phrases_cards.append(phraseCard)
         phraseCollectionView.reloadData()
         
@@ -139,7 +139,7 @@ extension FourthLevelCardsViewController: UICollectionViewDelegate, UICollection
         if collectionView == phraseCollectionView {
             return fourthLevel_phrases_cards.count
         }
-        return allCards2[categoryId].value.count
+        return allCards2[categoryId].cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -151,7 +151,7 @@ extension FourthLevelCardsViewController: UICollectionViewDelegate, UICollection
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FourthLevelCardsCollectionViewCell", for: indexPath) as! FourthLevelCardCollectionViewCell
-            cell.setCard(card: allCards2[categoryId].value[indexPath.row])
+            cell.setCard(card: allCards2[categoryId].cards[indexPath.row])
             return cell
         }
     }
@@ -160,8 +160,8 @@ extension FourthLevelCardsViewController: UICollectionViewDelegate, UICollection
         
         if collectionView == cardsCollectionView {
             selectedCard = indexPath.row
-            toSpeak = allCards2[categoryId].value[indexPath.row].name
-            setupZoomInView(image: allCards2[categoryId].value[indexPath.row].image)
+            toSpeak = allCards2[categoryId].cards[indexPath.row].name
+            setupZoomInView(image: allCards2[categoryId].cards[indexPath.row].image)
         }
     }
     

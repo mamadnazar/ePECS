@@ -15,7 +15,7 @@ var phraseToSpeak: String = ""
 
 class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
-    private var allCards2 = [(name: String, value: Array<Card>)]()
+    private var allCards2 = [Categories]()
     var categoryId = 0
     var navTitle = ""
     private var selectedCard = 0
@@ -48,7 +48,7 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        allCards2 = DataManager.shared.getCategories2()
+        allCards2 = DataManager.shared.loadAllCards()
         cardsCollectionView.reloadData()
         phraseCollectionView.reloadData()
     }
@@ -105,7 +105,7 @@ class ThirdLevelCardsViewController: UIViewController, AVSpeechSynthesizerDelega
     }
     
     private func addToPhrase(index: Int) {
-        let phraseCard = Card(index: allCards2[categoryId].value[index].index, name: allCards2[categoryId].value[index].name, image: allCards2[categoryId].value[index].image)
+        let phraseCard = Card(index: allCards2[categoryId].cards[index].index, name: allCards2[categoryId].cards[index].name, image: allCards2[categoryId].cards[index].image)
         phrase_cards.append(phraseCard)
         phraseCollectionView.reloadData()
         
@@ -138,7 +138,7 @@ extension ThirdLevelCardsViewController: UICollectionViewDelegate, UICollectionV
         if collectionView == phraseCollectionView {
             return phrase_cards.count
         }
-        return allCards2[categoryId].value.count
+        return allCards2[categoryId].cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -151,7 +151,7 @@ extension ThirdLevelCardsViewController: UICollectionViewDelegate, UICollectionV
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardsCollectionViewCell", for: indexPath) as! CardCollectionViewCell
-            cell.setCard(card: allCards2[categoryId].value[indexPath.row])
+            cell.setCard(card: allCards2[categoryId].cards[indexPath.row])
             return cell
         }
     }
@@ -159,8 +159,8 @@ extension ThirdLevelCardsViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == cardsCollectionView {
             selectedCard = indexPath.row
-            toSpeak = allCards2[categoryId].value[indexPath.row].name
-            setupZoomInView(image: allCards2[categoryId].value[indexPath.row].image)
+            toSpeak = allCards2[categoryId].cards[indexPath.row].name
+            setupZoomInView(image: allCards2[categoryId].cards[indexPath.row].image)
         }
     }
     

@@ -32,7 +32,7 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        cards = DataManager.shared.getBasicCards()
+        cards = DataManager.shared.loadBasicCards()
     }
 
     func showActionSheet() {
@@ -99,7 +99,7 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
         if (self.cards.count < 10) {
             self.cards.append(additionCard)
         }
-        DataManager.shared.setBasicCards(cards: self.cards)
+        DataManager.shared.saveBasicCards(cards: self.cards)
         self.changeLevelTwoCollectionView.reloadData()
     }
     
@@ -125,7 +125,7 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
             if (self.cards.count < 10) {
                 self.cards.append(additionCard)
             }
-            DataManager.shared.setBasicCards(cards: self.cards)
+            DataManager.shared.saveBasicCards(cards: self.cards)
             self.changeLevelTwoCollectionView.reloadData()
             
         }
@@ -155,7 +155,7 @@ extension ChangeLevelTwoViewController: ChangeLevelTwoCollectionViewCellDelegate
             cards.remove(at: cards.index(of: cardToDelete)!)
             cards.append(Card(index: 99, name: "", image: #imageLiteral(resourceName: "add")))
         } else { cards.remove(at: cards.index(of: cardToDelete)!) }
-        DataManager.shared.setBasicCards(cards: cards)
+        DataManager.shared.saveBasicCards(cards: cards)
         changeLevelTwoCollectionView.reloadData()
     }
 }

@@ -18,9 +18,9 @@ class DataManager {
         return Static.instance
     }
     
-    //var categories: [String: Array<Card>]?
+    
     var basicCards: Array<Card>?
-    var categories2 = [(name: String, value: Array<Card>)]()
+    var allCards: [Categories]?
     
     private let additionCard = Card(index: 99, name: "", image: #imageLiteral(resourceName: "add"))
     // Family category cards
@@ -136,60 +136,77 @@ class DataManager {
     var card_egg = Card(index: 29, name: "яйцо", image: #imageLiteral(resourceName: "яйцо"))
     
     init() {
-//        categories = [
-//            "Семья": [card_meGirl, card_meGirl2, card_meBoy, card_mother,      card_father, card_father2, card_grandfather, card_grandmother, card_baby, card_twins, card_family, additionCard],
-//            "Ежедневные слова": [card_yes, card_no, card_want, card_eat, card_drink, card_help, card_forAWalk, card_sleep, additionCard],
-//            "Эмоции": [card_laughing, card_sad, card_sad2, card_inLove, card_sceptic, card_smile, card_thinking, additionCard]
-//        ]
-        categories2 = [
-                        ("Семья", [card_meGirl, card_meGirl2, card_meBoy, card_mother, card_father, card_father2, card_grandfather, card_grandmother, card_baby, card_twins, card_family, additionCard]),
-                        ("Ежедневные слова", [card_yes, card_no, card_want, card_eat, card_drink, card_help, card_forAWalk, card_sleep, additionCard]),
-                        ("Эмоции", [card_laughing, card_sad, card_sad2, card_inLove, card_sceptic, card_smile, card_thinking, additionCard]),
-                        ("Моя комната", [card_bed, card_mirror, card_picture, card_bookshelf, card_computer, card_armchair, card_fan, card_workspace, card_shelf, card_toys, additionCard]),
-                        ("В зале", [card_tv, card_couch, card_bookshelf, card_window, card_table, card_door, card_flowers, additionCard]),
-                        ("В ванне", [card_bath, card_mirror, card_soap, card_cleaners, card_sink, card_washingmachine, card_toilet, card_toiletpaper, card_hairdryer, additionCard]),
-                        ("На кухне", [card_microoven, card_pan, card_colander, card_eatingtable, card_sink, card_cutlery, card_table, card_plate, card_fridge, card_teapot, additionCard]),
-                        ("На улице", [card_tree, card_house, card_houses, card_road, card_carousel, card_stall, card_trashbin, card_trafficlight, card_flowers, additionCard]),
-                        ("Транспорт", [card_car, card_ship, card_bicycle, card_motorcycle, card_train, card_plane, card_ambulance, card_taxi, card_van, additionCard]),
-                        ("Овощи и фрукты", [card_apple, card_banana, card_watermelon, card_cabbage, card_corn, card_limon, card_onion, card_carrot, card_cucumber, card_tomato, card_pepper, card_cherries, additionCard]),
-                        ("Продукты", [card_cookie, card_jam, card_cake, card_flour, card_bar, card_donut, card_cheese, card_bread, card_egg, additionCard]),
-        ]
+        allCards = [
+            Categories(categoryName: "Семья", cards: [card_meGirl, card_meGirl2, card_meBoy, card_mother, card_father, card_father2, card_grandfather, card_grandmother, card_baby, card_twins, card_family, additionCard]),
+            Categories(categoryName: "Ежедневные слова", cards: [card_yes, card_no, card_want, card_eat, card_drink, card_help, card_forAWalk, card_sleep, additionCard]),
+            Categories(categoryName: "Эмоции", cards: [card_laughing, card_sad, card_sad2, card_inLove, card_sceptic, card_smile, card_thinking, additionCard]),
+            Categories(categoryName: "Моя комната", cards: [card_bed, card_mirror, card_picture, card_bookshelf, card_computer, card_armchair, card_fan, card_workspace, card_shelf, card_toys, additionCard]),
+            Categories(categoryName: "В зале", cards: [card_tv, card_couch, card_bookshelf, card_window, card_table, card_door, card_flowers, additionCard]),
+            Categories(categoryName: "В ванне", cards: [card_bath, card_mirror, card_soap, card_cleaners, card_sink, card_washingmachine, card_toilet, card_toiletpaper, card_hairdryer, additionCard]),
+            Categories(categoryName: "На кухне", cards: [card_microoven, card_pan, card_colander, card_eatingtable, card_sink, card_cutlery, card_table, card_plate, card_fridge, card_teapot, additionCard]),
+            Categories(categoryName: "На улице", cards: [card_tree, card_house, card_houses, card_road, card_carousel, card_stall, card_trashbin, card_trafficlight, card_flowers, additionCard]),
+            Categories(categoryName: "Транспорт", cards: [card_car, card_ship, card_bicycle, card_motorcycle, card_train, card_plane, card_ambulance, card_taxi, card_van, additionCard]),
+            Categories(categoryName: "Овощи и фрукты", cards: [card_apple, card_banana, card_watermelon, card_cabbage, card_corn, card_limon, card_onion, card_carrot, card_cucumber, card_tomato, card_pepper, card_cherries, additionCard]),
+            Categories(categoryName: "Продукты", cards: [card_cookie, card_jam, card_cake, card_flour, card_bar, card_donut, card_cheese, card_bread, card_egg, additionCard])
+            ]
         basicCards = [card_meGirl, card_want, card_yes, card_no, card_father, card_mother, card_eat, card_drink, card_help, card_sleep]
         
-        //UserDefaults.standard.set(categories2, forKey: "allCardsWithCategories")
-        //saveBasicCards()
         
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if !launchedBefore {
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            saveBasicCards(cards: basicCards!)
+            saveAllCards(cardsWithCategories: allCards!)
+            
+        }
     }
     
-//    public func saveBasicCards() {
-//        let archivedBasicCards = archiveBasicCards(cards: basicCards!)
-//
-//        UserDefaults.standard.set(basicCards, forKey: "levelTwoCards")
-//        UserDefaults.standard.synchronize()
-//    }
+    public func saveBasicCards(cards: [Card]) {
+        basicCards = cards
+        let basicCardsData = NSKeyedArchiver.archivedData(withRootObject: basicCards!)
+        
+        UserDefaults.standard.set(basicCardsData, forKey: "levelTwoCards")
+        //UserDefaults.standard.synchronize()
+    }
+    
+    public func loadBasicCards() -> [Card] {
+        guard let basicCardsData = UserDefaults.standard.object(forKey: "levelTwoCards") as? NSData else {
+            return []
+        }
+        guard let basicCardsArray = NSKeyedUnarchiver.unarchiveObject(with: basicCardsData as Data) as? [Card] else {
+            return []
+        }
+        return basicCardsArray
+    }
+    
+    public func saveAllCards(cardsWithCategories: [Categories]) {
+        allCards = cardsWithCategories
+        let allCardsData = NSKeyedArchiver.archivedData(withRootObject: allCards!)
+        
+        UserDefaults.standard.set(allCardsData, forKey: "allCards")
+    }
+    
+    public func loadAllCards() -> [Categories] {
+        guard let allCardsData = UserDefaults.standard.object(forKey: "allCards") as? NSData else {
+            return []
+        }
+        guard let allCardsArray = NSKeyedUnarchiver.unarchiveObject(with: allCardsData as Data) as? [Categories]else {
+            return []
+        }
+        return allCardsArray
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        if let allCards = allCards {
+            aCoder.encode(allCards, forKey: "alas")
+        }
+    }
     
     public func getBasicCards() -> [Card] {
         return basicCards!
     }
     
-//    public func getCategories() -> [String : Array<Card>] {
-//        return categories!
-//    }
-//
-    public func getCategories2() -> [(String, Array<Card>)] {
-        return categories2
-    }
-    
     public func setBasicCards(cards: [Card]) {
         basicCards = cards
     }
-    
-//    public func setCategories(allCards: [String: [Card]]){
-//        categories = allCards
-//    }
-    
-    public func setCategories2(categories: [(String, Array<Card>)]) {
-        categories2 = categories
-    }
-    
 }
