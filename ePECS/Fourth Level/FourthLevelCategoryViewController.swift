@@ -29,7 +29,7 @@ class FourthLevelCategoryViewController: UIViewController, AVSpeechSynthesizerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //categoryCollectionView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -128,7 +128,7 @@ extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = categoryCollectionView.frame.size.height / 2
-        let phrase_width = phraseCollectionView.frame.size.height / 1.4
+        let phrase_width = phraseCollectionView.frame.size.height
         
         if collectionView == phraseCollectionView {
             return CGSize(width: phrase_width, height: phrase_width)

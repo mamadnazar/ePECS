@@ -128,7 +128,7 @@ extension ThirdLevelCategoryViewController: UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let width = categoryCollectionView.frame.size.height / 2
-        let phrase_width = phraseCollectionView.frame.size.height / 1.4
+        let phrase_width = phraseCollectionView.frame.size.height
         
         if collectionView == phraseCollectionView {
             return CGSize(width: phrase_width, height: phrase_width)
