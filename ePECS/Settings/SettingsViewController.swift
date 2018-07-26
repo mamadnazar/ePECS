@@ -48,8 +48,10 @@ class SettingsViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: "FirstLevelViewController") as! FirstLevelViewController
         self.navigationController?.show(vc, sender: self)
     }
-    @IBAction func levelOneAsDefault(_ sender: Any) {
-        showAlert(level: 1)
+    @IBAction func longPressOnLevelOne(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.began {
+            showAlert(level: 1)
+        }
     }
     
     
@@ -58,9 +60,10 @@ class SettingsViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: "SecondLevelViewController") as! SecondLevelViewController
         self.navigationController?.show(vc, sender: self)
     }
-    
-    @IBAction func levelTwoAsDefault(_ sender: Any) {
-        showAlert(level: 2)
+    @IBAction func longPressOnLevelTwo(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.began {
+            showAlert(level: 2)
+        }
     }
     
     @IBAction func levelThree(_ sender: Any) {
@@ -68,9 +71,10 @@ class SettingsViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: "ThirdLevelCategoryViewController") as! ThirdLevelCategoryViewController
         self.navigationController?.show(vc, sender: self)
     }
-    
-    @IBAction func levelThreeAsDefault(_ sender: Any) {
-        showAlert(level: 3)
+    @IBAction func longPressOnLevelThree(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.began {
+            showAlert(level: 3)
+        }
     }
     
     @IBAction func levelFour(_ sender: Any) {
@@ -78,11 +82,11 @@ class SettingsViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: "FourthLevelCategoryViewController") as! FourthLevelCategoryViewController
         self.navigationController?.show(vc, sender: self)
     }
-    
-    @IBAction func levelFourAsDefault(_ sender: Any) {
-        showAlert(level: 4)
+    @IBAction func longPressOnLevelFour(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.began {
+            showAlert(level: 4)
+        }
     }
-    
     
     @IBAction func aboutApp(_ sender: Any) {
         let sb = UIStoryboard(name: "AboutApp", bundle: nil)

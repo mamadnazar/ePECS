@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y4R-Cg-3OX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y4R-Cg-3OX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -38,46 +38,50 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSm-fr-Y2L" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="36" height="110.5"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="28"/>
                                                 <state key="normal" title="I.">
                                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="levelOne:" destination="Or5-WA-neV" eventType="touchUpInside" id="mnU-os-fy6"/>
-                                                    <action selector="levelOneAsDefault:" destination="Or5-WA-neV" eventType="touchDragOutside" id="qpf-e7-eax"/>
+                                                    <action selector="levelOne:" destination="Or5-WA-neV" eventType="touchUpInside" id="JVn-Oc-kv5"/>
+                                                    <outletCollection property="gestureRecognizers" destination="lTv-GK-JFS" appends="YES" id="OW0-I2-D4H"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1j-k2-jUq" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="148.5" width="36" height="110"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="28"/>
                                                 <state key="normal" title="II.">
                                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="levelTwo:" destination="Or5-WA-neV" eventType="touchUpInside" id="XLz-db-Yuf"/>
-                                                    <action selector="levelTwoAsDefault:" destination="Or5-WA-neV" eventType="touchDragOutside" id="lJ5-EP-GUf"/>
+                                                    <outletCollection property="gestureRecognizers" destination="LC0-XV-wdn" appends="YES" id="2kT-ZH-gSH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-8a-6K2" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="296.5" width="36" height="110.5"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="28"/>
                                                 <state key="normal" title="III.">
                                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="levelThree:" destination="Or5-WA-neV" eventType="touchUpInside" id="kNJ-PG-cE2"/>
-                                                    <action selector="levelThreeAsDefault:" destination="Or5-WA-neV" eventType="touchDragOutside" id="FCv-Pk-990"/>
+                                                    <outletCollection property="gestureRecognizers" destination="9Sh-Md-3Z8" appends="YES" id="qR3-Z4-Aud"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8o-XJ-Cyt" customClass="CustomButton" customModule="ePECS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="445" width="36" height="110"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="28"/>
                                                 <state key="normal" title="IV.">
                                                     <color key="titleColor" red="0.85490196080000003" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="levelFour:" destination="Or5-WA-neV" eventType="touchUpInside" id="H6L-2E-ZSY"/>
-                                                    <action selector="levelFourAsDefault:" destination="Or5-WA-neV" eventType="touchDragOutside" id="TbP-M2-ml2"/>
+                                                    <outletCollection property="gestureRecognizers" destination="Ek5-Ju-ttx" appends="YES" id="Qc9-sg-urS"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -163,6 +167,30 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNN-lo-GSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="lTv-GK-JFS">
+                    <connections>
+                        <action selector="longPressOnLevelOne:" destination="Or5-WA-neV" id="hrR-qt-Hkj"/>
+                        <outlet property="delegate" destination="OSm-fr-Y2L" id="lY3-Ag-SUg"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="LC0-XV-wdn">
+                    <connections>
+                        <action selector="longPressOnLevelTwo:" destination="Or5-WA-neV" id="Zac-fD-gzm"/>
+                        <outlet property="delegate" destination="V1j-k2-jUq" id="zTM-Zx-9Qd"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="9Sh-Md-3Z8">
+                    <connections>
+                        <action selector="longPressOnLevelThree:" destination="Or5-WA-neV" id="Awf-x3-uSA"/>
+                        <outlet property="delegate" destination="dZV-8a-6K2" id="nkG-5b-EZs"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Ek5-Ju-ttx">
+                    <connections>
+                        <action selector="longPressOnLevelFour:" destination="Or5-WA-neV" id="6Ld-YA-avG"/>
+                        <outlet property="delegate" destination="N8o-XJ-Cyt" id="lLs-iC-w4u"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="872.79999999999995" y="30.134932533733135"/>
         </scene>
