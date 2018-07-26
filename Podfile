@@ -5,6 +5,7 @@ target 'ePECS' do
   use_frameworks!
 
   # Pods for ePECS
+	pod 'IQKeyboardManagerSwift'
 
   target 'ePECSTests' do
     inherit! :search_paths

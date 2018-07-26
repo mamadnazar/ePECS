@@ -72,11 +72,17 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        zoomInTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingDidEnd)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initialize()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        DataManager.shared.saveAllCards(cardsWithCategories: self.allCards2)
     }
     
     private func initialize() {
@@ -88,10 +94,6 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         setupNavigationItemRightButton()
         cardsLibraryTableView.reloadData()
         setupZoomInButtons(fromVC: fromVC)
-        
-        //allCards = DataManager.shared.getCategories()
-        //cardsLibraryTableView.beginUpdates()
-        //cardsLibraryTableView.endUpdates()
     }
    
     // initializing and seting up views
@@ -169,6 +171,11 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         let readSound = AVSpeechSynthesizer()
         readSound.delegate = self
         readSound.speak(utterance)
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        selectedCard?.name = zoomInTextField.text!
+        //DataManager.shared.saveAllCards(cardsWithCategories: self.allCards2)
     }
     
     // delete category from cards library
