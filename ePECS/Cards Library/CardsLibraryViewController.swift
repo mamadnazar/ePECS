@@ -45,6 +45,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         }
     }
     @IBOutlet weak var zoomInImage: UIImageView!
+    @IBOutlet weak var zoomInTextField: UITextField!
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var playButtonHorizontalConstraint: NSLayoutConstraint!
@@ -106,9 +107,9 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         self.navigationItem.rightBarButtonItem = barButton
     }
     
-    func setupZoomInView(image: UIImage) {
+    func setupZoomInView(name: String, image: UIImage) {
         zoomInImage.image = image
-        
+        zoomInTextField.text = name
         zoomInView.center = CGPoint(x: view.frame.midX, y: view.frame.minY)
         zoomInView.alpha = 0
         dismissButton.isHidden = false
@@ -280,7 +281,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
 
 extension CardsLibraryViewController: CardsLibraryCollectionViewCellDelegate {
     func collectionViewCellDidTap(card: Card) {
-        setupZoomInView(image: card.image)
+        setupZoomInView(name: card.name, image: card.image)
         toSpeak = card.name
         selectedCard = card
     }

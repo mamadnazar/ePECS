@@ -154,9 +154,8 @@ extension ThirdLevelCardsViewController: UICollectionViewDelegate, UICollectionV
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardsCollectionViewCell", for: indexPath) as! CardCollectionViewCell
-            if allCards2[indexPath.row].cards.count > 0 {
-                    cell.setCard(card: allCards2[categoryId].cards[indexPath.row])
-            }
+            
+            cell.setCard(card: allCards2[categoryId].cards[indexPath.row])
             return cell
         }
     }

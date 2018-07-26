@@ -265,10 +265,10 @@
 		84BBD6DB20CE475000D3CB2F /* Cards Library */ = {
 			isa = PBXGroup;
 			children = (
-				84BBD6DC20CE476D00D3CB2F /* CardsLibraryStoryboard.storyboard */,
-				84BBD6DE20CE477D00D3CB2F /* CardsLibraryViewController.swift */,
-				849FA49120DCEBF300BC0B43 /* CardsLibraryTableViewCell.swift */,
 				849FA49320DCEFF800BC0B43 /* CardsLibraryCollectionViewCell.swift */,
+				849FA49120DCEBF300BC0B43 /* CardsLibraryTableViewCell.swift */,
+				84BBD6DE20CE477D00D3CB2F /* CardsLibraryViewController.swift */,
+				84BBD6DC20CE476D00D3CB2F /* CardsLibraryStoryboard.storyboard */,
 			);
 			path = "Cards Library";
 			sourceTree = "<group>";

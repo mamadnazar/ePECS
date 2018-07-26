@@ -109,6 +109,7 @@ extension FourthLevelCategoryViewController: UICollectionViewDelegate, UICollect
             let category = allCards2[indexPath.row].categoryName
             cell.categoryNameLabel.text = category
             if allCards2[indexPath.row].cards.count == 0 {
+                cell.categoryImageView.image = UIImage(named: "blank1")
                 return cell
             }
             cell.categoryImageView.image = allCards2[indexPath.row].cards[0].image
