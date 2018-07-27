@@ -73,6 +73,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         zoomInTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingDidEnd)
+        self.cardsLibraryTableView.isEditing = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -340,6 +341,27 @@ extension CardsLibraryViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         categoryIndex = indexPath.row
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+//    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        let categoryToMove = allCards2[sourceIndexPath.row]
+        allCards2.remove(at: sourceIndexPath.row)
+        allCards2.insert(categoryToMove, at: destinationIndexPath.row)
+        //DataManager.shared.saveAllCards(cardsWithCategories: self.allCards2)
+        cardsLibraryTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

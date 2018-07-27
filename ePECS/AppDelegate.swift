@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
         navigationController = sb?.instantiateInitialViewController() as! UINavigationController
         
-        print(UserDefaults.standard.integer(forKey: "defaultVC"))
+        //print(UserDefaults.standard.integer(forKey: "defaultVC"))
         let defaultLevel = UserDefaults.standard.integer(forKey: "defaultVC")
         switch defaultLevel {
         case 1:
