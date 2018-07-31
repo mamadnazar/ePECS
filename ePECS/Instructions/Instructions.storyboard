@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r2b-UI-Vip">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+        <array key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Page View Controller-->
+        <scene sceneID="XsE-zL-MPn">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="r2b-UI-Vip" customClass="PageViewController" customModule="ePECS" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="sC0-fr-NSa"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p5g-bw-AjM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="426.39999999999998" y="53.523238380809602"/>
+        </scene>
+        <!--First Instruction View Controller-->
+        <scene sceneID="Rrm-CH-eoX">
+            <objects>
+                <viewController storyboardIdentifier="FirstInstructionViewController" id="3wU-f2-fyd" customClass="FirstInstructionViewController" customModule="ePECS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D5A-zA-6Gs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добро  пожаловать!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vds-Oj-O1N">
+                                <rect key="frame" x="24" y="80" width="327" height="82"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="30"/>
+                                <color key="textColor" red="0.92941176470588238" green="0.33333333333333331" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVB-Gu-3z8">
+                                <rect key="frame" x="24" y="186" width="327" height="285"/>
+                                <string key="text">В ваших руках находится мобильное приложение e-PECS.   В нашем мобильном приложении есть около 100 различных карточек и 4 этапа.   На каждом этапе есть разное количество карточек. Вы можете выбрать этап по своему усмотрению. </string>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
+                                <color key="textColor" red="0.29411764705882354" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BVB-Gu-3z8" firstAttribute="leading" secondItem="lrK-pf-Cex" secondAttribute="leading" constant="24" id="6I1-cf-6gq"/>
+                            <constraint firstItem="lrK-pf-Cex" firstAttribute="trailing" secondItem="BVB-Gu-3z8" secondAttribute="trailing" constant="24" id="L9R-tP-7Rt"/>
+                            <constraint firstItem="BVB-Gu-3z8" firstAttribute="top" secondItem="Vds-Oj-O1N" secondAttribute="bottom" constant="24" id="bhY-3e-hqQ"/>
+                            <constraint firstItem="Vds-Oj-O1N" firstAttribute="top" secondItem="lrK-pf-Cex" secondAttribute="top" constant="60" id="dXF-bp-QCt"/>
+                            <constraint firstItem="lrK-pf-Cex" firstAttribute="trailing" secondItem="Vds-Oj-O1N" secondAttribute="trailing" constant="24" id="k9X-XZ-JuQ"/>
+                            <constraint firstItem="Vds-Oj-O1N" firstAttribute="leading" secondItem="lrK-pf-Cex" secondAttribute="leading" constant="24" id="owi-qw-Q5g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lrK-pf-Cex"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7R0-KW-jXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1124" y="53.523238380809602"/>
+        </scene>
+        <!--Second Instruction View Controller-->
+        <scene sceneID="H5C-R2-rBY">
+            <objects>
+                <viewController storyboardIdentifier="SecondInstructionViewController" id="URl-g2-Ne0" customClass="SecondInstructionViewController" customModule="ePECS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2eh-bU-ORl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Этап I" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Osc-NN-gRq">
+                                <rect key="frame" x="24" y="80" width="327" height="35.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="26"/>
+                                <color key="textColor" red="0.92941176469999998" green="0.33333333329999998" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="На первом этапе находится одна карточка “хочу”, которая создана для приучения ребенка использовать e-PECS." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCu-WZ-2fZ">
+                                <rect key="frame" x="24" y="127.5" width="327" height="103.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
+                                <color key="textColor" red="0.29411764705882354" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Этап II" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEC-Q0-Pwv">
+                                <rect key="frame" x="24" y="295" width="327" height="35.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="26"/>
+                                <color key="textColor" red="0.92941176469999998" green="0.33333333329999998" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxf-xQ-Jr2">
+                                <rect key="frame" x="24" y="342.5" width="327" height="129.5"/>
+                                <string key="text">На втором этапе находится 10 карточек, которые знает ребенок. Вы можете заменить наши карточки на те, что знает ребенок.
+</string>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
+                                <color key="textColor" red="0.29411764705882354" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b4N-2A-0BY" firstAttribute="trailing" secondItem="Osc-NN-gRq" secondAttribute="trailing" constant="24" id="0BK-wJ-R0C"/>
+                            <constraint firstItem="b4N-2A-0BY" firstAttribute="trailing" secondItem="Cxf-xQ-Jr2" secondAttribute="trailing" constant="24" id="9Cc-L8-y3Q"/>
+                            <constraint firstItem="UEC-Q0-Pwv" firstAttribute="leading" secondItem="b4N-2A-0BY" secondAttribute="leading" constant="24" id="FQz-lE-naj"/>
+                            <constraint firstItem="Cxf-xQ-Jr2" firstAttribute="leading" secondItem="b4N-2A-0BY" secondAttribute="leading" constant="24" id="HZr-jb-hHp"/>
+                            <constraint firstItem="YCu-WZ-2fZ" firstAttribute="leading" secondItem="b4N-2A-0BY" secondAttribute="leading" constant="24" id="L8R-Eb-dUT"/>
+                            <constraint firstItem="Osc-NN-gRq" firstAttribute="top" secondItem="b4N-2A-0BY" secondAttribute="top" constant="60" id="Nck-0v-4ow"/>
+                            <constraint firstItem="Osc-NN-gRq" firstAttribute="leading" secondItem="b4N-2A-0BY" secondAttribute="leading" constant="24" id="OMS-Lh-8kw"/>
+                            <constraint firstItem="Cxf-xQ-Jr2" firstAttribute="top" secondItem="UEC-Q0-Pwv" secondAttribute="bottom" constant="12" id="XHf-YI-GsG"/>
+                            <constraint firstItem="b4N-2A-0BY" firstAttribute="trailing" secondItem="UEC-Q0-Pwv" secondAttribute="trailing" constant="24" id="YDI-Sn-dhq"/>
+                            <constraint firstItem="UEC-Q0-Pwv" firstAttribute="top" secondItem="YCu-WZ-2fZ" secondAttribute="bottom" constant="64" id="afl-za-7qz"/>
+                            <constraint firstItem="YCu-WZ-2fZ" firstAttribute="top" secondItem="Osc-NN-gRq" secondAttribute="bottom" constant="12" id="fuw-bc-iTv"/>
+                            <constraint firstItem="b4N-2A-0BY" firstAttribute="trailing" secondItem="YCu-WZ-2fZ" secondAttribute="trailing" constant="24" id="rVj-Oe-6BV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b4N-2A-0BY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3cz-ab-SIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1800.8" y="53.523238380809602"/>
+        </scene>
+        <!--Third Instruction View Controller-->
+        <scene sceneID="DEQ-5x-bnj">
+            <objects>
+                <viewController storyboardIdentifier="ThirdInstructionViewController" id="fvV-bW-l2a" customClass="ThirdInstructionViewController" customModule="ePECS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oDf-MF-EyO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Этап III" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuM-uG-s1M">
+                                <rect key="frame" x="24" y="80" width="327" height="35.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="26"/>
+                                <color key="textColor" red="0.92941176469999998" green="0.33333333329999998" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuR-OK-nay">
+                                <rect key="frame" x="24" y="127.5" width="327" height="103.5"/>
+                                <string key="text">На 3 этапе находится конструктор предложений, где по умолчанию стоят две карточки “я” и “ хочу”, а также находится 10 категорий.</string>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
+                                <color key="textColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Этап IV" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBT-SM-1OQ">
+                                <rect key="frame" x="24" y="295" width="327" height="35.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="26"/>
+                                <color key="textColor" red="0.92941176469999998" green="0.33333333329999998" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icz-my-pAh">
+                                <rect key="frame" x="24" y="342.5" width="327" height="103.5"/>
+                                <string key="text">На 4 этапе ребенок может полностью сам конструировать предложения.
+</string>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
+                                <color key="textColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Icz-my-pAh" firstAttribute="top" secondItem="dBT-SM-1OQ" secondAttribute="bottom" constant="12" id="2w0-xg-JZW"/>
+                            <constraint firstItem="TuR-OK-nay" firstAttribute="top" secondItem="WuM-uG-s1M" secondAttribute="bottom" constant="12" id="9R3-tS-rYX"/>
+                            <constraint firstItem="TSF-rD-jO8" firstAttribute="trailing" secondItem="WuM-uG-s1M" secondAttribute="trailing" constant="24" id="Gah-Av-Vji"/>
+                            <constraint firstItem="WuM-uG-s1M" firstAttribute="leading" secondItem="TSF-rD-jO8" secondAttribute="leading" constant="24" id="HEP-Q4-4ps"/>
+                            <constraint firstItem="dBT-SM-1OQ" firstAttribute="leading" secondItem="TSF-rD-jO8" secondAttribute="leading" constant="24" id="TUj-uH-kz6"/>
+                            <constraint firstItem="WuM-uG-s1M" firstAttribute="top" secondItem="TSF-rD-jO8" secondAttribute="top" constant="60" id="ULD-kB-8rL"/>
+                            <constraint firstItem="TSF-rD-jO8" firstAttribute="trailing" secondItem="dBT-SM-1OQ" secondAttribute="trailing" constant="24" id="awd-PB-eBk"/>
+                            <constraint firstItem="Icz-my-pAh" firstAttribute="leading" secondItem="TSF-rD-jO8" secondAttribute="leading" constant="24" id="eeu-fC-aJa"/>
+                            <constraint firstItem="TSF-rD-jO8" firstAttribute="trailing" secondItem="Icz-my-pAh" secondAttribute="trailing" constant="24" id="hwe-Xi-OYE"/>
+                            <constraint firstItem="dBT-SM-1OQ" firstAttribute="top" secondItem="TuR-OK-nay" secondAttribute="bottom" constant="64" id="lUI-5O-XIi"/>
+                            <constraint firstItem="TuR-OK-nay" firstAttribute="leading" secondItem="TSF-rD-jO8" secondAttribute="leading" constant="24" id="v7M-RP-XfL"/>
+                            <constraint firstItem="TSF-rD-jO8" firstAttribute="trailing" secondItem="TuR-OK-nay" secondAttribute="trailing" constant="24" id="wWy-Fs-O4x"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TSF-rD-jO8"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dfL-kk-6lj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2487.1999999999998" y="53.523238380809602"/>
+        </scene>
+        <!--Fourth Instruction View Controller-->
+        <scene sceneID="lsI-XA-Ne2">
+            <objects>
+                <viewController storyboardIdentifier="FourthInstructionViewController" id="W0S-aM-7rB" customClass="FourthInstructionViewController" customModule="ePECS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cw8-eY-Ltl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В любое время Вы можете изменить этап нажав кнопку “настройки”." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEh-Zu-bec">
+                                <rect key="frame" x="24" y="295" width="327" height="78"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
+                                <color key="textColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o01-qP-8qH">
+                                <rect key="frame" x="24" y="550" width="327" height="53"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.33333333329999998" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
+                                <state key="normal" title="Начать">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startAdventure:" destination="W0S-aM-7rB" eventType="touchUpInside" id="dtv-rc-5yF"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="RtM-f8-W5H">
+                                <rect key="frame" x="155.5" y="219" width="64" height="64"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gEh-Zu-bec" firstAttribute="leading" secondItem="cw8-eY-Ltl" secondAttribute="leading" constant="24" id="2vm-Qj-ZOX"/>
+                            <constraint firstItem="yZu-5N-uoq" firstAttribute="bottom" secondItem="o01-qP-8qH" secondAttribute="bottom" constant="64" id="JaT-Jq-dCZ"/>
+                            <constraint firstItem="gEh-Zu-bec" firstAttribute="top" secondItem="RtM-f8-W5H" secondAttribute="bottom" constant="12" id="Y8s-1y-8pm"/>
+                            <constraint firstItem="RtM-f8-W5H" firstAttribute="centerX" secondItem="cw8-eY-Ltl" secondAttribute="centerX" id="cgv-UP-dei"/>
+                            <constraint firstItem="o01-qP-8qH" firstAttribute="leading" secondItem="yZu-5N-uoq" secondAttribute="leading" constant="24" id="euz-mR-bfR"/>
+                            <constraint firstItem="yZu-5N-uoq" firstAttribute="trailing" secondItem="o01-qP-8qH" secondAttribute="trailing" constant="24" id="frY-i5-TEj"/>
+                            <constraint firstItem="gEh-Zu-bec" firstAttribute="centerY" secondItem="cw8-eY-Ltl" secondAttribute="centerY" id="nk7-5P-ghR"/>
+                            <constraint firstItem="gEh-Zu-bec" firstAttribute="centerX" secondItem="cw8-eY-Ltl" secondAttribute="centerX" id="rhR-jJ-29c"/>
+                            <constraint firstAttribute="trailing" secondItem="gEh-Zu-bec" secondAttribute="trailing" constant="24" id="sGz-HE-jLw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yZu-5N-uoq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jgb-Sl-bP6"/>
+                    <connections>
+                        <outlet property="startAdventure" destination="o01-qP-8qH" id="Ldm-hB-rHV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07n-fL-ZPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3174" y="54"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="info" width="64" height="64"/>
+    </resources>
+</document>
