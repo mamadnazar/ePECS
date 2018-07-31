@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,35 +23,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupNavigationBar()
         sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
         navigationController = sb?.instantiateInitialViewController() as! UINavigationController
+        IQKeyboardManager.shared.enable = true
         
-        //print(UserDefaults.standard.integer(forKey: "defaultVC"))
-        let defaultLevel = UserDefaults.standard.integer(forKey: "defaultVC")
-        switch defaultLevel {
-        case 1:
-            sb = UIStoryboard(name: "FirstLevelStoryboard", bundle: nil)
-            rootVC = sb?.instantiateViewController(withIdentifier: "FirstLevelViewController") as! FirstLevelViewController
-            break
-        case 2:
-            sb = UIStoryboard(name: "SecondLevelStoryboard", bundle: nil)
-            rootVC = sb?.instantiateViewController(withIdentifier: "SecondLevelViewController") as! SecondLevelViewController
-            break
-        case 3:
-            sb = UIStoryboard(name: "ThirdLevelStoryboard", bundle: nil)
-            rootVC = sb?.instantiateViewController(withIdentifier: "ThirdLevelCategoryViewController") as! ThirdLevelCategoryViewController
-            break
-        case 4:
-            sb = UIStoryboard(name: "FourthLevelStoryboard", bundle: nil)
-            rootVC = sb?.instantiateViewController(withIdentifier: "FourthLevelCategoryViewController") as! FourthLevelCategoryViewController
-            break
-        default:
-            sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
-            rootVC = sb?.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
-            break
+        if(UserDefaults.standard.bool(forKey: "wasLaunched")) {
+
+            let defaultLevel = UserDefaults.standard.integer(forKey: "defaultVC")
+            switch defaultLevel {
+            case 1:
+                sb = UIStoryboard(name: "FirstLevelStoryboard", bundle: nil)
+                rootVC = sb?.instantiateViewController(withIdentifier: "FirstLevelViewController") as! FirstLevelViewController
+                break
+            case 2:
+                sb = UIStoryboard(name: "SecondLevelStoryboard", bundle: nil)
+                rootVC = sb?.instantiateViewController(withIdentifier: "SecondLevelViewController") as! SecondLevelViewController
+                break
+            case 3:
+                sb = UIStoryboard(name: "ThirdLevelStoryboard", bundle: nil)
+                rootVC = sb?.instantiateViewController(withIdentifier: "ThirdLevelCategoryViewController") as! ThirdLevelCategoryViewController
+                break
+            case 4:
+                sb = UIStoryboard(name: "FourthLevelStoryboard", bundle: nil)
+                rootVC = sb?.instantiateViewController(withIdentifier: "FourthLevelCategoryViewController") as! FourthLevelCategoryViewController
+                break
+            default:
+                sb = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
+                rootVC = sb?.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+                break
+            }
+            navigationController.viewControllers = [rootVC] as! [UIViewController]
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+            
+            
         }
-        navigationController.viewControllers = [rootVC] as! [UIViewController]
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
-        
         return true
     }
 
@@ -84,14 +89,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                             NSAttributedStringKey.font: UIFont(name: "OpenSans-Bold", size: 16)!]
     }
 }
-
-//extension AppDelegate {
-//    static var shared: AppDelegate {
-//        return UIApplication.shared.delegate as! AppDelegate
-//    }
-//
-//    var rootViewController: RootViewController {
-//        return window!.rootViewController as! RootViewController
-//    }
-//}
 

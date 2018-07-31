@@ -28,6 +28,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set(true, forKey: "wasLaunched")
     }
 
     override func viewWillAppear(_ animated: Bool) {

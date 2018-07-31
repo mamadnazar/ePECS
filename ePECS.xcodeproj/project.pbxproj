@@ -11,6 +11,12 @@
 		8410E25A20B8665500E56A2F /* FirstLevelStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8410E25920B8665500E56A2F /* FirstLevelStoryboard.storyboard */; };
 		8410E25C20B87ACA00E56A2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410E25B20B87ACA00E56A2F /* Extensions.swift */; };
 		8410E25F20B887BA00E56A2F /* SecondLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410E25E20B887BA00E56A2F /* SecondLevelViewController.swift */; };
+		84361B412110918C00E01EA7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84361B402110918C00E01EA7 /* PageViewController.swift */; };
+		84361B43211093B700E01EA7 /* FirstInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84361B42211093B700E01EA7 /* FirstInstructionViewController.swift */; };
+		84361B45211093C700E01EA7 /* SecondInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84361B44211093C700E01EA7 /* SecondInstructionViewController.swift */; };
+		84361B47211093D300E01EA7 /* ThirdInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84361B46211093D300E01EA7 /* ThirdInstructionViewController.swift */; };
+		84361B49211093DE00E01EA7 /* FourthInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84361B48211093DE00E01EA7 /* FourthInstructionViewController.swift */; };
+		8457D3F7210B5D5400BD2A63 /* Instructions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8457D3F6210B5D5400BD2A63 /* Instructions.storyboard */; };
 		847CFD8F20B4424A00D5BE99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CFD8E20B4424A00D5BE99 /* AppDelegate.swift */; };
 		847CFD9120B4424A00D5BE99 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CFD9020B4424A00D5BE99 /* MainViewController.swift */; };
 		847CFD9420B4424A00D5BE99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847CFD9220B4424A00D5BE99 /* Main.storyboard */; };
@@ -81,6 +87,12 @@
 		8410E25920B8665500E56A2F /* FirstLevelStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstLevelStoryboard.storyboard; sourceTree = "<group>"; };
 		8410E25B20B87ACA00E56A2F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8410E25E20B887BA00E56A2F /* SecondLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLevelViewController.swift; sourceTree = "<group>"; };
+		84361B402110918C00E01EA7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		84361B42211093B700E01EA7 /* FirstInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstInstructionViewController.swift; sourceTree = "<group>"; };
+		84361B44211093C700E01EA7 /* SecondInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondInstructionViewController.swift; sourceTree = "<group>"; };
+		84361B46211093D300E01EA7 /* ThirdInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdInstructionViewController.swift; sourceTree = "<group>"; };
+		84361B48211093DE00E01EA7 /* FourthInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthInstructionViewController.swift; sourceTree = "<group>"; };
+		8457D3F6210B5D5400BD2A63 /* Instructions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instructions.storyboard; sourceTree = "<group>"; };
 		847CFD8B20B4424A00D5BE99 /* ePECS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ePECS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847CFD8E20B4424A00D5BE99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		847CFD9020B4424A00D5BE99 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +207,19 @@
 			path = "Fourth Level";
 			sourceTree = "<group>";
 		};
+		8457D3F5210B5D3400BD2A63 /* Instructions */ = {
+			isa = PBXGroup;
+			children = (
+				84361B48211093DE00E01EA7 /* FourthInstructionViewController.swift */,
+				84361B46211093D300E01EA7 /* ThirdInstructionViewController.swift */,
+				84361B44211093C700E01EA7 /* SecondInstructionViewController.swift */,
+				84361B42211093B700E01EA7 /* FirstInstructionViewController.swift */,
+				84361B402110918C00E01EA7 /* PageViewController.swift */,
+				8457D3F6210B5D5400BD2A63 /* Instructions.storyboard */,
+			);
+			path = Instructions;
+			sourceTree = "<group>";
+		};
 		847CFD8220B4424A00D5BE99 = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +252,7 @@
 				CE91496A20BB301500BC68DE /* Third Level */,
 				8410E26220B887CD00E56A2F /* Second Level */,
 				8410E25D20B8800700E56A2F /* First Level */,
+				8457D3F5210B5D3400BD2A63 /* Instructions */,
 				84E7CC8D20D9BE9400B111EF /* Models */,
 				847CFDC220B446BF00D5BE99 /* Supporting Files */,
 				847CFD9220B4424A00D5BE99 /* Main.storyboard */,
@@ -475,6 +501,7 @@
 				84907CD920D2A06600E9DE81 /* OpenSans-Regular.ttf in Resources */,
 				84907CDA20D2A06900E9DE81 /* OpenSans-Bold.ttf in Resources */,
 				84AB032D20C93D6900BC639D /* FourthLevelStoryboard.storyboard in Resources */,
+				8457D3F7210B5D5400BD2A63 /* Instructions.storyboard in Resources */,
 				847CFD9620B4424D00D5BE99 /* Assets.xcassets in Resources */,
 				CE91496C20BB302700BC68DE /* ThirdLevelStoryboard.storyboard in Resources */,
 				84907CD820D2A06400E9DE81 /* OpenSans-Semibold.ttf in Resources */,
@@ -674,16 +701,21 @@
 				84E26F0D20CBCB9200296344 /* SettingsViewController.swift in Sources */,
 				CE9DCCA120EB95E500E08FB8 /* Categories.swift in Sources */,
 				84C85A0A20DE3AF500990CED /* Constant.swift in Sources */,
+				84361B47211093D300E01EA7 /* ThirdInstructionViewController.swift in Sources */,
 				8410E25820B8663D00E56A2F /* FirstLevelViewController.swift in Sources */,
 				84BBD6D620CDD07900D3CB2F /* SelectLevelViewController.swift in Sources */,
 				847CFD8F20B4424A00D5BE99 /* AppDelegate.swift in Sources */,
 				CE91496520BA905000BC68DE /* SecondLevelCollectionViewCell.swift in Sources */,
+				84361B43211093B700E01EA7 /* FirstInstructionViewController.swift in Sources */,
+				84361B412110918C00E01EA7 /* PageViewController.swift in Sources */,
 				CE91497220BB361900BC68DE /* CategoryCollectionViewCell.swift in Sources */,
+				84361B49211093DE00E01EA7 /* FourthInstructionViewController.swift in Sources */,
 				849FA49220DCEBF300BC0B43 /* CardsLibraryTableViewCell.swift in Sources */,
 				CEAB28FB20E959920036DC80 /* AboutAppViewController.swift in Sources */,
 				849FA49420DCEFF800BC0B43 /* CardsLibraryCollectionViewCell.swift in Sources */,
 				84BBD6D820CE281B00D3CB2F /* ChangeLevelTwoViewController.swift in Sources */,
 				CE91497420BB362300BC68DE /* CardCollectionViewCell.swift in Sources */,
+				84361B45211093C700E01EA7 /* SecondInstructionViewController.swift in Sources */,
 				84AB033C20C9408300BC639D /* FourthLevelPhraseCollectionViewCell.swift in Sources */,
 				CE91496E20BB304300BC68DE /* ThirdLevelCategoryViewController.swift in Sources */,
 			);
@@ -863,7 +895,10 @@
 				DEVELOPMENT_TEAM = U5DCDBG2W2;
 				INFOPLIST_FILE = ePECS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.neobis.ePECS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
@@ -881,7 +916,10 @@
 				DEVELOPMENT_TEAM = U5DCDBG2W2;
 				INFOPLIST_FILE = ePECS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.neobis.ePECS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
@@ -899,7 +937,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U5DCDBG2W2;
 				INFOPLIST_FILE = ePECSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.ePECSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -917,7 +959,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U5DCDBG2W2;
 				INFOPLIST_FILE = ePECSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.ePECSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -934,7 +980,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U5DCDBG2W2;
 				INFOPLIST_FILE = ePECSUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.ePECSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -951,7 +1001,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U5DCDBG2W2;
 				INFOPLIST_FILE = ePECSUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.ePECSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
