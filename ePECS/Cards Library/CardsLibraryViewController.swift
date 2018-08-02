@@ -227,7 +227,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
     
     // adding card for cards library
     func showActionSheet() {
-        let actionSheet = UIAlertController(title: "Выберете", message: "", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Выберите", message: "", preferredStyle: .actionSheet)
         
         let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
         let camera = UIAlertAction(title: "Камера", style: .default) { action in
@@ -240,7 +240,7 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         actionSheet.addAction(cancel)
         actionSheet.addAction(camera)
         actionSheet.addAction(gallery)
-        UIApplication.shared.keyWindow?.rootViewController?.present(actionSheet, animated: true, completion: nil)
+        present(actionSheet, animated: true, completion: nil)
     }
     
     private func openCamera() {
@@ -249,7 +249,8 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
             imagePicker.delegate = self
             imagePicker.sourceType = .camera
             imagePicker.allowsEditing = false
-            UIApplication.shared.keyWindow?.rootViewController?.present(imagePicker, animated: true, completion: nil)
+            present(imagePicker, animated: true, completion: nil)
+            //UIApplication.shared.keyWindow?.rootViewController?.present(imagePicker, animated: true, completion: nil)
         }
     }
     
@@ -259,7 +260,8 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary;
             imagePicker.allowsEditing = true
-            UIApplication.shared.keyWindow?.rootViewController?.present(imagePicker, animated: true, completion: nil)
+            present(imagePicker, animated: true, completion: nil)
+            //UIApplication.shared.keyWindow?.rootViewController?.present(imagePicker, animated: true, completion: nil)
         }
     }
     
@@ -283,7 +285,8 @@ class CardsLibraryViewController: UIViewController, AVSpeechSynthesizerDelegate,
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         alert.addAction(okAction)
-        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
+        //UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 }
 

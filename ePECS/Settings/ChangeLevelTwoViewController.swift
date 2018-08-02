@@ -36,7 +36,7 @@ class ChangeLevelTwoViewController: UIViewController, UIImagePickerControllerDel
     }
 
     func showActionSheet() {
-        let actionSheet = UIAlertController(title: "Выберете", message: "", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Выберите", message: "", preferredStyle: .actionSheet)
         
         let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
         let camera = UIAlertAction(title: "Камера", style: .default) { action in
